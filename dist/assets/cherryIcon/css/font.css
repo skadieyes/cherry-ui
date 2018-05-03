@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'cherryIcon';
+    src: url('../fonts/cherry-icon.eot');
+    src: url('../fonts/cherry-icon.eot?#iefix') format('embedded-opentype'), url('../fonts/cherry-icon.woff') format('woff'), url('../fonts/cherry-icon.ttf') format('truetype'), url('../fonts/cherry-icon.svg#cherryIcon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.cherry-icon {
+    display: inline-block;
+    font-family: 'cherryIcon';
+    line-height: 1;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cherry-icon-blocks .path1:before {
+    content: "\e900";
+    color: #1eaee0;
+}
+
+.cherry-icon-blocks .path2:before {
+    content: "\e901";
+    color: #dd45a7;
+    margin-left: -1.0029296875em;
+}
+.cherry-icon-lock-o:before {
+    content: "\e902";
+  }
+.cherry-icon-user-o:before {
+    content: "\e903";
+  }
+.cherry-icon-blocks .path3:before {
+    content: "\e905";
+    color: #4c4c4c;
+    margin-left: -1.0029296875em;
+}
+
+.cherry-icon-blocks .path4:before {
+    content: "\e906";
+    color: #eab52f;
+    margin-left: -1.0029296875em;
+}
+
+.cherry-icon-lg {
+    font-size: 1.33333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+}
+
+.cherry-icon-2x {
+    font-size: 2em;
+}
+
+.cherry-icon-3x {
+    font-size: 3em;
+}
+
+.cherry-icon-4x {
+    font-size: 4em;
+}
+
+.cherry-icon-5x {
+    font-size: 5em;
+}

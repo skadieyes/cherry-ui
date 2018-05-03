@@ -1,0 +1,33 @@
+{
+    "log-level": "debug",
+    "api": {
+        "baseDetail": {
+            "protocol": "http:",
+            "host": "localhost",
+            "port": 8090
+        },
+        "base": "http://localhost:8090",
+        "json": "/ks-main/newService/standard/json",
+        "download": "/ks-main/newService/download",
+        "upload": "/ks-main/newService/upload"
+    },
+    "transaction": {
+        "url": "http://localhost:8090/ks-main/newService/standard/json",
+        "retCodeField": "retCode",
+        "retMsgField": "retMsg",
+        "retDataField": "rspData",
+        "successCode": "000000"
+    },
+    "url": {
+        "login": "/ks-main"
+    },
+    "pagination": {
+        "pageSize":  10,
+        "rowsPerPageOptions": [10,20,50,100]
+    },
+    "commonSearch": {
+        "showExcelExport": true,
+        "dynamicFormUrl": "/ks-main/web/form/form?UI_ID=",
+        "functionUrl": "/#/func/"
+    }
+}

@@ -1,0 +1,186 @@
+{
+    "component": [
+        {
+            "label": "通用",
+            "icon": "fa-dashboard",
+            "expanded": true,
+            "items": [{
+                "label": "按钮",
+                "icon": "fa-hand-o-up",
+                "routerLink": "component/button"
+            }]
+        },
+        {
+            "label": "布局",
+            "icon": "fa-clone",
+            "expanded": true,
+            "items": [{
+                    "label": "网格",
+                    "icon": "fa-table",
+                    "routerLink": "component/grid"
+                },
+                {
+                    "label": "卡片",
+                    "icon": "fa-credit-card",
+                    "routerLink": "component/card"
+                }
+            ]
+        },
+        {
+            "label": "展现",
+            "icon": "fa-picture-o",
+            "expanded": true,
+            "items": [{
+                    "label": "提示",
+                    "icon": "fa-commenting-o",
+                    "routerLink": "component/tooltip"
+                },
+                {
+                    "label": "标签页",
+                    "icon": "fa-tags",
+                    "routerLink": "component/tab"
+                },
+                {
+                    "label": "树",
+                    "icon": "fa-tree",
+                    "routerLink": "component/tree"
+                },
+                {
+                    "label": "表格",
+                    "icon": "fa-table",
+                    "routerLink": "component/table"
+                }
+            ]
+        },
+        {
+            "label": "导航",
+            "icon": "fa-paper-plane-o",
+            "expanded": true,
+            "items": [{
+                    "label": "面包屑",
+                    "icon": "fa-birthday-cake",
+                    "routerLink": "component/breadcrumb"
+                },
+                {
+                    "label": "分页",
+                    "icon": "fa-toggle-right",
+                    "routerLink": "component/pagination"
+                }
+            ]
+        },
+        {
+            "label": "输入",
+            "icon": "fa-pencil-square-o",
+            "expanded": true,
+            "items": [{
+                    "label": "多选框",
+                    "icon": "fa-check-square",
+                    "routerLink": "component/checkbox"
+                },
+                {
+                    "label": "输入框",
+                    "icon": "fa-pencil",
+                    "routerLink": "component/input"
+                },
+                {
+                    "label": "选择器",
+                    "icon": "fa-check-square-o",
+                    "routerLink": "component/select"
+                },
+                {
+                    "label": "单选框",
+                    "icon": "fa-dot-circle-o",
+                    "routerLink": "component/radio"
+                },
+                {
+                    "label": "树选择",
+                    "icon": "fa-envira",
+                    "routerLink": "component/treeSelect"
+                }
+            ]
+        },
+        {
+            "label": "反馈",
+            "icon": "fa-retweet",
+            "expanded": true,
+            "items": [{
+                "label": "警告提示",
+                "icon": "fa-bell-o",
+                "routerLink": "component/alert"
+            }]
+        }
+    ],
+    "pattern": [{
+            "label": "开始使用",
+            "icon": "fa-cube",
+            "expanded": true,
+            "items": [{
+                    "label": "快速上手",
+                    "icon": "fa-automobile",
+                    "routerLink": "pattern/use"
+                },
+                {
+                    "label": "进阶使用",
+                    "icon": "fa-book",
+                    "routerLink": "pattern/more"
+                }
+            ]
+        },
+        {
+            "label": "输入",
+            "icon": "fa-pencil-square-o",
+            "expanded": true,
+            "items": [{
+                "label": "表单",
+                "icon": "fa-table",
+                "routerLink": "pattern/form"
+            }]
+        }
+    ],
+    "app": [{
+            "label": "快速上手",
+            "icon": "fa-automobile",
+            "routerLink": "app/use"
+        },
+        {
+            "label": "进阶使用",
+            "icon": "fa-book",
+            "routerLink": "app/more"
+        },
+        {
+            "label": "通用",
+            "icon": "fa-user",
+            "expanded": true,
+            "items": [{
+                    "label": "系统登录",
+                    "icon": "fa-sign-out",
+                    "routerLink": "app/login"
+                },
+                {
+                    "label": "密码修改",
+                    "icon": "fa-lock",
+                    "routerLink": "app/password"
+                }
+            ]
+        },
+        {
+            "label": "列表",
+            "icon": " fa-list-alt",
+            "expanded": true,
+            "items": [{
+                "label": "查询",
+                "icon": "fa-search",
+                "routerLink": "app/search"
+            }, {
+                "label": "级联查询",
+                "icon": "fa-copy",
+                "routerLink": "app/linkage"
+            },
+            {
+                "label": "多表格联动",
+                "icon": "fa-table",
+                "routerLink": "app/manytable"
+            }]
+        }
+    ]
+}

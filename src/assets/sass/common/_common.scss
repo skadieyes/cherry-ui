@@ -1,0 +1,342 @@
+@charset "UTF-8";
+body {
+    font-size: 16px;
+    font-family: '微软雅黑', '黑体', '宋体', Arial, sans-serif;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.hljs {
+    font-family: '微软雅黑';
+}
+
+.cdk-overlay-pane {
+    margin-top: 3px;
+}
+
+body .cherry-ui-widget,
+body .cherry-ui-widget .cherry-ui-widget,
+body .cherry-ui-widget input,
+body .cherry-ui-widget select,
+body .cherry-ui-widget textarea,
+body .cherry-ui-widget button {
+    text-decoration: none;
+}
+
+body .cherry-ui-widget-content {
+    background-color: #ffffff;
+    border: 1px solid #c7c7c7;
+}
+
+
+body .cherry-ui-state-active,
+body .cherry-ui-state-highlight {
+    background-color: #0275d8;
+    color: #ffffff;
+}
+
+body .cherry-ui-verticaltabmenu-active {
+    background-color: #fff;
+    color: #0275d8;
+}
+
+body .cherry-ui-state-error,
+body .cherry-ui-state-default.cherry-ui-state-error {
+    border-bottom-color: #e13131;
+}
+
+body .cherry-ui-icon {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+}
+
+body .cherry-ui-state-disabled,
+body .cherry-ui-widget:disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+    cursor: default !important;
+}
+
+body .cherry-ui-state-disabled *,
+body .cherry-ui-widget:disabled * {
+    cursor: default !important;
+}
+
+body .cherry-ui-corner-all {
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
+}
+
+body .cherry-ui-corner-top {
+    -moz-border-radius-topleft: 0.25em;
+    -webkit-border-top-left-radius: 0.25em;
+    border-top-left-radius: 0.25em;
+    -moz-border-radius-topright: 0.25em;
+    -webkit-border-top-right-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+}
+
+body .cherry-ui-corner-bottom {
+    -moz-border-radius-bottomleft: 0.25em;
+    -webkit-border-bottom-left-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+    -moz-border-radius-bottomright: 0.25em;
+    -webkit-border-bottom-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+}
+
+body .cherry-ui-corner-left {
+    -moz-border-radius-topleft: 0.25em;
+    -webkit-border-top-left-radius: 0.25em;
+    border-top-left-radius: 0.25em;
+    -moz-border-radius-bottomleft: 0.25em;
+    -webkit-border-bottom-left-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+}
+
+body .cherry-ui-corner-right {
+    -moz-border-radius-topright: 0.25em;
+    -webkit-border-top-right-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    -moz-border-radius-bottomright: 0.25em;
+    -webkit-border-bottom-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+}
+
+
+.cherry-ui-widget,
+.cherry-ui-widget * {
+    box-sizing: border-box;
+}
+
+.cherry-ui-helper-hidden {
+    display: none;
+}
+
+.cherry-ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.cherry-ui-helper-hidden-accessible input,
+.cherry-ui-helper-hidden-accessible select {
+    transform: scale(0);
+}
+
+.cherry-ui-helper-reset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    line-height: 1.3;
+    text-decoration: none;
+    font-size: 100%;
+    list-style: none;
+}
+
+.cherry-ui-helper-clearfix:before,
+.cherry-ui-helper-clearfix:after {
+    content: "";
+    display: table;
+}
+
+.cherry-ui-helper-clearfix:after {
+    clear: both;
+}
+
+.cherry-ui-helper-clearfix {
+    zoom: 1;
+}
+
+.cherry-ui-helper-zfix {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    filter: Alpha(Opacity=0);
+}
+
+.cherry-ui-state-disabled {
+    cursor: default !important;
+}
+
+.cherry-ui-state-disabled a {
+    cursor: default !important;
+}
+
+.cherry-ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.cherry-ui-widget-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cherry-ui-resizable {
+    position: relative;
+}
+
+.cherry-ui-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    display: block;
+}
+
+.cherry-ui-resizable-disabled .cherry-ui-resizable-handle,
+.cherry-ui-resizable-autohide .cherry-ui-resizable-handle {
+    display: none;
+}
+
+.cherry-ui-resizable-n {
+    cursor: n-resize;
+    height: 7px;
+    width: 100%;
+    top: -5px;
+    left: 0;
+}
+
+.cherry-ui-resizable-s {
+    cursor: s-resize;
+    height: 7px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+}
+
+.cherry-ui-resizable-e {
+    cursor: e-resize;
+    width: 7px;
+    right: -5px;
+    top: 0;
+    height: 100%;
+}
+
+.cherry-ui-resizable-w {
+    cursor: w-resize;
+    width: 7px;
+    left: -5px;
+    top: 0;
+    height: 100%;
+}
+
+.cherry-ui-resizable-se {
+    cursor: se-resize;
+    width: 12px;
+    height: 12px;
+    right: 1px;
+    bottom: 1px;
+}
+
+.cherry-ui-resizable-sw {
+    cursor: sw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    bottom: -5px;
+}
+
+.cherry-ui-resizable-nw {
+    cursor: nw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    top: -5px;
+}
+
+.cherry-ui-resizable-ne {
+    cursor: ne-resize;
+    width: 9px;
+    height: 9px;
+    right: -5px;
+    top: -5px;
+}
+
+.cherry-ui-shadow {
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+.cherry-ui-unselectable-text {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.cherry-ui-scrollbar-measure {
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+}
+
+.cherry-ui-overflow-hidden {
+    overflow: hidden;
+}
+
+.architecture-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: column;
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #898989;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #898989;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #898989;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #898989;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #898989;
+}
+
+.cherry-ui-placeholder {
+    color: #898989;
+}

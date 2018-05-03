@@ -1,0 +1,33 @@
+<!-- <div class="{{theme}}">
+    <div [ngClass]="{'cherry-ui-menu cherry-ui-corner-all cherry-ui-flexiblemenubar cherry-ui-helper-clearfix':true}" [class]="styleClass" [ngStyle]="style">
+        <cherry-flexiblemenusub [item]="model" root="root" (itemClickEvent)="componentClick($event)">
+            <ng-content></ng-content>
+        </cherry-flexiblemenusub>
+    </div>
+</div> -->
+
+<div #box class="cherry-ui-flexibelmenu-box">
+    <div [ngClass]="'cherry-ui-corner-all cherry-ui-blockmenu'" [ngStyle]="style" [class]="styleClass">
+        <ul #list class="cherry-ui-helper-reset cherry-ui-helper-clearfix cherry-ui-corner-all cherry-ui-blockmenu-nav" role="tablist">
+            <li #listItem *ngFor="let item of tabList" [ngClass]="{'cherry-ui-blockmenuitem cherry-ui-state-default cherry-ui-corner-top':true,'cherry-ui-state-disabled':item.disabled,
+                    'cherry-ui-blockmenuitem-hasicon':item.icon}">
+                <a *ngIf="!item.routerLink" [href]="item.url||'#'" class="cherry-ui-menuitem-link cherry-ui-corner-all" (click)="itemClick($event,item)" (mouseover)="mouseHover(item)" style="position:relative" mat-ripple [matRippleTrigger]="_getHostElement()" [matRippleDisabled]="!(hoverItem==item)"
+         [ngClass]="{'cherry-ui-blockmenuitem-state-active':item==tabActiveItem }" [attr.target]="item.target" [attr.title]="item.title">
+                    <span class="cherry-ui-menuitem-icon fa" [ngClass]="item.icon"></span>
+                    <span class="cherry-ui-menuitem-text">{{item.label}}</span>
+                </a>
+                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [routerLinkActive]="'cherry-ui-blockmenuitem-state-active'" (mouseover)="mouseHover(item)" style="position:relative" mat-ripple [matRippleTrigger]="_getHostElement()" [matRippleDisabled]="!(hoverItem==item)"
+                    [routerLinkActiveOptions]="item.routerLinkActiveOptions||{exact:false}" class="cherry-ui-menuitem-link cherry-ui-corner-all" (click)="itemClick($event,item)" [attr.target]="item.target" [attr.title]="item.title">
+                    <span class="cherry-ui-menuitem-icon fa" [ngClass]="item.icon"></span>
+                    <span class="cherry-ui-menuitem-text">{{item.label}}</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <div *ngIf="flexiMenuShow" [ngClass]="{'cherry-ui-menu cherry-ui-corner-all cherry-ui-flexiblemenubar cherry-ui-helper-clearfix':true}" [class]="styleClass" [ngStyle]="style" (mouseover)="menuBarHover()">
+        <cherry-flexiblemenusub [item]="dropList" root="root" (itemClickEvent)="componentClick($event)" [menuParent]="dropList[0]" [childClickItem]="childActiveItem">
+            <ng-content></ng-content>
+        </cherry-flexiblemenusub>
+    </div>
+</div>

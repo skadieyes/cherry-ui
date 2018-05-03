@@ -1,0 +1,15 @@
+<ng-content></ng-content>
+<ng-template #overlay="cdkConnectedOverlay" cdkConnectedOverlay [cdkConnectedOverlayOrigin]="overlayOrigin" [cdkConnectedOverlayHasBackdrop]="_hasBackdrop"
+    (backdropClick)="hide()" (detach)="hide()" (positionChange)="onPositionChange($event)" [cdkConnectedOverlayPositions]="_positions"
+    [cdkConnectedOverlayOpen]="visible$ | async">
+    <div class="cherry-ui-tooltip" (mouseenter)="tooltipHover()" (mouseleave)="tooltipLeave()" [ngClass]="_classMap" [ngStyle]="uiOverlayStyle" [@fadeAnimation]="''+(visible$ | async)" (@fadeAnimation.done)="_afterVisibilityAnimation($event)">
+        <div class="cherry-ui-tooltip-content">
+            <div class="cherry-ui-tooltip-arrow"></div>
+            <div class="cherry-ui-tooltip-inner">
+                <span *ngIf="!uiTemplate">{{uiTitle}}</span>
+                <ng-template *ngIf="uiTemplate" [ngTemplateOutlet]="uiTemplate">
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<div class="{{theme}}">
+    <div [class]="styleClass" [ngStyle]="style" [ngClass]="'cherry-ui-accordionmenu cherry-ui-widget'">
+        <div *ngFor="let item of model;let f=first;let l=last;">
+            <div [ngClass]="{'cherry-ui-widget cherry-ui-accordionmenu-header cherry-ui-state-default':true,'cherry-ui-corner-top':f,'cherry-ui-corner-bottom':l&&!item.expanded,'cherry-ui-state-disabled':item.disabled}" [class]="item.styleClass" [ngStyle]="item.style">
+                <a *ngIf="!item.routerLink" [href]="item.url||'#'" [ngClass]="{'cherry-ui-accordionmenu-headerlink-hasicon':item.icon,'cherry-ui-accordionmenu-link':!item.expanded}" (click)="handleClick($event,item)" [attr.target]="item.target"
+                    [attr.title]="item.title">
+                    <span class="cherry-ui-menuitem-icon fa" [ngClass]="item.icon" *ngIf="item.icon"></span
+              ><span class="cherry-ui-menuitem-text">{{item.label}}</span>
+                    <span *ngIf="item.items" class="cherry-ui-menuitem-expandicon fa" [ngClass]="{'fa-angle-down':!item.expanded,'fa-angle-up':item.expanded}"></span
+              >
+          </a>
+          <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [routerLinkActive]="'cherry-ui-accordionmenu-active'" [routerLinkActiveOptions]="item.routerLinkActiveOptions||{exact:false}"
+              [ngClass]="{'cherry-ui-accordionmenu-headerlink-hasicon':item.icon,'cherry-ui-accordionmenu-link':!item.expanded}" (click)="handleClick($event,item)"
+              [attr.target]="item.target" [attr.title]="item.title">
+              <span class="cherry-ui-menuitem-icon fa" [ngClass]="item.icon" *ngIf="item.icon"></span
+              ><span class="cherry-ui-menuitem-text">{{item.label}}</span>
+                    <span *ngIf="item.items" class="cherry-ui-menuitem-expandicon fa" [ngClass]="{'fa-angle-down':!item.expanded,'fa-angle-up':item.expanded}"></span
+              >
+          </a>
+      </div>
+      <div *ngIf="item.items" class="cherry-ui-accordionmenu-content-wrapper" [@rootItem]="item.expanded ? 'visible' : 'hidden'"  (@rootItem.done)="onToggleDone($event)"
+          [ngClass]="{'cherry-ui-accordionmenu-content-wrapper-overflown': !item.expanded||animating}">
+          <div class="cherry-ui-accordionmenu-content cherry-ui-widget-content cherry-ui-accordionmenu-content" style="border:none">
+              <cherry-accordionmenusub [item]="item" [expanded]="true" (itemClickEvent)="componentClick($event)"></cherry-accordionmenusub>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

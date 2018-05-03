@@ -1,0 +1,65 @@
+<div class="{{theme}} ">
+    <div class="architecture-left" [@LeftAnimation]="_layout.topTopShow ? 'down' : 'up'" [@leftSmallAnimation]="leftSmall ? 'collapse' : 'expand'"
+        *ngIf="menuShow" (@leftSmallAnimation.done)="leftScollDone($event)">
+        <div class="left-header">
+            <div class="left-header-content">
+                <span *ngIf="!leftSmall&&leftExpandDone" class="fa fa-fw left-header-icon" (click)="leftCollapse($event)">
+                    <span *ngIf="menuHeaderIcon" [ngClass]="menuHeaderIcon" class="left-header-fa-icon"></span>
+                    <span *ngIf="!menuHeaderIcon&&menuHeaderIconHtml" [innerHtml]="menuHeaderIconHtml"></span>
+                </span>
+                <span *ngIf="!menuNameSet&&(!leftSmall&&leftExpandDone)" class="left-header-text">{{_layout.menuHeader}}</span>
+                <span *ngIf="menuHeaderName&&(!leftSmall&&leftExpandDone)" class="left-header-text">{{menuHeaderName}}</span>
+                <span *ngIf="leftSmall" [ngClass]="menuHeaderIcon" class="fa fa-fw left-headersamll-icon" (click)="leftExpand($event)">
+                    <span *ngIf="menuHeaderIcon" [ngClass]="menuHeaderIcon" class="left-header-fa-icon"></span>
+                    <span *ngIf="!menuHeaderIcon&&menuHeaderIconHtml" [innerHtml]="menuHeaderIconHtml"></span>
+                </span>
+                <a class="left-header-expandicon">
+                    <span (click)="leftCollapse($event)" *ngIf="!leftSmall" class="fa fa-fw fa-list-ul"></span>
+                </a>
+            </div>
+        </div>
+        <div *ngIf="!leftSmall&&leftExpandDone&&menuSearchShow" class="left-search">
+            <cherry-search [searchModel]="menuModel" (itemClickEvent)="searchMenu($event)"></cherry-search>
+        </div>
+        <div [ngClass]="{'accordionmenu_box':!leftSmall&&leftExpandDone&&menuSearchShow}">
+            <cherry-accordionmenu *ngIf="!leftSmall&&leftExpandDone" [model]="menuModel" [searchResult]="searchResult" (itemClickEvent)="leftMenuClick($event)"></cherry-accordionmenu>
+            <cherry-iconmenu *ngIf="leftSmall" [model]="menuModel" (itemClickEvent)="leftMenuClick($event)" (itemHoverEvent)="miniMenuHover($event)" (itemHoverLeaveEvent)="miniMenuHoverLeave($event)"></cherry-iconmenu>
+        </div>
+    </div>
+    <div class="architecture-boxup" [@BoxUpAnimation]="_layout.topTopShow ? 'down' : 'up'">
+        <div class="architecture-body" [@BodyAnimation]="leftSmall ? 'expand' : 'collapse'" [@BodySizeAnimation]="menuShow ? 'right' : 'all'">
+            <div #center class="architecture-center">
+                <div class="architecture-center-body">
+                    <div class="architecture-center-content">
+                        <div class="center-nav-box">
+                            <div class="title-box">
+                                <span class="center-title" *ngIf="!_layout.parentRoute">
+                                    {{menuActiveItemLabel}}
+                                </span>
+                            </div>
+                            <div class="bread-box" >
+                                <ng-template  *ngIf="_breadcrumb&&!breadCrumb" [ngTemplateOutlet]="_breadcrumb"></ng-template>
+                                <cherry-breadcrumb *ngIf="breadCrumb">
+                                    <cherry-breadcrumb-item *ngFor="let item of breadRouterArray">
+                                        <a *ngIf="!item.current" [routerLink]="item.url" (click)="labelSet()">
+                                            {{item.label}}
+                                        </a>
+                                        <a *ngIf="item.current" class="current-item">
+                                            {{item.label}}
+                                        </a>
+                                    </cherry-breadcrumb-item>
+                                </cherry-breadcrumb>
+                            </div>
+
+                        </div>
+                        <ng-content></ng-content>
+                    </div>
+                    <div class="architecture-bottom" *ngIf="footerShow">
+                        <span class="bottom-text">{{footerText}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="architecture-right" *ngIf="rightShow">right</div>
+        </div>
+    </div>
+</div>

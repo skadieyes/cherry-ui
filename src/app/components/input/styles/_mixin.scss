@@ -1,0 +1,438 @@
+@mixin input-lg() {
+    padding: $input-padding-vertical-lg $input-padding-horizontal;
+    height: $input-height-lg;
+  }
+
+@mixin input-sm() {
+    padding: $input-padding-vertical-sm $input-padding-horizontal;
+    height: $input-height-sm;
+  }
+
+  // input status
+  // == when focus or actived
+@mixin active() {
+    border-color: $outline-color;
+    outline: 0;
+    box-shadow: 0 0 $outline-blur-size $outline-width lighten($outline-color, 50%);
+  }
+
+  // == when hoverd
+@mixin hover() {
+    border-color: $input-hover-border-color;
+  }
+
+@mixin disabled() {
+    background-color: $input-disabled-bg;
+    opacity: 1;
+    pointer-events: none;
+    color: $disabled-color;
+  }
+
+@mixin readonly(){
+    background-color: $input-disabled-bg;
+    opacity: 1;
+    color: $disabled-color;
+    cursor: auto;
+}
+
+@mixin label() {
+    font-size:$input-label-font-size;
+    color: $input-label-font-color;
+    padding: 0 8px;
+}
+
+
+@mixin placeholder() {
+    // Firefox
+    &::-moz-placeholder {
+      color: $input-placeholder-color;
+      opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+    }
+    // Internet Explorer 10+
+    &:-ms-input-placeholder {
+      color: $input-placeholder-color;
+    }
+    // Safari and Chrome
+    &::-webkit-input-placeholder {
+      color: $input-placeholder-color;
+    }
+  }
+
+@mixin input() {
+    position: relative;
+    display: inline-block;
+    padding: $input-padding-vertical-base $input-padding-horizontal;
+    width: 100%;
+    height: $input-height-base;
+    font-family: $input-font-family;
+    cursor: text;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $input-color;
+    background-color: $input-bg;
+    background-image: none;
+    border: $border-width-base $border-style-base $input-border-color;
+    border-radius: $border-radius-base;
+    @include placeholder(); // Reset placeholder
+    transition: all .3s;
+
+    &:hover {
+      @include hover();
+    }
+
+    &:focus {
+      @include active();
+    }
+
+    &:disabled {
+      @include disabled();
+    }
+
+    &:read-only {
+        @include readonly();
+      }
+
+    // Reset height for `textarea`s
+    textarea {
+      max-width: 100%; // prevent textearea resize from coming out of its container
+      height: auto;
+      vertical-align: bottom;
+    }
+
+    // Size
+    &-lg {
+      @include input-lg();
+    }
+
+    &-sm {
+      @include input-sm();
+    }
+  }
+
+  //input group
+@mixin input-group() {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 5px 0px;
+    width:100%;
+
+    >[class*=col-]{
+     padding-right: $input-group-padding;
+    }
+    .cherry-ui-input-group-addon,
+    .cherry-ui-input-group-wrap,
+    .cherry-ui-input {
+      display: table-cell;
+
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+      }
+    }
+
+    .cherry-ui-input-group-addon,
+    .cherry-ui-input-group-wrap {
+      width: 1px; // To make addon/wrap as small as possible
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .cherry-ui-input-group-wrap{
+      display: block !important;
+    }
+
+    .cherry-ui-input {
+      float: left;
+      width: 100%;
+      margin-bottom: 0;
+      &:focus {
+        z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+      }
+    }
+
+    .cherry-ui-input-group-addon {
+      padding: $input-padding-vertical-base $input-padding-horizontal;
+      font-size: $font-size-base;
+      font-weight: normal;
+      line-height: 1;
+      color: $input-color;
+      text-align: center;
+      background-color: $input-addon-bg;
+      border: $border-width-base $border-style-base $input-border-color;
+      border-radius: $border-radius-base;
+      position: relative;
+      transition: all .3s;
+
+      // Reset Select's style in addon
+      .cherry-ui-select {
+        margin: -($input-padding-vertical-base + 1px) (-$input-padding-horizontal);  // lesshint spaceAroundOperator: false
+
+        .cherry-ui-select-selection {
+          background-color: inherit;
+          margin: -1px;
+          border: $border-width-base $border-style-base transparent;
+          box-shadow: none;
+        }
+
+        &-open,
+        &-focused {
+          .cherry-ui-select-selection {
+            color: $stateActiveColor;
+          }
+        }
+      }
+
+      // Expand addon icon click area
+      // https://github.com/ant-design/ant-design/issues/3714
+      > i:only-child:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    // Reset rounded corners
+    .cherry-ui-input:not(:last-child),
+    .cherry-ui-input-group-addon:first-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+      // Reset Select's style in addon
+      .cherry-ui-select .cherry-ui-select-selection {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+     .cherry-ui-input-affix-wrapper {
+      &:not(:first-child).cherry-ui-input {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      &:not(:last-child).cherry-ui-input {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .cherry-ui-input-group-addon:first-child {
+      border-right: 0;
+    }
+    .cherry-ui-input-group-addon:last-child {
+      border-left: 0;
+    }
+
+    .cherry-ui-input:not(:first-child),
+    .cherry-ui-input-group-addon:last-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+
+      // Reset Select's style in addon
+      .cherry-ui-select .cherry-ui-select-selection {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    // Fix https://github.com/ant-design/ant-design/issues/5754
+    .cherry-ui-input-group-lg .cherry-ui-select-selection--single {
+      height: $input-height-lg;
+    }
+
+    .cherry-ui-input-group-sm .cherry-ui-select-selection--single {
+      height: $input-height-sm;
+    }
+
+    .cherry-ui-input-affix-wrapper {
+      display: table-cell;
+      float: left;
+    }
+
+    &.cherry-ui-input-group-compact {
+        border-radius: 0;
+        border-right-width: 0;
+        vertical-align: middle;
+        float: none;
+        >[class*=col-]{
+            padding-right: 0;
+        }
+
+        .cherry-ui-input:not(:last-child) {
+            border-right: none;
+          }
+
+      // Undo float for .ant-input-group .ant-input
+      .cherry-ui-input {
+        float: left;
+        z-index: auto;
+      }
+
+      // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker
+      & > .cherry-ui-select > .cherry-ui-select-selection,
+      & > .cherry-ui-calendar-picker .cherry-ui-input,
+      & > .cherry-ui-select-auto-complete .cherry-ui-input,
+      & > .cherry-ui-cascader-picker .cherry-ui-input,
+      & > .cherry-ui-mention-wrapper .cherry-ui-mention-editor,
+      & > .cherry-ui-time-picker .cherry-ui-time-picker-input {
+        border-radius: 0;
+        border-right-width: 0;
+      }
+
+      & > *:first-child,
+      & > .cherry-ui-select:first-child > .cherry-ui-select-selection,
+      & > .cherry-ui-calendar-picker:first-child .cherry-ui-input,
+      & > .cherry-ui-select-auto-complete:first-child .cherry-ui-input,
+      & > .cherry-ui-cascader-picker:first-child .cherry-ui-input,
+      & > .cherry-ui-mention-wrapper:first-child .cherry-ui-mention-editor,
+      & > .cherry-ui-time-picker:first-child .cherry-ui-time-picker-input {
+        border-top-left-radius: $border-radius-base;
+        border-bottom-left-radius: $border-radius-base;
+      }
+
+      & > *:last-child,
+      & > .cherry-ui-select:last-child > .cherry-ui-select-selection,
+      & > .cherry-ui-calendar-picker:last-child .cherry-ui-input,
+      & > .cherry-ui-select-auto-complete:last-child .cherry-ui-input,
+      & > .cherry-ui-cascader-picker:last-child .cherry-ui-input,
+      & > .cherry-ui-mention-wrapper:last-child .cherry-ui-mention-editor,
+      & > .cherry-ui-time-picker:last-child .cherry-ui-time-picker-input {
+        border-top-right-radius: $border-radius-base;
+        border-bottom-right-radius: $border-radius-base;
+        border-right-width: 1px;
+      }
+    }
+}
+
+@mixin input-group-size(){
+        // Sizing options
+        .cherry-ui-input-group-lg .cherry-ui-input,
+        .cherry-ui-input-group-lg > .cherry-ui-input-group-addon {
+          @include input-lg();
+        }
+
+        .cherry-ui-input-group-sm .cherry-ui-input,
+        .cherry-ui-input-group-sm > .cherry-ui-input-group-addon {
+          @include input-sm();
+        }
+
+}
+@mixin input-affix-wrapper() {
+    position: relative;
+    display: inline-block;
+
+    .cherry-ui-input {
+      z-index: 1;
+    }
+
+    &:hover .cherry-ui-input:not(.cherry-ui-input-disabled) {
+      @include hover();
+    }
+
+    .cherry-ui-input-prefix,
+    .cherry-ui-input-suffix {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      line-height: 0;
+      color: $input-color;
+    }
+
+    .cherry-ui-input-prefix {
+      left: $input-padding-horizontal;
+    }
+
+
+    .cherry-ui-input-suffix {
+      right: $input-padding-horizontal;
+      .cherry-ui-input-suffix-clear{
+          font-size:$input-label-font-size;
+          color:$input-icon-color;
+          &:hover{
+            color:$input-icon-hover-color;
+          }
+      }
+    }
+
+    .cherry-ui-input:not(:first-child) {
+      padding-left: $input-padding-horizontal + $input-affix-width;
+    }
+
+    .cherry-ui-input:not(:last-child) {
+      padding-right: $input-padding-horizontal + $input-affix-width;
+    }
+  }
+
+
+
+// inputgroup lineType
+@each $type, $color,$defaultColor in $types {
+    .cherry-ui-input-group-line-#{$type} {
+        i{
+            color:$color;
+        }
+    .cherry-ui-input:focus + .cherry-ui-input-line{
+        .cherry-ui-input-lineChild {
+            animation: inputLineAnimate 0.5s;
+            width: 100%;
+            background-color: $color;
+        }
+    }
+    .cherry-ui-input:hover + .cherry-ui-input-line{
+        background-color:$color;
+    }
+    .cherry-ui-input-line {
+        background-color:$defaultColor;
+    }
+  }
+}
+@mixin input-group-line(){
+    .cherry-ui-input{
+        border: none;
+        box-shadow: none;
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        &:disabled{
+           background-color:$input-bg;
+        }
+        &:read-only {
+            background-color:$input-bg;
+          }
+
+    }
+    .cherry-ui-input:focus + .cherry-ui-input-line{
+        .cherry-ui-input-lineChild {
+            animation: inputLineAnimate 0.5s;
+            width: 100%;
+        }
+    }
+    .cherry-ui-input-line {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 1px;
+        .cherry-ui-input-lineChild {
+            height: 200%;
+            width: 100%;
+        }
+    }
+}
+
+.lineAnimate {
+    animation: inputLineAnimate 0.5s;
+}
+@keyframes inputLineAnimate {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}

@@ -1,0 +1,43 @@
+<div #container [ngStyle]="style" [class]="styleClass" class="cherry-ui-table cherry-ui-widget" [ngClass]="{'cherry-ui-table-responsive': responsive, 'cherry-ui-table-resizable': resizableColumns,
+                'cherry-ui-table-resizable-fit': (resizableColumns && columnResizeMode === 'fit'),
+                'cherry-ui-table-hoverable-rows': (rowHover||selectionMode), 'cherry-ui-table-auto-layout': autoLayout}">
+    <div class="cherry-ui-table-loading cherry-ui-widget-overlay" *ngIf="loading"></div>
+    <div class="cherry-ui-table-loading-content" *ngIf="loading">
+        <i [class]="'fa fa-spin fa-2x ' + loadingIcon"></i>
+    </div>
+    <div *ngIf="captionTemplate" class="cherry-ui-table-caption cherry-ui-widget-header">
+        <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
+    </div>
+    <p-paginator [rows]="rows" [first]="first" [totalRecords]="totalRecords" [pageLinkSize]="pageLinks" styleClass="cherry-ui-paginator-top" [alwaysShow]="alwaysShowPaginator" (onPageChange)="onPageChange($event)" [rowsPerPageOptions]="rowsPerPageOptions" *ngIf="paginator && (paginatorPosition === 'top' || paginatorPosition =='both')"
+        [templateLeft]="paginatorLeftTemplate" [templateRight]="paginatorRightTemplate" [dropdownAppendTo]="paginatorDropdownAppendTo"></p-paginator>
+        <div class="cherry-ui-table-wrapper" *ngIf="!scrollable">
+        <table #table>
+            <ng-container *ngTemplateOutlet="colGroupTemplate; context {$implicit: columns}"></ng-container>
+            <thead class="cherry-ui-table-thead">
+                <ng-container *ngTemplateOutlet="headerTemplate; context: {$implicit: columns}"></ng-container>
+            </thead>
+            <tfoot class="cherry-ui-table-tfoot">
+                <div class="cherry-ui-table-foot">
+                    <ng-container *ngTemplateOutlet="footerTemplate; context {$implicit: columns}"></ng-container>
+                </div>
+            </tfoot>
+            <tbody class="cherry-ui-table-tbody" cherryTableBody [columns]="columns" [template]="bodyTemplate">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="cherry-ui-table-scrollable-wrapper" *ngIf="scrollable">
+        <div class="cherry-ui-table-frozen-view" *ngIf="frozenColumns||frozenBodyTemplate" cherryScrollableView [columns]="frozenColumns" [frozen]="true" [ngStyle]="{width: frozenWidth}" [scrollHeight]="scrollHeight"></div>
+        <div cherryScrollableView [columns]="columns" [frozen]="false" [scrollHeight]="scrollHeight"></div>
+    </div>
+    <cherry-paginator [rows]="rows" [first]="first" [totalRecords]="totalRecords" [pageLinkSize]="pageLinks" styleClass="cherry-ui-paginator-bottom" [alwaysShow]="alwaysShowPaginator" (onPageChange)="onPageChange($event)" [rowsPerPageOptions]="rowsPerPageOptions" *ngIf="paginator && (paginatorPosition === 'bottom' || paginatorPosition =='both')"
+        [templateLeft]="paginatorLeftTemplate" [templateRight]="paginatorRightTemplate" [dropdownAppendTo]="paginatorDropdownAppendTo" [displayDirection]="pagiDisplayDirection"></cherry-paginator>
+    <div *ngIf="summaryTemplate" class="cherry-ui-table-summary cherry-ui-widget-header">
+        <ng-container *ngTemplateOutlet="summaryTemplate"></ng-container>
+    </div>
+
+    <div #resizeHelper class="cherry-ui-column-resizer-helper cherry-ui-state-highlight" style="display:none" *ngIf="resizableColumns"></div>
+
+    <span #reorderIndicatorUp class="fa fa-arrow-down cherry-ui-table-reorder-indicator-up" *ngIf="reorderableColumns"></span>
+    <span #reorderIndicatorDown class="fa fa-arrow-up cherry-ui-table-reorder-indicator-down" *ngIf="reorderableColumns"></span>
+</div>

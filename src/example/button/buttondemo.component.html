@@ -1,0 +1,377 @@
+<div class="demobox">
+    <section class="markdown">
+        <p>按钮响应用户的及时操作</p>
+        <h2>引入</h2>
+        <cherry-code>import &#123;ButtonModule&#125; from '~/cherry-ui;</cherry-code>
+
+        <h2>基础用法</h2>
+        <p>具有语境色彩的按钮</p>
+        <div class="cardBox">
+            <cherry-card>
+                <button cherry-button type="button" [uiType]="'primary'">Primary</button>
+                <button cherry-button type="button" [uiType]="'secondary'">Secondary</button>
+                <button cherry-button type="button" [uiType]="'success'">Success</button>
+                <button cherry-button type="button" [uiType]="'danger'">Danger</button>
+                <button cherry-button type="button" [uiType]="'warning'">Warning</button>
+                <button cherry-button type="button" [uiType]="'info'">Info</button>
+                <button cherry-button type="button" [uiType]="'light'">Light</button>
+                <button cherry-button type="button" [uiType]="'dark'">Dark</button>
+                <button cherry-button type="button" [uiType]="'link'">Link</button>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiType]="'primary'"&gt;Primary&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'secondary'"&gt;Secondary&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'success'"&gt;Success&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'danger'"&gt;Danger&lt;/button>
+&lt;button cherry-button type="button" [uiType]="'warning'"&gt;Warning&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'info'"&gt;Info&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'light'"&gt;Light&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'dark'"&gt;Dark&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'link'"&gt;Link&lt;/button&gt;
+            </cherry-code>
+        </section>
+
+        <h2>轮廓按钮</h2>
+        <p>没有背景色只有轮廓线的按钮</p>
+        <div class="cardBox">
+            <cherry-card>
+                <button cherry-button type="button" [uiOutlineType]="'primary'">Primary</button>
+                <button cherry-button type="button" [uiOutlineType]="'secondary'">Secondary</button>
+                <button cherry-button type="button" [uiOutlineType]="'success'">Success</button>
+                <button cherry-button type="button" [uiOutlineType]="'danger'">Danger</button>
+                <button cherry-button type="button" [uiOutlineType]="'warning'">Warning</button>
+                <button cherry-button type="button" [uiOutlineType]="'info'">Info</button>
+                <button cherry-button type="button" [uiOutlineType]="'light'">Light</button>
+                <button cherry-button type="button" [uiOutlineType]="'dark'">Dark</button>
+                <button cherry-button type="button" [uiOutlineType]="'link'">Link</button>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;Primary&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'secondary'"&gt;Secondary&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'success'"&gt;Success&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'danger'"&gt;Danger&lt;/button>
+&lt;button cherry-button type="button" [uiOutlineType]="'warning'"&gt;Warning&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'info'"&gt;Info&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'light'"&gt;Light&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'dark'"&gt;Dark&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'link'"&gt;Link&lt;/button&gt;
+            </cherry-code>
+        </section>
+
+        <h2>按钮尺寸</h2>
+        <p>按钮默认普通尺寸,可以使用uiSize来使按钮更小或更大</p>
+        <div class="cardBox">
+            <cherry-card>
+                <button cherry-button type="button" [uiType]="'primary'" [uiSize]="'sm'">小按钮</button>
+                <button cherry-button type="button" [uiType]="'primary'"> 普通按钮 </button>
+                <button cherry-button type="button" [uiType]="'primary'" [uiSize]="'lg'">大按钮</button>
+                <button cherry-button type="button" [uiOutlineType]="'primary'" [uiSize]="'sm'">小按钮</button>
+                <button cherry-button type="button" [uiOutlineType]="'primary'"> 普通按钮 </button>
+                <button cherry-button type="button" [uiOutlineType]="'primary'" [uiSize]="'lg'">大按钮</button>
+                <button cherry-button type="button" [uiOutlineType]="'primary'" [uiSize]="'sm'" [uiShape]="'circle'">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <button cherry-button type="button" [uiOutlineType]="'primary'"  [uiShape]="'circle'">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <button cherry-button type="button" [uiOutlineType]="'primary'" [uiSize]="'lg'" [uiShape]="'circle'">
+                        <i class="fa fa-search"></i>
+                    </button>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiType]="'primary'" [uiSize]="'sm'"&gt;小按钮&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'primary'"&gt; 普通按钮 &lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'primary'" [uiSize]="'lg'"&gt;大按钮&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiSize]="'sm'"&gt;小按钮&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt; 普通按钮 &lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiSize]="'lg'"&gt;大按钮&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiShape]="'circle'" [uiSize]="'sm'"&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiShape]="'circle'" &gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiShape]="'circle'" [uiSize]="'lg'"&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+            </cherry-code>
+        </section>
+
+        <h2>按钮形状</h2>
+        <p>可使用uiShape将按钮形状改变为圆形,适用于只有一个图标的按钮</p>
+        <div class="cardBox">
+            <cherry-card>
+                    <button cherry-button type="button" [uiOutlineType]="'primary'" [uiShape]="'circle'">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button cherry-button type="button" [uiOutlineType]="'secondary'"  [uiShape]="'circle'">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button cherry-button type="button" [uiOutlineType]="'success'"  [uiShape]="'circle'">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button cherry-button type="button" [uiType]="'danger'" [uiShape]="'circle'">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button cherry-button type="button" [uiType]="'warning'"  [uiShape]="'circle'">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button cherry-button type="button" [uiType]="'info'"  [uiShape]="'circle'">
+                            <i class="fa fa-search"></i>
+                        </button>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiShape]="'circle'"&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'secondary'"  [uiShape]="'circle'" &gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'success'"  [uiShape]="'circle'"&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'danger'" [uiShape]="'circle'"&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'warning'"  [uiShape]="'circle'" &gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'info'"  [uiShape]="'circle'"&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+            </cherry-code>
+        </section>
+
+        <h2>禁用状态</h2>
+        <p>将按钮禁用并在视觉上反馈</p>
+        <div class="cardBox">
+            <cherry-card>
+                <button cherry-button type="button" [uiOutlineType]="'primary'" disabled> 禁用 </button>
+                <button cherry-button type="button" [uiType]="'primary'" disabled>禁用</button>
+                <button cherry-button type="button" [uiOutlineType]="'primary'"  [uiShape]="'circle'" disabled>
+                        <i class="fa fa-search"></i>
+                </button>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" disabled&gt;禁用&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'primary'" disabled&gt;禁用&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'"  [uiShape]="'circle'" disabled&gt;
+    &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+            </cherry-code>
+        </section>
+
+        <h2>加载状态</h2>
+        <p>按钮呈现加载中的样式,并且按钮此时将不响应点击事件</p>
+        <div class="cardBox">
+            <cherry-card>
+                    <button cherry-button type="button" [uiOutlineType]="'primary'" [uiLoading]="true"> 加载中... </button>
+                    <button cherry-button type="button" [uiType]="'primary'" [uiLoading]="true"> 加载中... </button>
+                    <button cherry-button type="button" [uiOutlineType]="'primary'" [uiShape]="'circle'" [uiLoading]="true">  </button>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" [uiLoading]="true"&gt; 加载中...&lt;/button&gt;
+&lt;button cherry-button type="button" [uiType]="'primary'" [uiLoading]="true"&gt; 加载中...&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'"  [uiShape]="'circle'" [uiLoading]="true"&gt;&lt;/button&gt;
+            </cherry-code>
+        </section>
+
+        <h2>按钮组</h2>
+        <p>把按钮放入cherry-button-group中来使用按钮组</p>
+        <h3>基础用法</h3>
+        <div class="cardBox">
+            <cherry-card>
+                    <cherry-button-group>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮2</button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+
+                    <cherry-button-group>
+                            <button cherry-button type="button" [uiType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiType]="'warning'">按钮2</button>
+                            <button cherry-button type="button" [uiType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-button-group&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮3&lt;/button&gt;
+&lt;/cherry-button-group&gt;
+
+&lt;cherry-button-group&gt;
+    &lt;button cherry-button type="button" [uiType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiType]="'warning'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiType]="'primary'"&gt; 按钮3 &lt;/button&gt;
+&lt;/cherry-button-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>按钮组尺寸</h3>
+        <p>可以通过uiSize属性来改变按钮组的尺寸</p>
+        <div class="cardBox">
+            <cherry-card>
+                    <cherry-button-group [uiSize]="'sm'">
+                            <button cherry-button type="button" [uiOutlineType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮2</button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+
+                    <cherry-button-group>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮2</button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+
+                    <cherry-button-group [uiSize]="'lg'">
+                            <button cherry-button type="button" [uiOutlineType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮2</button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-button-group  [uiSize]="'sm'"&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮3&lt;/button&gt;
+&lt;/cherry-button-group&gt;
+
+&lt;cherry-button-group&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮3&lt;/button&gt;
+&lt;/cherry-button-group&gt;
+
+&lt;cherry-button-group  [uiSize]="'lg'"&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮3&lt;/button&gt;
+&lt;/cherry-button-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>按钮组排列方式</h3>
+        <p>可以通过uiVertical属性来使按钮组垂直排列</p>
+        <div class="cardBox">
+            <cherry-card>
+                    <cherry-button-group [uiVertical]="true">
+                            <button cherry-button type="button" [uiOutlineType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮2</button>
+                            <button cherry-button type="button" [uiOutlineType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+
+                    <cherry-button-group [uiVertical]="true">
+                            <button cherry-button type="button" [uiType]="'primary'"> 按钮1 </button>
+                            <button cherry-button type="button" [uiType]="'warning'">按钮2</button>
+                            <button cherry-button type="button" [uiType]="'primary'">按钮3</button>
+                    </cherry-button-group>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-button-group  [uiVertical]="true"&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiOutlineType]="'primary'"&gt;按钮3&lt;/button&gt;
+&lt;/cherry-button-group&gt;
+
+&lt;cherry-button-group [uiVertical]="true"&gt;
+    &lt;button cherry-button type="button" [uiType]="'primary'"&gt; 按钮1 &lt;/button&gt;
+    &lt;button cherry-button type="button" [uiType]="'warning'"&gt;按钮2&lt;/button&gt;
+    &lt;button cherry-button type="button" [uiType]="'primary'"&gt;按钮3&lt;/button&gt;
+&lt;/cherry-button-group&gt;
+            </cherry-code>
+        </section>
+
+        <h2>API</h2>
+        <h3>cherry-button</h3>
+        <table>
+                <thead>
+                  <tr>
+                    <th>参数</th>
+                    <th>说明</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>uiType</td>
+                    <td>可选择按钮的类型</td>
+                    <td>String</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>uiOutlineType</td>
+                    <td>可选择轮廓按钮的类型</td>
+                    <td>String</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>uiSize</td>
+                    <td>可设置按钮的大小</td>
+                    <td>String</td>
+                    <td>default</td>
+                  </tr>
+                   <tr>
+                    <td>uiShape</td>
+                    <td>可以改变按钮形状为圆形</td>
+                    <td>String</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>uiLoading</td>
+                    <td>显示加载状态</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+              <h3>cherry-button-group</h3>
+              <table>
+                      <thead>
+                        <tr>
+                          <th>参数</th>
+                          <th>说明</th>
+                          <th>类型</th>
+                          <th>默认值</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                          <td>uiSize</td>
+                          <td>改变按钮组的大小</td>
+                          <td>String</td>
+                          <td>default</td>
+                        </tr>
+                        <tr>
+                          <td>uiVertical</td>
+                          <td>改变按钮组的排列方式为垂直排列</td>
+                          <td>Boolean</td>
+                          <td>false</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+    </section>
+</div>

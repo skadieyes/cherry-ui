@@ -1,0 +1,10 @@
+<div class="architecture-box">
+    <cherry-header [model]="header_items" (itemClickEvent)="topTopMenuClick($event)"></cherry-header>
+</div>
+
+<div style="position:absolute;top:100px;left:10px">
+    <a>
+        <span (click)="expand($event)" [ngClass]="{'fa fa-fw fa-chevron-down': !_layout.topTopShow}"></span>
+        <span (click)="collapse($event)" [ngClass]="{'fa fa-fw fa-chevron-up': _layout.topTopShow}"></span>
+    </a>
+</div>

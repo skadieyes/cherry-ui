@@ -1,0 +1,543 @@
+
+    <section class="markdown">
+        <p>这部分包括文本输入框和文本域输入框,为用户提供输入的功能。我们的输入组件考虑了不同的输入情境,为不同的情境提供支持,并且使用这个输入组件你依然可以访问到底层的input标签。</p>
+        <h2>引入</h2>
+        <cherry-code>import &#123;InputModule&#125; from '~/cherry-ui;</cherry-code>
+
+        <h2>基础用法</h2>
+        <p>在input标签上添加cherry-input指令即可</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow">
+                    <div cherry-col [uiSpan]="4">
+                        <input cherry-input placeholder="正常状态">
+                    </div>
+                    <div cherry-col [uiSpan]="4">
+                        <input cherry-input placeholder="禁用状态" [disabled]="true">
+                    </div>
+                    <div cherry-col [uiSpan]="4">
+                        <input cherry-input placeholder="只读状态" [readonly]="true">
+                    </div>
+                </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;input cherry-input placeholder="正常状态"&gt;
+&lt;input cherry-input placeholder="禁用状态" [disabled]="true"&gt;
+&lt;input cherry-input placeholder="只读状态" [readonly]="true"&gt;
+
+            </cherry-code>
+        </section>
+
+        <h2>尺寸大小</h2>
+        <p>使用uiSize来使用尺寸不同的输入框</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow">
+                    <div cherry-col [uiSpan]="4">
+                        <input cherry-input placeholder="sm" [uiSize]="'sm'">
+                    </div>
+                    <div cherry-col [uiSpan]="4">
+                        <input cherry-input placeholder="normal">
+                    </div>
+                    <div cherry-col [uiSpan]="4">
+                        <input cherry-input placeholder="lg" [uiSize]="'lg'">
+                    </div>
+                </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;input cherry-input placeholder="sm" [uiSize]="'sm'"&gt;
+&lt;input cherry-input placeholder="normal"&gt;
+&lt;input cherry-input placeholder="lg" [uiSize]="'lg'"&gt;
+
+            </cherry-code>
+        </section>
+
+        <h2>文本域</h2>
+        <p>使用uiAutosize来让文本域可以自动变化高度 可以设置uiAotosize的最小行数和最大行数</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow ">
+                        <div cherry-col [uiSpan]="4">
+                                <textarea cherry-input placeholder="我是一个普通的文本域" rows="3" cols="3"></textarea>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <textarea cherry-input placeholder="我是一个自动变化高度的文本域" [uiAutosize]="true"></textarea>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <textarea cherry-input placeholder="我是最小行数为4，最大行数为6的自动变化高度的文本域" [uiAutosize]="{minRows: 4, maxRows: 6}" ></textarea>
+                            </div>
+                </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;textarea cherry-input placeholder="我是一个普通的文本域" rows="3" cols="3"&gt;&lt;/textarea&gt;
+&lt;textarea cherry-input placeholder="我是一个自动变化高度的文本域" [uiAutosize]="true"&gt;&lt;/textarea&gt;
+&lt;textarea cherry-input placeholder="我是最小行数为4，最大行数为6的自动变化高度的文本域" [uiAutosize]="&#123;minRows: 4, maxRows: 6&#125;"&gt;&lt;/textarea&gt;
+
+            </cherry-code>
+        </section>
+
+        <h2>Group</h2>
+        <p>为了满足更丰富的输入框展现形式和组合方式而存在的输入框容器,使用cherry-input-group标签来使用group容器</p>
+
+        <h3>前置/后置标签组合</h3>
+        <p>使用ng-template来运用前置后置标签</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow ">
+                        <div cherry-col [uiSpan]="4">
+                                <cherry-input-group>
+                                    <ng-template #addOnBefore>http://</ng-template>
+                                    <input cherry-input placeholder="前置">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group>
+                                    <input cherry-input placeholder="后置">
+                                    <ng-template #addOnAfter>.com</ng-template>
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="6">
+                                <cherry-input-group>
+                                    <ng-template #addOnBefore>http://</ng-template>
+                                    <input cherry-input placeholder="前置/后置">
+                                    <ng-template #addOnAfter>.com</ng-template>
+                                </cherry-input-group>
+                            </div>
+                    </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-input-group&gt;
+    &lt;ng-template #addOnBefore&gt;http://&lt;/ng-template&gt;
+    &lt;input cherry-input placeholder="前置"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group&gt;
+    &lt;input cherry-input placeholder="后置"&gt;
+    &lt;ng-template #addOnAfter&gt;.com&lt;/ng-template&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group&gt;
+    &lt;ng-template #addOnBefore&gt;http://&lt;/ng-template&gt;
+    &lt;input cherry-input placeholder="前置/后置"&gt;
+    &lt;ng-template #addOnAfter&gt;.com&lt;/ng-template&gt;
+&lt;/cherry-input-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>前缀/后缀标签组合</h3>
+        <p>在输入框内加入前缀后缀标签</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow ">
+                        <div cherry-col [uiSpan]="4">
+                                <cherry-input-group>
+                                    <ng-template #prefix>
+                                        <i class="fa fa-user"></i>
+                                    </ng-template>
+                                    <input cherry-input placeholder="前缀">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group>
+                                    <ng-template #suffix>
+                                        <i class="fa fa-bar-chart"></i>
+                                    </ng-template>
+                                    <input cherry-input placeholder="后缀">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group>
+                                    <ng-template #prefix>
+                                        <i class="fa fa-user"></i>
+                                    </ng-template>
+                                    <input cherry-input placeholder="前缀/后缀">
+                                    <ng-template #suffix>
+                                        <i class="fa fa-bar-chart"></i>
+                                    </ng-template>
+                                </cherry-input-group>
+                            </div>
+                    </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-input-group&gt;
+    &lt;ng-template #prefix&gt;
+        &lt;i class="fa fa-user"&gt; &lt;/i&gt;
+    &lt;/ng-template&gt;
+    &lt;input cherry-input placeholder="前缀"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group&gt;
+    &lt;input cherry-input placeholder="后缀"&gt;
+    &lt;ng-template #suffix&gt;
+        &lt;i class="fa fa-chart"&gt; &lt;/i&gt;
+    &lt;/ng-template&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group&gt;
+    &lt;ng-template #prefix&gt;
+        &lt;i class="fa fa-user"&gt; &lt;/i&gt;
+    &lt;/ng-template&gt;
+    &lt;input cherry-input placeholder="前缀后缀"&gt;
+    &lt;ng-template #suffix&gt;
+        &lt;i class="fa fa-chart"&gt; &lt;/i&gt;
+    &lt;/ng-template&gt;
+&lt;/cherry-input-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>输入框组合</h3>
+        <p>使用uiCompact来把输入框进行紧密的组合</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow ">
+                        <div cherry-col [uiSpan]="6">
+                                <cherry-input-group>
+                                    <div cherry-col [uiSpan]="8">
+                                        <input cherry-input placeholder="name">
+                                    </div>
+                                    <div cherry-col [uiSpan]="8">
+                                        <input cherry-input placeholder="name2">
+                                    </div>
+                                    <div cherry-col [uiSpan]="8">
+                                        <input cherry-input placeholder="name2">
+                                    </div>
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="6">
+                                <cherry-input-group [uiCompact]="true">
+                                        <input cherry-input placeholder="name" style="width:30%">
+                                        <input cherry-input placeholder="name2" style="width:30%">
+                                        <input cherry-input placeholder="name3" style="width:30%">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="6">
+                                    <cherry-input-group [uiCompact]="true" >
+                                            <input cherry-input placeholder="起" style="width: 80px; text-align: center;">
+                                            <input cherry-input placeholder="~" style="width: 30px; border-left: 0px; pointer-events: none;">
+                                            <input cherry-input placeholder="止" style="width: 80px; text-align: center; border-left: 0px;">
+                                    </cherry-input-group>
+                                </div>
+                    </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-input-group&gt;
+    &lt;div cherry-col [uiSpan]="8"&gt;
+        &lt;input cherry-input placeholder="name"&gt;
+    &lt;/div&gt;
+    &lt;div cherry-col [uiSpan]="8"&gt;
+        &lt;input cherry-input placeholder="name"&gt;
+    &lt;/div&gt;
+    &lt;div cherry-col [uiSpan]="8"&gt;
+        &lt;input cherry-input placeholder="name"&gt;
+    &lt;/div&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group  [uiCompact]="true"&gt;
+    &lt;input cherry-input placeholder="name"  style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name2" style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name3" style="width:30%"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group  [uiCompact]="true"&gt;
+    &lt;input cherry-input placeholder="起" style="width: 80px; text-align: center;"&gt;
+    &lt;input cherry-input placeholder="~" style="width: 30px; border-left: 0px; pointer-events: none;"&gt;
+    &lt;input cherry-input placeholder="止" style="width: 80px; text-align: center; border-left: 0px;"&gt;
+&lt;/cherry-input-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>输入框组合尺寸大小</h3>
+        <p>使用uiSize来控制输入框组合的尺寸</p>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow ">
+                        <div cherry-col [uiSpan]="6">
+                                <cherry-input-group [uiCompact]="true" [uiSize]="'sm'">
+                                        <input cherry-input placeholder="sm" style="width:30%">
+                                        <input cherry-input placeholder="sm" style="width:30%">
+                                        <input cherry-input placeholder="sm" style="width:30%">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="6">
+                                <cherry-input-group [uiCompact]="true">
+                                        <input cherry-input placeholder="normal" style="width:30%">
+                                        <input cherry-input placeholder="normal" style="width:30%">
+                                        <input cherry-input placeholder="normal" style="width:30%">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="6">
+                                    <cherry-input-group [uiCompact]="true" [uiSize]="'lg'">
+                                            <input cherry-input placeholder="lg" style="width:30%">
+                                            <input cherry-input placeholder="lg" style="width:30%">
+                                            <input cherry-input placeholder="lg" style="width:30%">
+                                    </cherry-input-group>
+                                </div>
+                    </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-input-group  [uiCompact]="true" [uiSize]="'sm'"&gt;
+    &lt;input cherry-input placeholder="name"  style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name2" style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name3" style="width:30%"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group  [uiCompact]="true"&gt;
+    &lt;input cherry-input placeholder="name"  style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name2" style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name3" style="width:30%"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group  [uiCompact]="true" [uiSize]="'lg'"&gt;
+    &lt;input cherry-input placeholder="name"  style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name2" style="width:30%"&gt;
+    &lt;input cherry-input placeholder="name3" style="width:30%"&gt;
+&lt;/cherry-input-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>线型输入框</h3>
+        <p>使用uiLine来运用一个视觉上更简洁的输入框</p>
+        <blockquote>线型输入框中除了Input元素外还包括其他元素,所以需要group容器进行封装</blockquote>
+        <div class="cardBox">
+            <cherry-card>
+                <div cherry-row  [uiGutter]="16" class="demorow ">
+                        <div cherry-col [uiSpan]="4">
+                                <cherry-input-group [uiLine]="true">
+                                    <input cherry-input placeholder="normal">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group [uiLine]="true">
+                                    <input cherry-input placeholder="禁用" [disabled]="true">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group [uiLine]="true">
+                                    <input cherry-input placeholder="只读" [readonly]="true">
+                                </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group [uiLine]="true">
+                                    <ng-template #prefix>
+                                        <i class="fa fa-user"></i>
+                                    </ng-template>
+                                    <input cherry-input placeholder="前缀/后缀">
+                                    <ng-template #suffix>
+                                        <i class="fa fa-bar-chart"></i>
+                                    </ng-template>
+                                </cherry-input-group>
+                            </div>
+                    </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-input-group [uiLine]="true"&gt;
+        &lt;input cherry-input placeholder="normal"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group [uiLine]="true"&gt;
+    &lt;cherry-input placeholder="禁用" [disabled]="true"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group [uiLine]="true"&gt;
+    &lt;input cherry-input placeholder="只读" [readonly]="true"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group [uiLine]="true"&gt;
+    &lt;ng-template #prefix&gt;
+        &lt;i class="fa fa-user"&gt; &lt;/i&gt;
+    &lt;/ng-template&gt;
+    &lt;input cherry-input placeholder="前缀后缀"&gt;
+    &lt;ng-template #suffix&gt;
+        &lt;i class="fa fa-chart"&gt; &lt;/i&gt;
+    &lt;/ng-template&gt;
+&lt;/cherry-input-group&gt;
+            </cherry-code>
+        </section>
+
+        <h3>输入框文本组合</h3>
+        <p>提供垂直,flex两种文本展现方式,输入框获得焦点时,文本也能够和输入框一起获得焦点,uiLabel用来传入文本,uiLabelType可以选择展现方式</p>
+        <blockquote>使用时把组件的父元素的position设为relative</blockquote>
+        <div class="cardBox">
+            <cherry-card>
+                    <div cherry-row  [uiGutter]="16" class="demorow">
+                            <div cherry-col [uiSpan]="4">
+                                    <cherry-input-group [uiLabel]="'垂直'" [uiLabelType]="'row'">
+                                        <input cherry-input placeholder="row">
+                                    </cherry-input-group>
+                            </div>
+                            <div cherry-col [uiSpan]="4">
+                                <cherry-input-group [uiLine]="true" [uiLabel]="'垂直'" [uiLabelType]="'row'">
+                                    <input cherry-input placeholder="row">
+                                </cherry-input-group>
+                            </div>
+                        </div>
+<!--
+                        <div cherry-row  [uiGutter]="16" class="demorow">
+                                <div cherry-col [uiSpan]="6">
+                                        <cherry-input-group [uiLabel]="'水平'" [uiLabelType]="'col'">
+                                            <input cherry-input placeholder="col">
+                                        </cherry-input-group>
+                                </div>
+                                <div cherry-col [uiSpan]="6">
+                                    <cherry-input-group [uiLine]="true" [uiLabel]="'水平'" [uiLabelType]="'col'">
+                                        <input cherry-input placeholder="col">
+                                    </cherry-input-group>
+                                </div>
+                            </div> -->
+
+                            <div cherry-row  [uiGutter]="16" class="demorow">
+                                    <div cherry-col [uiSpan]="4">
+                                            <cherry-input-group  [uiLabel]="'flex'" [uiLabelType]="'flex'">
+                                                <input cherry-input placeholder="flex ">
+                                            </cherry-input-group>
+                                    </div>
+                                    <div cherry-col [uiSpan]="4">
+                                        <cherry-input-group [uiLine]="true" [uiLabel]="'flex'" [uiLabelType]="'flex'">
+                                            <input cherry-input placeholder="flex">
+                                        </cherry-input-group>
+                                    </div>
+
+                                </div>
+            </cherry-card>
+        </div>
+        <section>
+            <cherry-code [language]="html">
+&lt;cherry-input-group [uiLabel]="'垂直'" [uiLabelType]="'row'"&gt;
+        &lt;input cherry-input placeholder="row"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group [uiLine]="true" [uiLabel]="'垂直'" [uiLabelType]="'row'"&gt;
+        &lt;input cherry-input placeholder="row"&gt;
+&lt;/cherry-input-group&gt;
+<!--
+&lt;cherry-input-group [uiLabel]="'水平'" [uiLabelType]="'col'"&gt;
+        &lt;input cherry-input placeholder="col" style="width:80%"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group [uiLine]="true" [uiLabel]="'水平'" [uiLabelType]="'col'"&gt;
+        &lt;input cherry-input placeholder="col" style="width:80%"&gt;
+&lt;/cherry-input-group&gt; -->
+
+&lt;cherry-input-group [uiLabel]="'flex'" [uiLabelType]="'flex'"&gt;
+        &lt;input cherry-input placeholder="flex"&gt;
+&lt;/cherry-input-group&gt;
+
+&lt;cherry-input-group [uiLine]="true" [uiLabel]="'flex'" [uiLabelType]="'flex'"&gt;
+        &lt;input cherry-input placeholder="flex"&gt;
+&lt;/cherry-input-group&gt;
+            </cherry-code>
+        </section>
+
+        <h2>API</h2>
+        <h3>cherry-input</h3>
+        <table>
+                <thead>
+                  <tr>
+                    <th>参数</th>
+                    <th>说明</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>uiSize</td>
+                    <td>可设置输入框的大小</td>
+                    <td>String</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>uiAutosize</td>
+                    <td>textarea的特有Api</td>
+                    <td>boolean|object</td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>cherry-input-group</h3>
+              <table>
+                      <thead>
+                        <tr>
+                          <th>参数</th>
+                          <th>说明</th>
+                          <th>类型</th>
+                          <th>默认值</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                          <td>#addOnBefore</td>
+                          <td>设置前置标签</td>
+                          <td>ng-template</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>#addonAfter</td>
+                          <td>设置后置标签</td>
+                          <td>ng-template</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>#prefix</td>
+                          <td>设置前缀标签</td>
+                          <td>ng-template</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>#suffix</td>
+                          <td>设置后缀标签</td>
+                          <td>ng-template</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>uiCompact</td>
+                          <td>设置组合方式为紧密型</td>
+                          <td>boolean</td>
+                          <td>false</td>
+                        </tr>
+                        <tr>
+                          <td>uiSize</td>
+                          <td>设置组合的大小</td>
+                          <td>string</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>uiLine</td>
+                          <td>设置输入框为线型</td>
+                          <td>boolean</td>
+                          <td>false</td>
+                        </tr>
+                        <tr>
+                          <td>uiLabel</td>
+                          <td>设置输入框文本标签</td>
+                          <td>string</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>uiLabelType</td>
+                          <td>设置输入框文本标签类型</td>
+                          <td>string</td>
+                          <td>-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+    </section>
+
+

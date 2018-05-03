@@ -1,0 +1,97 @@
+<div *ngIf="!highSearch">
+        <div class="table-input-row" cherry-row [uiGutter]="16">
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <input cherry-input placeholder="请输入">
+                </span>
+            </div>
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户角色</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <cherry-select style="width: 100%" [(ngModel)]="selectedOption" [uiPlaceHolder]="'选择一条记录'" [uiAllowClear]="true">
+                        <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </span>
+            </div>
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <div class="table-input-button-box">
+                    <button class="table-input-button" cherry-button type="button" [uiType]="'primary'">
+                        <i class="table-input-button-icon fa fa-search"></i>查询</button>
+                </div>
+                <div class="table-input-button-box">
+                    <button class="table-input-button" cherry-button type="button" [uiOutlineType]="'primary'">
+                        <i class="table-input-button-icon fa fa-refresh"></i>重置</button>
+                </div>
+                <div class="table-input-button-box">
+                    <button class="table-input-button" cherry-button type="button" [uiType]="'link'" (click)="showHighSearch()">
+                        <i class="table-input-button-icon fa" [ngClass]="{'fa-angle-down':!highSearch,'fa-angle-up':highSearch}"></i>高级查询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="highSearch" >
+        <div class="table-input-row" cherry-row [uiGutter]="16">
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <input cherry-input placeholder="请输入">
+                </span>
+            </div>
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户角色</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <cherry-select style="width: 100%" [(ngModel)]="selectedOption" [uiPlaceHolder]="'选择一条记录'" [uiAllowClear]="true">
+                        <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </span>
+            </div>
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <input cherry-input placeholder="请输入">
+                </span>
+            </div>
+        </div>
+        <div class="table-input-row" cherry-row [uiGutter]="16">
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <input cherry-input placeholder="请输入">
+                </span>
+            </div>
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户角色</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <cherry-select style="width: 100%" [(ngModel)]="selectedOption" [uiPlaceHolder]="'选择一条记录'" [uiAllowClear]="true">
+                        <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </span>
+            </div>
+            <div cherry-col [uiSpan]="8" class="table-input-col">
+                <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                <span cherry-col [uiSpan]="16" class="table-input-box">
+                    <input cherry-input placeholder="请输入">
+                </span>
+            </div>
+        </div>
+        <div class="table-input-row" cherry-row [uiGutter]="16">
+            <div cherry-col [uiSpan]="8" [uiPush]="16" class="table-input-col table-input-col-reverse">
+                <div class="table-input-button-box ">
+                    <button class="table-input-button" cherry-button type="button" [uiType]="'primary'">
+                        <i class="table-input-button-icon fa fa-search"></i>查询</button>
+                </div>
+                <div class="table-input-button-box">
+                    <button class="table-input-button" cherry-button type="button" [uiOutlineType]="'primary'">
+                        <i class="table-input-button-icon fa fa-refresh"></i>重置</button>
+                </div>
+                <div class="table-input-button-box">
+                    <button class="table-input-button" cherry-button type="button" [uiType]="'link'" (click)="showHighSearch()">
+                        <i class="table-input-button-icon fa" [ngClass]="{'fa-angle-down':!highSearch,'fa-angle-up':highSearch}"></i>高级查询</button>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,247 @@
+<section class="markdown">
+    <p>便于展现有层级结构的数据，并且可以展开和收起。</p>
+    <h2>引入</h2>
+    <cherry-code>import &#123;TreeModule&#125; from '~/cherry-ui;</cherry-code>
+
+    <h2>基础用法</h2>
+    <p>普通状态,单选</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <span class="selected-label">
+                        当前选中 <span *ngIf="selectedFile">{{selectedFile.label}}</span>
+                    </span>
+                    <cherry-tree [value]="treeData0" [selectionMode]="'single'" [(selection)]="selectedFile"></cherry-tree>
+                </div>
+                <div cherry-col [uiSpan]="12">
+                    <span class="selected-label">
+                            当前选中 <span *ngIf="selectedFile1">{{selectedFile1.label}}</span>
+                    </span>
+                    <cherry-tree [value]="treeData1" [selectionMode]="'single'" [(selection)]="selectedFile1"></cherry-tree>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+ <cherry-code [language]="html">
+&lt;cherry-tree [value]="treeData0" [selectionMode]="'single'" [(selection)]="selectedFile"&gt;&lt;/cherry-tree&gt;
+&lt;cherry-tree [value]="treeData1" [selectionMode]="'single'" [(selection)]="selectedFile1"&gt;&lt;/cherry-tree&gt;
+
+当前选中 &lt;span *ngIf="selectedFile"&gt;&#123;selectedFile.label&#125;&lt;/span&gt;
+当前选中 &lt;span *ngIf="selectedFile1"&gt;&#123;selectedFile1.label&#125;&lt;/span&gt;
+
+</cherry-code>
+    <cherry-code [language]="typescript">
+treeData0: any;
+treeData1: any;
+selectedFile: any;
+selectedFile1: any;
+
+ngOnInit() &#123;
+    this.treeData0 =  [
+    &#123;
+        label: 'Documents',
+        data: 'Documents Folder',
+        children: [&#123;
+            label: 'Work',
+            data: 'Work Folder',
+            children: [&#123; label: 'Expenses', data: 'Expenses Document' &#125;, &#123; label: 'Resume', data: 'Resume Document' &#125;]
+            &#125;
+            ...
+        ]
+    &#125;
+    ];
+    this.treeData1 =  [
+    &#123;
+        label: 'Documents',
+        data: 'Documents Folder',
+        expandedIcon: 'fa-folder-open-o',
+        collapsedIcon: 'fa-folder-o',
+        expanded: true,
+        children: [&#123;
+            label: 'Work',
+            data: 'Work Folder',
+            expandedIcon: 'fa-folder-open-o',
+            collapsedIcon: 'fa-folder-o',
+            expanded: true,
+            children: [&#123; label: 'Expenses', icon: 'fa-file-o', data: 'Expenses Document' &#125;, &#123; label: 'Resume', icon: 'fa-file-o', data: 'Resume Document' &#125;]
+            &#125;
+        ...
+        ]
+    &#125;
+    ];
+        </cherry-code>
+
+    <h2>多选</h2>
+    <p>checkbox树,支持多选</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <span class="selected-label">
+                当前选中 <span *ngIf="selectedFile2" > <span class="item-label" *ngFor="let item of selectedFile2" >{{item.label}}</span></span>
+                    </span>
+                    <cherry-tree [value]="treeData2" [selectionMode]="'checkbox'" [(selection)]="selectedFile2"></cherry-tree>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+ <cherry-code [language]="html">
+&lt;cherry-tree [value]="treeData0" [selectionMode]="'checkbox'" [(selection)]="selectedFile"&gt;&lt;/cherry-tree&gt;
+
+当前选中 &lt;span *ngIf="selectedFile" &gt; &lt;span class="item-label" *ngFor="let item of selectedFile" &gt;&#123;item.label&#125;&lt;/span&gt;&lt;/span&gt;
+
+</cherry-code>
+
+<h2>拖拽</h2>
+<p>引入TreeDragDropService来让拖拽数节点改变数据结构</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <span class="selected-label">
+                    当前选中 <span *ngIf="selectedFile3" > {{selectedFile3.label}}</span>
+                    </span>
+                    <cherry-tree [value]="treeData3" (onNodeDrop)="nodeDorp()" [selectionMode]="'single'" [(selection)]="selectedFile3" draggableNodes="true" droppableNodes="true">
+
+                    </cherry-tree>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-tree [value]="treeData0" [selectionMode]="'single'" [(selection)]="selectedFile0" (onNodeDrop)="nodeDorp()" draggableNodes="true" droppableNodes="true"&gt;&lt;/cherry-tree&gt;
+
+当前选中 &lt;span *ngIf="selectedFile"&gt;&#123;selectedFile.label&#125;&lt;/span&gt;
+
+        </cherry-code>
+
+        <cherry-code [language]="typescript">
+import &#123; TreeDragDropService &#125; from '~cherry-ui';
+
+@Component(&#123;
+    ...
+    providers: [TreeDragDropService]
+&#125;)
+
+..
+nodeDorp() &#123;
+    console.log(this.treeData3);
+&#125;
+        </cherry-code>
+<h2>节点的展开，收起</h2>
+<p>通过改变节点的expanded属性来控制节点展开和收起</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <span class="selected-label">
+                            当前选中 <span *ngIf="selectedFile4" > <span class="item-label" *ngFor="let item of selectedFile4" >{{item.label}}</span></span>
+                    </span>
+                    <div class="select-button">
+                        <button cherry-button type="button" [uiType]="'primary'" (click)="expandAll()">展开</button>
+                        <button cherry-button type="button" [uiOutlineType]="'primary'" (click)="collapseAll()">收起</button></div>
+                    <cherry-tree [value]="treeData4" [selectionMode]="'checkbox'" [(selection)]="selectedFile4">
+
+                    </cherry-tree>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+
+<cherry-code [language]="html">
+&lt;button cherry-button type="button" [uiType]="'primary'" (click)="expandAll()"&gt;展开&lt;/button&gt;
+&lt;button cherry-button type="button" [uiOutlineType]="'primary'" (click)="collapseAll()"&gt;收起&lt;/button&gt;
+
+&lt;cherry-tree [value]="treeData0" [selectionMode]="'checkbox'" [(selection)]="selectedFile"&gt;&lt;/cherry-tree&gt;
+
+当前选中 &lt;span *ngIf="selectedFile" &gt; &lt;span class="item-label" *ngFor="let item of selectedFile" &gt;&#123;item.label&#125;&lt;/span&gt;&lt;/span&gt;
+
+</cherry-code>
+
+<cherry-code [language]="typescript">
+expandAll() &#123;
+    this.treeData0.forEach(node => &#123;
+    this.expandRecursive(node, true);
+    &#125;);
+&#125;
+
+collapseAll() &#123;
+    this.treeData0.forEach(node => &#123;
+    this.expandRecursive(node, false);
+    &#125;);
+&#125;
+private expandRecursive(node: any, isExpand: boolean) &#123;
+    node.expanded = isExpand;
+    if (node.children) &#123;
+        node.children.forEach(childNode => &#123;
+    this.expandRecursive(childNode, isExpand);
+    &#125;);
+    &#125;
+&#125;
+
+</cherry-code>
+
+<h2>API</h2>
+<h3>cherry-tree</h3>
+<table>
+        <thead>
+          <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>value</td>
+            <td>传入树组件的数据</td>
+            <td>Array</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>selection</td>
+            <td>选中的树节点，支持双向绑定</td>
+            <td>any</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>selectionMode</td>
+            <td>设置树的选择方式为单选或多选</td>
+            <td>'single'|'checkbox'</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>onNodeSelect</td>
+            <td>节点选择事件</td>
+            <td>Func</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>onNodeUnselect</td>
+            <td>节点取消选择事件</td>
+            <td>Func</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>onNodeExpand</td>
+            <td>节点展开事件</td>
+            <td>Func</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>onNodeCollapse</td>
+            <td>节点收起事件</td>
+            <td>Func</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>onNodeDrop</td>
+            <td>节点拖拽事件</td>
+            <td>Func</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+</section>

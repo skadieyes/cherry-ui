@@ -1,0 +1,36 @@
+<div class="loginBody">
+    <div class="loginBox">
+        <div class="loginCardBox">
+            <div class="contentBox">
+                <div class="logoBox">
+                </div>
+                <div class="formBox">
+                    <p class="formTitle">登录</p>
+                    <cherry-loginform></cherry-loginform>
+                    <div class="linkBox">
+                        <button cherry-button type="button" [uiType]="'link'" (click)="getPasswordForm()">修改密码</button>
+                    </div>
+                </div>
+                <div class="footerbox"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="passwordBox" [@passwordShowAnimation]="passwordShow ? 'visible' : 'hidden'">
+
+        <div class="passwordCardBox">
+            <div class="contentBox">
+                <div class="logoBox">
+                </div>
+                <div class="formBox">
+                    <p class="formTitle">修改密码</p>
+                    <cherry-passwordform></cherry-passwordform>
+                    <div class="linkBox">
+                        <button cherry-button type="button" [uiType]="'link'" (click)="getloginForm()">返回登录</button>
+                    </div>
+                </div>
+                <div class="footerbox"></div>
+            </div>
+        </div>
+    </div>
+</div>

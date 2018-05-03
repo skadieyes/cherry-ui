@@ -1,0 +1,28 @@
+<div style="float:right;" *ngIf="_tabBarExtraContent">
+    <div class="cherry-ui-tabs-extra-content">
+        <ng-template [ngTemplateOutlet]="_tabBarExtraContent">
+        </ng-template>
+    </div>
+</div>
+<div class="cherry-ui-tabs-nav-container" [class.cherry-ui-tabs-nav-container-scrolling]="_showPagination" #tabListContainer>
+    <span class="cherry-ui-tabs-tab-prev cherry-ui-tabs-tab-arrow-show" (click)="_scrollHeader('before')" [class.cherry-ui-tabs-tab-btn-disabled]="_disableScrollBefore"
+        *ngIf="_showPagination">
+        <span class="cherry-ui-tabs-tab-prev-icon">
+            <i class="fa" [class.fa-chevron-left]="uiPositionMode == 'horizontal'" [class.fa-chevron-up]="uiPositionMode !== 'horizontal'"></i>
+        </span>
+    </span>
+    <span class="cherry-ui-tabs-tab-next cherry-ui-tabs-tab-arrow-show" (click)="_scrollHeader('after')" [class.cherry-ui-tabs-tab-btn-disabled]="_disableScrollAfter"
+        *ngIf="_showPagination">
+        <span class="cherry-ui-tabs-tab-next-icon">
+            <i class="fa" [class.fa-chevron-right]="uiPositionMode == 'horizontal'" [class.fa-chevron-down]="uiPositionMode !== 'horizontal'"></i>
+        </span>
+    </span>
+    <div class="cherry-ui-tabs-nav-wrap">
+        <div class="cherry-ui-tabs-nav-scroll">
+            <div class="cherry-ui-tabs-nav" [class.cherry-ui-tabs-nav-animated]="uiAnimated" #tabList (cdkObserveContent)="_onContentChanges()">
+                <div cherryTabsInkBar [hidden]="uiHideBar" [uiAnimated]="uiAnimated" [uiPositionMode]="uiPositionMode" style="display: block;"></div>
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

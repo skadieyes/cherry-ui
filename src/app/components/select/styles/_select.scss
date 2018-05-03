@@ -1,0 +1,10 @@
+.cherry-ui-select{
+   @include select();
+}
+
+.cherry-ui-select-dropdown{
+    @include select-dropdown();
+}
+.cdk-overlay-dark-backdrop{
+  background: none;
+}

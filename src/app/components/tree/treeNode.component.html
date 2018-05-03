@@ -1,0 +1,64 @@
+<ng-template [ngIf]="node">
+    <li *ngIf="tree.droppableNodes" class="cherry-ui-treenode-droppoint" [ngClass]="{'cherry-ui-treenode-droppoint-active cherry-ui-state-highlight':draghoverPrev}" (drop)="onDropPoint($event,-1)" (dragover)="onDropPointDragOver($event)" (dragenter)="onDropPointDragEnter($event,-1)"
+        (dragleave)="onDropPointDragLeave($event)"></li>
+    <li *ngIf="!tree.horizontal" [ngClass]="['cherry-ui-treenode',node.styleClass||'', isLeaf() ? 'cherry-ui-treenode-leaf': '']">
+        <div class="cherry-ui-treenode-content" (click)="onNodeClick($event, node)" (contextmenu)="onNodeRightClick($event)" (touchend)="onNodeTouchEnd()" (drop)="onDropNode($event)" (dragover)="onDropNodeDragOver($event)" (dragenter)="onDropNodeDragEnter($event)"
+            (dragleave)="onDropNodeDragLeave($event)" [ngClass]="{'cherry-ui-treenode-selectable':tree.selectionMode && node.selectable !== false,'cherry-ui-treenode-dragover':draghoverNode, 'cherry-ui-treenode-content-selected':isSelected()}" [draggable]="tree.draggableNodes"
+            (dragstart)="onDragStart($event)" (dragend)="onDragStop($event)">
+            <span *ngIf="node.children" class="cherry-ui-tree-toggler  fa fa-fw" [ngClass]="{'fa-caret-right':!node.expanded,'fa-caret-down':node.expanded}" (click)="toggle($event)"></span
+            ><div class="cherry-ui-chkbox" *ngIf="tree.selectionMode == 'checkbox'"><div class="cherry-ui-chkbox-box cherry-ui-widget cherry-ui-corner-all cherry-ui-state-default">
+            <label cherry-checkbox [(ngModel)]="checkBoxNode" [uiIndeterminate]="notAll">
+            </label>
+        </div>
+        </div><span [class]="getIcon()" *ngIf="node.icon||node.expandedIcon||node.collapsedIcon"></span
+            ><span class="cherry-ui-treenode-label cherry-ui-corner-all"
+                [ngClass]="{'cherry-ui-state-highlight':isSelected()}">
+                    <span *ngIf="!tree.getTemplateForNode(node)">{{node.label}}</span>
+            <span *ngIf="tree.getTemplateForNode(node)">
+                        <ng-container *ngTemplateOutlet="tree.getTemplateForNode(node); context: {$implicit: node}"></ng-container>
+                    </span>
+            </span>
+        </div>
+        <ul class="cherry-ui-treenode-children" [@treenode]="node.children && node.expanded ? 'visible' : 'hidden'">
+            <cherry-treenode *ngFor="let childNode of node.children;let firstChild=first;let lastChild=last; let index=index" [node]="childNode" [parentNode]="node" [firstChild]="firstChild" [lastChild]="lastChild" [index]="index"></cherry-treenode>
+        </ul>
+    </li>
+    <li *ngIf="tree.droppableNodes&&lastChild" class="cherry-ui-treenode-droppoint" [ngClass]="{'cherry-ui-treenode-droppoint-active cherry-ui-state-highlight':draghoverNext}" (drop)="onDropPoint($event,1)" (dragover)="onDropPointDragOver($event)" (dragenter)="onDropPointDragEnter($event,1)"
+        (dragleave)="onDropPointDragLeave($event)"></li>
+    <table *ngIf="tree.horizontal" [class]="node.styleClass">
+        <tbody>
+            <tr>
+                <td class="cherry-ui-treenode-connector" *ngIf="!root">
+                    <table class="cherry-ui-treenode-connector-table">
+                        <tbody>
+                            <tr>
+                                <td [ngClass]="{'cherry-ui-treenode-connector-line':!firstChild}"></td>
+                            </tr>
+                            <tr>
+                                <td [ngClass]="{'cherry-ui-treenode-connector-line':!lastChild}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td class="cherry-ui-treenode" [ngClass]="{'cherry-ui-treenode-collapsed':!node.expanded}">
+                    <div class="cherry-ui-treenode-content cherry-ui-state-default cherry-ui-corner-all" [ngClass]="{'cherry-ui-treenode-selectable':tree.selectionMode,'cherry-ui-state-highlight':isSelected()}" (click)="onNodeClick($event ,node)" (contextmenu)="onNodeRightClick($event)"
+                        (touchend)="onNodeTouchEnd()">
+                        <span class="cherry-ui-tree-toggler fa fa-fw" [ngClass]="{'fa-plus':!node.expanded,'fa-minus':node.expanded}" *ngIf="!isLeaf()" (click)="toggle($event)"></span
+                        ><span [class]="getIcon()" *ngIf="node.icon||node.expandedIcon||node.collapsedIcon"></span
+                        ><span class="cherry-ui-treenode-label cherry-ui-corner-all">
+                                <span *ngIf="!tree.getTemplateForNode(node)">{{node.label}}</span>
+                        <span *ngIf="tree.getTemplateForNode(node)">
+                                <ng-container *ngTemplateOutlet="tree.getTemplateForNode(node); context: {$implicit: node}"></ng-container>
+                                </span>
+                        </span>
+                    </div>
+                </td>
+                <td class="cherry-ui-treenode-children-container" *ngIf="node.children && node.expanded" [style.display]="node.expanded ? 'table-cell' : 'none'">
+                    <div class="cherry-ui-treenode-children">
+                        <cherry-treenode *ngFor="let childNode of node.children;let firstChild=first;let lastChild=last;" [node]="childNode" [firstChild]="firstChild" [lastChild]="lastChild"></cherry-treenode>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

@@ -1,0 +1,7 @@
+<div class="{{theme}}">
+    <div [ngClass]="{'cherry-ui-menu cherry-ui-corner-all cherry-ui-blockmenubar cherry-ui-helper-clearfix':true}" [class]="styleClass" [ngStyle]="style">
+        <cherry-blockmenubarsub [item]="model" root="root" (itemClickEvent)="componentClick($event)">
+            <ng-content></ng-content>
+        </cherry-blockmenubarsub>
+    </div>
+</div>

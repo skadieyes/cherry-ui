@@ -1,0 +1,40 @@
+@import './../resource/markdown.less';
+.gutter-box {
+    background: #00A0E9;
+    padding: 5px 0;
+}
+
+.box-margin {
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 25%;
+}
+
+.colbox {
+    background-color: #f3f7f7;
+    height: 50px;
+    margin: 10px 0px;
+}
+.colbox_next {
+    background-color: rgb(208, 226, 241);
+    height: 50px;
+    margin: 10px 0px;
+}
+
+.colbox_other {
+    background-color: rgb(208, 226, 241);
+    height: 80px;
+    margin: 10px 0px;
+}
+.rowbox {
+    height: 100px;
+    background-color: #cccccc;
+}
+
+
+.cardBox {
+    width: 100%;
+    margin: 30px 0;
+
+}
+

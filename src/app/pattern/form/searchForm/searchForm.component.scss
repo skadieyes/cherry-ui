@@ -1,0 +1,25 @@
+.table-input-row {
+    padding: 10px;
+    .table-input-col {
+        display: flex;
+        .table-input-label {
+            font-size: 14px;
+            color: #495057;
+            padding:4px 0 0;
+        }
+        .table-input-button-box{
+            margin: 0 10px;
+        .table-input-button-icon{
+            padding-right: 5px;
+
+        }
+        .table-input-button{
+            min-width: 80px;
+        }
+    }
+    }
+    .table-input-col-reverse{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}

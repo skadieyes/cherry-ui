@@ -1,0 +1,49 @@
+.cherry-ui-tabs{
+    @include tab();
+}
+@include tabCard(cherry-ui-tabs);
+.cherry-ui-tabs-top .cherry-ui-tabs-ink-bar-animated,
+.cherry-ui-tabs-bottom .cherry-ui-tabs-ink-bar-animated {
+  transition: transform .3s $ease-in-out, width .3s $ease-in-out;
+}
+
+.cherry-ui-tabs-left .cherry-ui-tabs-ink-bar-animated,
+.cherry-ui-tabs-right .cherry-ui-tabs-ink-bar-animated {
+  transition: transform .3s $ease-in-out, height .3s $ease-in-out;
+}
+
+.no-flex,
+.cherry-ui-tabs-no-animation,
+.cherry-ui-tabs-vertical {
+  > .cherry-ui-tabs-content {
+    &-animated {
+      transform: none !important;
+      margin-left: 0 !important;
+    }
+    > .cherry-ui-tabs-tabpane-inactive {
+      display: none;
+    }
+  }
+}
+
+cherry-tab {
+    display: block;
+  }
+
+  cherry-tabs-nav {
+    display: block;
+  }
+
+  cherry-tabset {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    .cherry-ui-tabs {
+      height: 100%;
+    }
+  }
+
+  cherry-tab-body{
+    display: block;
+  }
+

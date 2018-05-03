@@ -1,0 +1,32 @@
+<div class="{{theme}}">
+    <div class="architecture-top" [@TopAnimation]="_layout.topTopShow ? 'down' : 'up'">
+        <div class="architecture-top-left">
+            <img #img [src]="logoSrc" class="top-left-logo" alt="cherry">
+            <span class="logoText">{{logoText}}</span>
+            <a class="top-left-scoll-icon" *ngIf="headerShow">
+                <span (click)="expand($event)" [ngClass]="{'fa fa-fw fa-chevron-down': !_layout.topTopShow}"></span>
+                <span (click)="collapse($event)" [ngClass]="{'fa fa-fw fa-chevron-up': _layout.topTopShow}"></span>
+            </a>
+        </div>
+        <div class="architecture-top-center">
+            <div class="top-center-menu">
+                <cherry-flexiblemenu [activeItem]="activeItem" [model]="centerModel" (itemClickEvent)="topCenterMenuClick($event)" *ngIf="top_Center_Menu_HasChild" [flexFixed]="menuFixed" [menuParent]="menuParent"></cherry-flexiblemenu>
+            </div>
+        </div>
+        <div class="architecture-top-right">
+            <span class="top-right-after" *ngIf="_rightAfter">
+                <ng-template [ngTemplateOutlet]="_rightAfter">
+                </ng-template>
+            </span>
+            <div class="top-right-menu">
+                <cherry-dropdown [menus]="rightModel" direction="bottom-right" (itemClickEvent)="topRightMenuClick($event)"></cherry-dropdown>
+            </div>
+            <span class="top-right-before" *ngIf="_rightBefore">
+                <ng-template [ngTemplateOutlet]="_rightBefore">
+                </ng-template>
+            </span>
+
+        </div>
+    </div>
+    <div class="architecture-top-bottom" *ngIf="topBottomShow">top-bottom</div>
+</div>

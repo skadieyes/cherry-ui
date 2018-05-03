@@ -1,0 +1,24 @@
+<ul class="cherry-ui-helper-reset cherry-ui-accordion-menu-list" [@submenu]="expanded ? 'visible' : 'hidden'">
+    <ng-template ngFor let-child [ngForOf]="item.items">
+        <li *ngIf="child.separator" class="cherry-ui-menu-separator cherry-ui-widget-content cherry-ui-accordion-menuitem">
+            <li *ngIf="!child.separator" class="cherry-ui-corner-all cherry-ui-accordion-menuitem" [ngClass]="{'cherry-ui-menu-parent':child.items}" [class]="child.styleClass" [ngStyle]="child.style">
+                <a *ngIf="!child.routerLink" [href]="child.url||'#'" class="cherry-ui-menuitem-link cherry-ui-corner-all cherry-ui-accordionmenuitem-link" [attr.tabindex]="item.expanded ? null : '-1'" [ngClass]="{'cherry-ui-menuitem-link-hasicon':child.icon&&child.items,'cherry-ui-state-disabled':child.disabled, 'cherry-ui-state-active':child==activeItem}"
+                    (click)="handleClick($event,child); chlidClick($event,child,child.items)" [attr.target]="child.target" [attr.title]="child.title">
+                    <span class="cherry-ui-menuitem-icon fa fa-fw" [ngClass]="child.icon" *ngIf="child.icon"></span
+                ><span class="cherry-ui-menuitem-text">{{child.label}}</span>
+                    <span class="cherry-ui-searchmenu-icon fa fa-fw" [ngClass]="{'fa-angle-down':!child.expanded,'fa-angle-up':child.expanded}" *ngIf="child.items"></span
+                >
+            </a>
+            <a *ngIf="child.routerLink" [routerLink]="child.routerLink"  [routerLinkActiveOptions]="child.routerLinkActiveOptions||{exact:false}"
+                [ngClass]="{'cherry-ui-menuitem-link-hasicon':child.icon&&child.items,'cherry-ui-state-disabled':child.disabled}" [attr.tabindex]="item.expanded ? null : '-1'"
+                (click)="handleClick($event,child); chlidClick($event,child,child.items)" class="cherry-ui-menuitem-link cherry-ui-corner-all"
+                 [routerLinkActive]="'cherry-ui-state-accordionmenu-active'" [attr.target]="child.target" [attr.title]="child.title">
+               <span class="cherry-ui-menuitem-icon fa fa-fw" [ngClass]="child.icon" *ngIf="child.icon"></span
+                ><span class="cherry-ui-menuitem-text">{{child.label}}</span>
+                    <span class="cherry-ui-searchmenu-icon fa fa-fw" [ngClass]="{'fa-angle-down':!child.expanded,'fa-angle-up':child.expanded}" *ngIf="child.items"></span
+                >
+            </a>
+            <cherry-searchsub [item]="child" [expanded]="child.expanded" *ngIf="child.items" (itemClickEvent)="componentClick($event)" ></cherry-searchsub>
+        </li>
+    </ng-template>
+</ul>

@@ -1,0 +1,11 @@
+.cherry-ui-paginator {
+    @include pagination();
+}
+
+.cherry-ui-paginator-left {
+    text-align: left;
+}
+
+.cherry-ui-paginator-right {
+    text-align: right;
+}

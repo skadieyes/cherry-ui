@@ -1,0 +1,103 @@
+@import '../../../../assets/sass/theme/theme_variables';
+.architecture-top,
+{
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 12;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .18);
+    .architecture-top-left {
+        width: 300px;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        .logoText{
+            color: #fff;
+            position: relative;
+            padding-left: 10px;
+            font-size: 20px;
+            top: 40%;
+        }
+        .top-left-logo {
+            float: left;
+            position: relative;
+            height: 70%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 20px;
+        }
+        .top-left-scoll-icon {
+            font-size: 14px;
+            opacity: 0.9;
+            float: right;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            margin-right: 10px;
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+    .architecture-top-center {
+        width: calc(100% - 600px);
+        position: relative;
+        right: 0;
+        height: 100%;
+        left: 300px;
+        .top-center-menu {
+            margin-left: 50px;
+        }
+    }
+    .architecture-top-right {
+        width: 300px;
+        position: absolute;
+        height: 100%;
+        right: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        .top-right-after{
+            padding-right: 30px;
+        }
+        .top-right-menu{
+            padding-right: 20px;
+        }
+        .top-right-before{
+           padding-right: 20px;
+        }
+    }
+}
+
+.architecture-top-bottom {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    z-index: 999999;
+}
+
+@mixin theme( $name, $headerBgColor, $headerTextColor, $stateActiveColor) {
+    .#{$name} {
+        .architecture-top,
+        {
+            background: $headerBgColor;
+            .architecture-top-left {
+                .top-left-scoll-icon {
+                    color: $headerTextColor;
+                    &:hover {
+                        color: $headerTextColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import '../../../../assets/sass/theme/theme';

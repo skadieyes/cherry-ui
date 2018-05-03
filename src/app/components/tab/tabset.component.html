@@ -1,0 +1,18 @@
+<div [ngClass]="_classMap" #hostContent>
+    <cherry-tabs-nav #tabNav [uiSize]="uiSize" [uiType]="uiType" [uiShowPagination]="uiShowPagination" [uiPositionMode]="_tabPositionMode"
+        [uiAnimated]="inkBarAnimated" [uiHideBar]="uiHide" [selectedIndex]="uiSelectedIndex">
+        <ng-template #tabBarExtraContent>
+            <ng-template [ngTemplateOutlet]="uiTabBarExtraTemplate || uiTabBarExtraContent"></ng-template>
+        </ng-template>
+        <div cherryTabLabel [class.cherry-ui-tabs-tab-active]="(uiSelectedIndex == i)&&!uiHide" [disabled]="tab.disabled" (click)="clickLabel(i)"
+            *ngFor="let tab of _tabs; let i = index">
+            <ng-template [ngTemplateOutlet]="tab._tabHeading"></ng-template>
+        </div>
+    </cherry-tabs-nav>
+    <div class="cherry-ui-tabs-content" #tabContent [class.cherry-ui-tabs-content-animated]="tabPaneAnimated" [class.cherry-ui-tabs-content-no-animated]="!tabPaneAnimated"
+        [style.margin-left.%]="tabPaneAnimated&&(-uiSelectedIndex*100)">
+        <cherry-tab-body class="cherry-ui-tabs-tabpane" [class.cherry-ui-tabs-tabpane-active]="(uiSelectedIndex == i)&&!uiHide" [class.cherry-ui-tabs-tabpane-inactive]="(uiSelectedIndex != i)||uiHide"
+            [content]="tab.content" *ngFor="let tab of _tabs; let i = index">
+        </cherry-tab-body>
+    </div>
+</div>

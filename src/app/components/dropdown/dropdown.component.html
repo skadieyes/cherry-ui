@@ -1,0 +1,34 @@
+<div class="cherry-dropdown">
+
+    <a *ngFor="let menu of menus" class="cherry-ui-dropdown" #container (mouseover)="onMouseover()" (mouseout)="onMouseout()" (click)="onParentClick(menu)">
+        <cherry-tooltip [uiTitle]="menu.label" [uiPlacement]="'bottom'">
+            <a cherryTooltip *ngIf="menu.routerLink" [routerLink]="menu.routerLink" class="cherry-ui-dropdown-header" [class.active]="isOpen" (click)="open(menu,$event)">
+                <span class="cherry-ui-dropdownmenu-icon fa fa-fw" [ngClass]="menu.icon" *ngIf="menu.icon"></span>
+            </a>
+            <a cherryTooltip *ngIf="menu.url" [href]="menu.url" class="cherry-ui-dropdown-header" [class.active]="isOpen" (click)="open(menu,$event)">
+                <span class="cherry-ui-dropdownmenu-icon fa fa-fw" [ngClass]="menu.icon" *ngIf="menu.icon"></span>
+            </a>
+            <a cherryTooltip *ngIf="!menu.url&&!menu.routerLink" class="cherry-ui-dropdown-header" [class.active]="isOpen" (click)="open(menu,$event)">
+                <span class="cherry-ui-dropdownmenu-icon fa fa-fw" [ngClass]="menu.icon" *ngIf="menu.icon"></span>
+            </a>
+        </cherry-tooltip>
+
+        <div #dropdownMenu class="cherry-ui-dropdown-menu cherry-ui-dropdown-bottom-right" [@dropdownState]="isOpen&&clickitem==menu ? 'active' : 'inactive'">
+            <ul *ngIf="menu.items">
+                <li *ngFor="let menuitem of menu.items" (click)="onItemClick(menuitem)">
+                    <a *ngIf="menuitem.routerLink" [routerLink]="menuitem.routerLink" [attr.target]="menuitem.target">
+                        <i *ngIf="menuitem.icon" class="fa {{ menuitem.icon}}"></i> {{menuitem.label}}
+                    </a>
+                    <a *ngIf="!menuitem.routerLink" [href]="menuitem.url || '#'" (click)="clickDisabled($event, menuitem)" [attr.target]="menuitem.target">
+                        <i *ngIf="menuitem.icon" class="fa {{ menuitem.icon}}"></i> {{menuitem.label}}
+                    </a>
+                </li>
+            </ul>
+            <div *ngIf="!menu" class="cherry-ui-dropdown-wrapper" (click)="onItemClick()">
+                <ng-content></ng-content>
+            </div>
+        </div>
+
+    </a>
+
+</div>

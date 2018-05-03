@@ -1,0 +1,178 @@
+@import '../../../../assets/sass/theme/theme_variables';
+@import '../../../../example/resource/markdown.less';
+.architecture-boxup {
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: #fff;
+    top: 70px;
+    bottom: 0;
+    position: relative;
+    .architecture-body {
+        width: calc(100% - 300px);
+        height: calc(100%);
+        position: relative;
+        bottom: 0;
+        top: 0;
+        left: 300px;
+        right: 0;
+        display: flex;
+        .architecture-right {
+            background-color: #fff;
+            width: 350px;
+            position: relative;
+            height: calc(100% - 70px);
+            left: 0;
+            right: 0;
+        }
+        .architecture-center {
+            background-color: #fff;
+            width: 100%;
+            position: relative;
+            right: 0;
+            height: 100%;
+            left: 0;
+            .architecture-center-body {
+                position: relative;
+                height: calc(100% - 30px);
+                .architecture-center-content {
+                    min-height: 100%;
+                    padding: 15px;
+                }
+                .architecture-bottom {
+                    width: 100%;
+                    height: 30px;
+                    display: block;
+                    z-index: 0;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}
+
+.center-nav-box {
+    padding: 0 0 15px 0;
+    display: flex;
+    flex-direction: row;
+    .bread-box {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        width: 90%;
+        right: 0;
+        align-items: center;
+        .current-item {
+            cursor: default;
+        }
+    }
+    .title-box {
+        width: 50%;
+        padding-right: 15px;
+    }
+    .center-title {
+        color: #4d4c4c;
+        font-weight: 500;
+        line-height: 40px;
+        margin-bottom: 24px;
+        margin-top: 8px;
+        font-family: 微软雅黑;
+        font-size: 24px;
+    }
+}
+
+.architecture-left::-webkit-scrollbar {
+    display: none
+}
+
+.architecture-left {
+    background-color: #fff;
+    width: 300px;
+    height: calc(100% - 70px);
+    position: fixed;
+    display: block;
+    top: 70px;
+    z-index: 10;
+    box-shadow: 3px 0px 15px rgba(0, 0, 0, .18);
+    overflow: auto;
+    .left-header {
+        height: 70px;
+        cursor: pointer;
+        .left-header-content {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            .left-header-icon {
+                margin-left: 10px;
+                font-size: 28px;
+            }
+            .left-header-fa-icon {
+                color: #000;
+                opacity: 0.6;
+            }
+            .left-header-text {
+                margin-left: 10px;
+                color: #000;
+                opacity: 0.7;
+                font-size: 18px;
+                margin-top: 3px;
+            }
+            .left-headersamll-icon {
+                margin-left: 14px;
+                font-size: 28px;
+            }
+            .left-header-expandicon {
+                float: right;
+                margin-right: 10px;
+                color: #000;
+                font-size: 14px;
+                opacity: 0.6;
+                margin-top: 8px;
+                &:hover {
+                    color: #000;
+                    opacity: 0.3;
+                }
+            }
+        }
+    }
+    .left-search {
+        width: 90%;
+        z-index: 2;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .accordionmenu_box {
+        z-index: 1;
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        padding-left: 15px;
+    }
+}
+
+.bottom-text {
+    margin-right: 10px;
+    color: $headerTextColor;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+@mixin theme( $name, $headerBgColor, $headerTextColor, $stateActiveColor) {
+    .#{$name} {
+        width: 100%;
+        height: 100%;
+        .architecture-boxup {
+            .architecture-body {
+                .architecture-center {
+                    .architecture-bottom {
+                        background: $headerBgColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import '../../../../assets/sass/theme/theme';

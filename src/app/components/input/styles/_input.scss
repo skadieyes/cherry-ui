@@ -1,0 +1,145 @@
+
+.cherry-ui-input {
+    box-sizing:border-box;
+    @include input();
+  }
+.cherry-ui-input-group{
+    @include input-group();
+}
+
+@include input-group-size();
+
+.cherry-ui-input-group-line{
+    @include input-group-line();
+}
+
+.cherry-ui-input-affix-wrapper {
+    @include input-affix-wrapper();
+    width:100%;
+    .cherry-ui-input {
+      min-height: 100%;
+    }
+  }
+
+label{
+    @include label();
+}
+
+.cherry-ui-label-prefix{
+    left:22px;
+}
+
+@each $type, $color,$defaultColor in $labelTypes {
+.cherry-ui-label-focus-#{$type}{
+    color:$color;
+}
+}
+@each $type, $color,$defaultColor in $labelTypes {
+    .cherry-ui-label-#{$type}{
+        color:$color;
+        font-size: 12px;
+    }
+    }
+
+@each $type, $color,$defaultColor in $labelTypes {
+.cherry-ui-label-fill-#{$type}{
+    position: absolute;
+    height:100%;
+    z-index:5;
+    top: 12px;
+    color:$defaultColor;
+    pointer-events: none;
+    font-size: 14px;
+    animation: fillFillAnimate 0.3s;
+}
+}
+@each $type, $color,$defaultColor in $labelTypes {
+    .cherry-ui-label-prefix-fill-#{$type}{
+        position: absolute;
+        height:100%;
+        z-index:5;
+        top: 12px;
+        left:22px;
+        color:$defaultColor;
+        pointer-events: none;
+        font-size:14px;
+        animation: fillPrefixFillAnimate 0.3s;
+    }
+    }
+    @each $type, $color,$defaultColor in $labelTypes {
+        .cherry-ui-label-flex-#{$type}{
+            position: absolute;
+            height:100%;
+            z-index:5;
+            top:-($input-label-font-size+5px);
+            pointer-events: none;
+            font-size: 12px;
+            animation: labelFlexAnimate 0.3s;
+        }
+        }
+@each $type, $color,$defaultColor in $labelTypes {
+.cherry-ui-label-prefix-flex-#{$type}{
+    position: absolute;
+    height:100%;
+    z-index:5;
+    top:-($input-label-font-size+5px);
+    left:0;
+    pointer-events: none;
+    font-size:12px;
+    animation: labelPrefixFlexAnimate 0.3s;
+}
+ }
+
+
+@keyframes labelFlexAnimate {
+    0% {
+        top: 12px;
+    }
+    100% {
+        top:-($input-label-font-size+5px);
+    }
+}
+
+@keyframes fillFillAnimate {
+    0% {
+        top:-($input-label-font-size+5px);
+    }
+    100% {
+        top: 12px;
+    }
+}
+
+
+@keyframes labelPrefixFlexAnimate {
+    0% {
+        top: 12px;
+        left:22px;
+    }
+    100% {
+        top:-($input-label-font-size+5px);
+        left:0;
+    }
+}
+
+@keyframes fillPrefixFillAnimate {
+    0% {
+        top:-($input-label-font-size+5px);
+        left:0;
+    }
+    100% {
+        top: 12px;
+        left:22px;
+    }
+}
+
+.cherry-ui-input-affix-wrapper {
+    margin: 5px 0;
+  }
+
+.cherry-ui-input.ng-valid[required], .cherry-ui-input.ng-valid.required  {
+    border:none;
+  }
+
+.cherry-ui-input.ng-invalid:not(form)  {
+    border:none;
+  }

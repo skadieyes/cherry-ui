@@ -1,0 +1,21 @@
+$zindex-tooltip         : 1060;
+$font-size-base         : 12px;
+$line-height-base       : 1.5;
+
+$shadow-color           : rgba(0, 0, 0, .2);
+$shadow-1-down          : 0 1px 6px $shadow-color;
+
+
+$border-radius-base     : 4px;
+$box-shadow-base        : $shadow-1-down;
+
+
+
+// Tooltip
+
+$tooltip-max-width: 250px;
+$tooltip-color: #fff;
+$tooltip-bg: rgba(64, 64, 64, .85);
+$tooltip-arrow-width: 5px;
+$tooltip-distance: $tooltip-arrow-width - 1px + 4px;
+$tooltip-arrow-color: $tooltip-bg;

@@ -1,0 +1,48 @@
+// Input
+// ---
+$input-height-base           : 30px;
+$input-height-lg             : 34px;
+$input-height-sm             : 24px;
+$input-padding-horizontal    : 8px;
+$input-padding-vertical-base : 4px;
+$input-padding-vertical-sm   : 1px;
+$input-padding-vertical-lg   : 6px;
+$input-placeholder-color     : #868e96;
+$input-color                 : #495057;
+$input-border-color          : #ced4da;
+$input-bg                    : #fff;
+$input-addon-bg              : #eee;
+$input-hover-border-color    : $stateActiveColor;
+$input-disabled-bg           : #f7f7f7;
+$input-font-family           : sans-serif;
+$input-affix-width           : 22px;
+$input-group-padding         : 8px;
+$input-label-font-size       : 14px;
+$input-label-font-color      : #868e96;
+$input-icon-color            : #ced4da;
+$input-icon-hover-color      : #868e96;
+
+// Outline
+$outline-blur-size      : 0px;
+$outline-width          : 2px;
+$outline-color          : $stateActiveColor;
+
+// Disabled states
+$disabled-color         : #495057;
+$disabled-bg            : #e9ecef;
+$disabled-color-dark    : lighten(#fff, 25%);
+
+//Font
+$font-size-base         : 14px;
+$line-height-base       : 1.5;
+
+// Border color
+$border-color-base      : #ced4da;        // base border outline a component
+$border-color-split     : #d9d9d9;        // split border inside a component
+$border-width-base      : 1px;            // width of the border for a component
+$border-style-base      : solid;          // style of a components border
+$border-radius-base     : 4px;
+
+//type
+$types: (danger, $danger, $danger),(warning, $warning, $warning),(primary,$stateActiveColor,$input-border-color),(success,$success,$success);
+$labelTypes: (danger, $danger, $danger),(warning,$warning,$warning),(success,$success,$input-placeholder-color),(primary,$stateActiveColor,$input-placeholder-color);

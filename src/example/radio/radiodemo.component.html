@@ -1,0 +1,303 @@
+<section class="markdown">
+    <p>列表选项默认可见，方便用户进行比较选择，来选取单个选项</p>
+    <h2>引入</h2>
+    <cherry-code>import &#123;RadioModule&#125; from '~/cherry-ui;</cherry-code>
+
+    <h2>基础用法</h2>
+    <p>普通状态和禁用状态</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <label cherry-radio [(ngModel)]="singleValue">
+                        <span>独立使用 {{ singleValue }}</span>
+                    </label>
+                </div>
+                <div cherry-col [uiSpan]="4">
+                    <label cherry-radio [(ngModel)]="singleValueDisabled" [uiDisabled]="true">
+                        <span>独立使用 {{ singleValue }}</span>
+                    </label>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;label cherry-radio [(ngModel)]="singleValue"&gt;
+    &lt;span&gt;独立使用 &lt;/span&gt;
+&lt;/label&gt;
+
+&lt;label cherry-radio [(ngModel)]="singleValueDisabled" [uiDisabled]="true"&gt;
+    &lt;span&gt;独立使用&lt;/span&gt;
+&lt;/label&gt;
+    </cherry-code>
+    <h2>单选框组</h2>
+    <p>使用一组单选框，group绑定当前选中的项</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="8">
+                    <cherry-radio-group [(ngModel)]="radioValue">
+                        <label cherry-radio [uiValue]="'A'">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio [uiValue]="'B'">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio [uiValue]="'C'">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+                <div cherry-col [uiSpan]="8">
+                    <cherry-radio-group [(ngModel)]="radioValueDisabled">
+                        <label cherry-radio [uiValue]="'A'" [uiDisabled]="true">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio [uiValue]="'B'" [uiDisabled]="true">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio [uiValue]="'C'">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-radio-group [(ngModel)]="radioValueDisabled"&gt;
+    &lt;label cherry-radio [uiValue]="'A'" [uiDisabled]="true"&gt;
+        &lt;span&gt;A&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label cherry-radio [uiValue]="'B'" [uiDisabled]="true"&gt;
+        &lt;span&gt;B&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label cherry-radio [uiValue]="'C'"&gt;
+        &lt;span&gt;C&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label cherry-radio [uiValue]="'D'"&gt;
+        &lt;span&gt;D&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/cherry-radio-group&gt;
+    </cherry-code>
+    <cherry-code [language]="typescript">
+radioValueDisabled = 'A';
+    </cherry-code>
+    <h2>按钮型单选框</h2>
+    <p>单选框的按钮样式</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="6">
+                    <cherry-radio-group [(ngModel)]="buttonValue">
+                        <label cherry-radio-button [uiValue]="'A'">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'B'">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'C'">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+                <div cherry-col [uiSpan]="6">
+                    <cherry-radio-group [(ngModel)]="buttonValue">
+                        <label cherry-radio-button [uiValue]="'A'">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'B'" [uiDisabled]="true">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'C'" [uiDisabled]="true">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-radio-group [(ngModel)]="buttonValue"&gt;
+    &lt;label cherry-radio-button [uiValue]="'A'"&gt;
+        &lt;span&gt;A&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label cherry-radio-button [uiValue]="'B'" [uiDisabled]="true"&gt;
+        &lt;span&gt;B&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label cherry-radio-button [uiValue]="'C'" [uiDisabled]="true"&gt;
+        &lt;span&gt;C&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label cherry-radio-button [uiValue]="'D'"&gt;
+        &lt;span&gt;D&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/cherry-radio-group&gt;
+    </cherry-code>
+    <h2>按钮型单选框尺寸</h2>
+    <p>使用uiSize来使用不同尺寸大小的按钮型单选框</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="6">
+                    <cherry-radio-group [(ngModel)]="buttonSizeValue" [uiSize]="'sm'">
+                        <label cherry-radio-button [uiValue]="'A'">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'B'">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'C'">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+                <div cherry-col [uiSpan]="6">
+                    <cherry-radio-group [(ngModel)]="buttonSizeValue">
+                        <label cherry-radio-button [uiValue]="'A'">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'B'">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'C'">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+                <div cherry-col [uiSpan]="6">
+                    <cherry-radio-group [(ngModel)]="buttonSizeValue" [uiSize]="'lg'">
+                        <label cherry-radio-button [uiValue]="'A'">
+                            <span>A</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'B'">
+                            <span>B</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'C'">
+                            <span>C</span>
+                        </label>
+                        <label cherry-radio-button [uiValue]="'D'">
+                            <span>D</span>
+                        </label>
+                    </cherry-radio-group>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+<cherry-code [language]="html">
+&lt;cherry-radio-group [(ngModel)]="buttonSizeValue" [uiSize]="'sm'"&gt;
+    &lt;label cherry-radio-button [uiValue]="'A'"&gt;
+        &lt;span&gt;A&lt;/span&gt;
+    &lt;/label&gt;
+    ...
+&lt;/cherry-radio-group&gt;
+
+&lt;cherry-radio-group [(ngModel)]="buttonSizeValue" [uiSize]="'lg'"&gt;
+    &lt;label cherry-radio-button [uiValue]="'A'"&gt;
+        &lt;span&gt;A&lt;/span&gt;
+    &lt;/label&gt;
+    ...
+&lt;/cherry-radio-group&gt;
+</cherry-code>
+    <h2>API</h2>
+    <h3>cherry-radio</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ngModel</td>
+                <td>指定当前是否选中，支持双向绑定</td>
+                <td>Boolean</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiDisabled</td>
+                <td>是否禁用单选框</td>
+                <td>Boolean</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>uiValue</td>
+                <td>单选框的值</td>
+                <td>String</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>cherry-radio-button(必须配合cherry-radio-group使用）</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>uiDisabled</td>
+                <td>是否禁用单选框</td>
+                <td>Boolean</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>uiValue</td>
+                <td>单选框的值</td>
+                <td>String</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>cherry-checkbox-group</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ngModel</td>
+                <td>当前选中的值，支持双向绑定</td>
+                <td>String</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiSize</td>
+                <td>尺寸大小，支队按钮型单选框生效</td>
+                <td>'sm'|'lg'</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

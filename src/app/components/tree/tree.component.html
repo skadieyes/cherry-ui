@@ -1,0 +1,21 @@
+<div [ngClass]="{'cherry-ui-tree cherry-ui-widget cherry-ui-corner-all':true,'cherry-ui-tree-selectable':selectionMode,'cherry-ui-treenode-dragover':dragHover,'cherry-ui-tree-loading': loading}" [ngStyle]="style" [class]="styleClass" *ngIf="!horizontal" (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)" (dragenter)="onDragEnter($event)" (dragleave)="onDragLeave($event)">
+    <div class="cherry-ui-tree-loading-mask cherry-ui-widget-overlay" *ngIf="loading"></div>
+    <div class="cherry-ui-tree-loading-content" *ngIf="loading">
+        <i [class]="'fa fa-spin fa-2x ' + loadingIcon"></i>
+    </div>
+    <ul class="cherry-ui-tree-container" *ngIf="value">
+        <cherry-treenode *ngFor="let node of value;let firstChild=first;let lastChild=last; let index=index" [node]="node" [firstChild]="firstChild" [lastChild]="lastChild" [index]="index"></cherry-treenode>
+    </ul>
+    <div class="cherry-ui-tree-empty-message" *ngIf="!loading && !value">{{emptyMessage}}</div>
+</div>
+<div [ngClass]="{'cherry-ui-tree cherry-ui-tree-horizontal cherry-ui-widget cherry-ui-corner-all':true,'cherry-ui-tree-selectable':selectionMode}" [ngStyle]="style" [class]="styleClass" *ngIf="horizontal">
+    <div class="cherry-ui-tree-loading cherry-ui-widget-overlay" *ngIf="loading"></div>
+    <div class="cherry-ui-tree-loading-content" *ngIf="loading">
+        <i [class]="'fa fa-spin fa-2x ' + loadingIcon"></i>
+    </div>
+    <table *ngIf="value&&value[0]">
+        <cherry-treenode [node]="value[0]" [root]="true"></cherry-treenode>
+    </table>
+    <div class="cherry-ui-tree-empty-message" *ngIf="!loading && !value">{{emptyMessage}}</div>
+</div>

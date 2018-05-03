@@ -1,0 +1,5 @@
+<div class="architecture-top-top" [@TopTopAnimation]="_layout.topTopShow ? 'visible' : 'hidden'" (@TopTopAnimation.done)="onToggleDone($event)">
+    <div class="top-top-menu">
+        <cherry-verticaltabmenu [model]="model" (itemClickEvent)="topTopMenuClick($event)"></cherry-verticaltabmenu>
+    </div>
+</div>

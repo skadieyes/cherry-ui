@@ -1,0 +1,35 @@
+<ul [ngClass]="{'cherry-ui-helper-reset':root, 'cherry-ui-widget-content cherry-ui-corner-all cherry-ui-helper-clearfix cherry-ui-menu-child cherry-ui-shadow':!root, 'cherry-ui-iconmenurootitem':root}" class="cherry-ui-menu-list cherry-ui-menu-icon" (click)="listClick($event)">
+    <div class="{{theme}}">
+        <ng-template ngFor let-child [ngForOf]="(root ? item : item.items)">
+            <li *ngIf="child.separator" class="cherry-ui-menu-separator cherry-ui-widget-content">
+
+                <li *ngIf="!child.separator" #listItem [ngClass]="{'cherry-ui-menuitem cherry-ui-widget cherry-ui-corner-all':true,'cherry-ui-menu-parent':child.items,'cherry-ui-menuitem-active':listItem==activeItem}" (mouseenter)="onItemMouseEnter($event, listItem, child)" (mouseleave)="onItemMouseLeave(child)">
+
+                    <a *ngIf="!child.routerLink" [href]="child.url||'#'" class="cherry-ui-menuitem-link cherry-ui-corner-all cherry-ui-iconmenu-link" [attr.target]="child.target" [attr.title]="child.title" [ngClass]="{'cherry-ui-state-disabled':child.disabled,'cherry-ui-iconmenuitem-link':root,'cherry-ui-childitem-link':!root}"
+                        (click)="itemClick($event, child)">
+                        <span class="cherry-ui-submenu-icon fa fa-fw fa-caret-right cherry-ui-iconmenufont" *ngIf="child.items&&!root"></span>
+                        <span class="cherry-ui-menuitem-icon fa fa-fw cherry-ui-iconmenufont" *ngIf="child.icon&&!root" [ngClass]="child.icon"></span>
+
+                        <cherry-tooltip *ngIf="child.icon&&root" [uiTitle]="child.label" [uiPlacement]="'bottom'">
+                            <span cherryTooltip class="cherry-ui-menuitem-icon cherry-ui-iconmenurooticon fa fa-fw" [ngClass]="child.icon"></span>
+                        </cherry-tooltip>
+
+                        <span *ngIf="!root" class="cherry-ui-menuitem-text cherry-ui-iconmenufont">{{child.label}}</span>
+                    </a>
+                    <a *ngIf="child.routerLink" [routerLink]="child.routerLink" [routerLinkActive]="'cherry-ui-iconmenu-state-active'" [routerLinkActiveOptions]="child.routerLinkActiveOptions||{exact:false}" [href]="child.url||'#'" class="cherry-ui-menuitem-link cherry-ui-corner-all cherry-ui-iconmenu-link"
+                        [attr.target]="child.target" [attr.title]="child.title" [ngClass]="{'cherry-ui-state-disabled':child.disabled,'cherry-ui-iconmenuitem-link':root,'cherry-ui-childitem-link':!root}" (click)="itemClick($event, child)">
+                        <span class="cherry-ui-submenu-icon fa fa-fw fa-caret-right cherry-ui-iconmenufont" *ngIf="child.items&&!root"></span>
+                        <span class="cherry-ui-menuitem-icon fa fa-fw cherry-ui-iconmenufont" *ngIf="child.icon&&!root" [ngClass]="child.icon"></span>
+                        <cherry-tooltip *ngIf="child.icon&&root" [uiTitle]="child.label" [uiPlacement]="'bottom'">
+                            <span cherryTooltip class="cherry-ui-menuitem-icon cherry-ui-iconmenurooticon  fa fa-fw" [ngClass]="child.icon"></span>
+                        </cherry-tooltip>
+
+                        <span *ngIf="!root" class="cherry-ui-menuitem-text cherry-ui-iconmenufont">{{child.label}}</span>
+                    </a>
+
+                    <cherry-iconmenusub class="cherry-ui-submenu" [item]="child" *ngIf="child.items" (itemClickEvent)="componentClick($event)" (itemHoverEvent)="componentHover($event)" (itemHoverLeaveEvent)="componentHoverLeave($event)"></cherry-iconmenusub>
+                </li>
+
+        </ng-template>
+    </div>
+</ul>

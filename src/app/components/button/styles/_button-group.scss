@@ -1,0 +1,193 @@
+// stylelint-disable selector-no-qualifying-type
+// Make the div behave like a button
+.cherry-ui-btn-group,
+.cherry-ui-btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle; // match .cherry-ui-btn alignment given font-size hack above
+    >.cherry-ui-btn {
+        position: relative;
+        flex: 0 1 auto; // Bring the hover, focused, and "active" buttons to the front to overlay
+        // the borders properly
+        @include hover {
+            z-index: 2;
+        }
+        &:focus,
+        &:active,
+        &.active {
+            z-index: 2;
+        }
+    } // Prevent double borders when buttons are next to each other
+    .cherry-ui-btn+.cherry-ui-btn,
+    .cherry-ui-btn+.cherry-ui-btn-group,
+    .cherry-ui-btn-group+.cherry-ui-btn,
+    .cherry-ui-btn-group+.cherry-ui-btn-group {
+        margin-left: -$input-btn-border-width;
+    }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.cherry-ui-btn-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .input-group {
+        width: auto;
+    }
+}
+
+.cherry-ui-btn-group {
+    .cherry-ui-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+        border-radius: 0;
+    }
+}
+
+// Set corners individual because sometimes a single button can be in a .cherry-ui-btn-group
+// and we need :first-child and :last-child to both match
+.cherry-ui-btn-group>.cherry-ui-btn:first-child {
+    margin-left: 0;
+    &:not(:last-child):not(.dropdown-toggle) {
+        @include border-right-radius(0);
+    }
+}
+
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu
+// immediately after it
+.cherry-ui-btn-group>.cherry-ui-btn:last-child:not(:first-child),
+.cherry-ui-btn-group>.dropdown-toggle:not(:first-child) {
+    @include border-left-radius(0);
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including
+// dropdown buttons within a btn-group)
+.cherry-ui-btn-group>.cherry-ui-btn-group {
+    float: left;
+}
+
+.cherry-ui-btn-group {
+    .cherry-ui-btn-group:not(:first-child):not(:last-child) {
+        .cherry-ui-btn {
+            border-radius: 0;
+        }
+    }
+}
+
+.cherry-ui-btn-group>.cherry-ui-btn-group:first-child:not(:last-child) {
+    >.cherry-ui-btn:last-child,
+    >.dropdown-toggle {
+        @include border-right-radius(0);
+    }
+}
+
+.cherry-ui-btn-group>.cherry-ui-btn-group:last-child:not(:first-child)>.cherry-ui-btn:first-child {
+    @include border-left-radius(0);
+}
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+.cherry-ui-btn-group-sm>.cherry-ui-btn {
+    @extend .cherry-ui-btn-sm;
+}
+
+.cherry-ui-btn-group-lg>.cherry-ui-btn {
+    @extend .cherry-ui-btn-lg;
+}
+
+//
+// Split button dropdowns
+//
+.cherry-ui-btn+.dropdown-toggle-split {
+    padding-right: $input-btn-padding-x * .75;
+    padding-left: $input-btn-padding-x * .75;
+    &::after {
+        margin-left: 0;
+    }
+}
+
+.cherry-ui-btn-sm+.dropdown-toggle-split {
+    padding-right: $input-btn-padding-x-sm * .75;
+    padding-left: $input-btn-padding-x-sm * .75;
+}
+
+.cherry-ui-btn-lg+.dropdown-toggle-split {
+    padding-right: $input-btn-padding-x-lg * .75;
+    padding-left: $input-btn-padding-x-lg * .75;
+}
+
+// The clickable button for toggling the menu
+// Set the same inset shadow as the :active state
+.cherry-ui-btn-group.show .dropdown-toggle {
+    @include box-shadow($btn-active-box-shadow); // Show no shadow for `.cherry-ui-btn-link` since it has no other button styles.
+    &.cherry-ui-btn-link {
+        @include box-shadow(none);
+    }
+}
+
+//
+// Vertical button groups
+//
+.cherry-ui-btn-group-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    .cherry-ui-btn,
+    .cherry-ui-btn-group {
+        width: 100%;
+    }
+    >.cherry-ui-btn+.cherry-ui-btn,
+    >.cherry-ui-btn+.cherry-ui-btn-group,
+    >.cherry-ui-btn-group+.cherry-ui-btn,
+    >.cherry-ui-btn-group+.cherry-ui-btn-group {
+        margin-top: -$input-btn-border-width;
+        margin-left: 0;
+    }
+    .cherry-ui-btn {
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+        &:first-child:not(:last-child) {
+            @include border-bottom-radius(0);
+        }
+        &:last-child:not(:first-child) {
+            @include border-top-radius(0);
+        }
+    }
+    .cherry-ui-btn-group:not(:first-child):not(:last-child){
+        .cherry-ui-btn {
+        border-radius: 0;
+        }
+    }
+    >.cherry-ui-btn-group:first-child:not(:last-child) {
+        >.cherry-ui-btn:last-child,
+        >.dropdown-toggle {
+            @include border-bottom-radius(0);
+        }
+    }
+    >.cherry-ui-btn-group:last-child:not(:first-child)>.cherry-ui-btn:first-child {
+        @include border-top-radius(0);
+    }
+}
+
+// Checkbox and radio options
+//
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+[data-toggle="buttons"] {
+    >.cherry-ui-btn,
+    >.cherry-ui-btn-group>.cherry-ui-btn {
+        input[type="radio"],
+        input[type="checkbox"] {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+            pointer-events: none;
+        }
+    }
+}

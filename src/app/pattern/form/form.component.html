@@ -1,0 +1,45 @@
+<div class="demobox">
+        <div cherry-row class="demorow ">
+                <div cherry-col [uiSpan]="24" class="leftBox">
+                    <div class="cardbox">
+                        <cherry-card>
+                            <ng-template #title>
+                                searchForm
+                            </ng-template>
+                            <cherry-searchform></cherry-searchform>
+                        </cherry-card>
+                    </div>
+                </div>
+            </div>
+
+    <div cherry-row class="demorow ">
+        <div cherry-col [uiSpan]="12" class="leftBox">
+            <div class="cardbox">
+                <cherry-card>
+                    <ng-template #title>
+                        loginForm
+                    </ng-template>
+                    <cherry-loginform></cherry-loginform>
+                </cherry-card>
+            </div>
+            <div class="cardbox">
+                <cherry-card>
+                    <ng-template #title>
+                        singleValidator
+                    </ng-template>
+                    <cherry-singlevalidator></cherry-singlevalidator>
+                </cherry-card>
+            </div>
+        </div>
+        <div cherry-col [uiSpan]="12" class="rightBox">
+            <div class="cardbox">
+                <cherry-card>
+                    <ng-template #title>
+                        passwordForm
+                    </ng-template>
+                    <cherry-passwordform></cherry-passwordform>
+                </cherry-card>
+            </div>
+        </div>
+    </div>
+</div>

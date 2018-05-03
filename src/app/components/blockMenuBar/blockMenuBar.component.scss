@@ -1,0 +1,137 @@
+@import '../../../assets/sass/theme/theme_variables';
+.cherry-ui-menu {
+    padding: 0;
+    .cherry-ui-shadow {
+        -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    }
+    .cherry-ui-menu-list {
+        .cherry-ui-menu-child {
+            padding: 0;
+            .cherry-ui-shadow {
+                -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
+
+.cherry-ui-blockmenubar-rootitem {
+    height: 70px;
+}
+
+.cherry-ui-menuitem-active>.cherry-ui-menuitem-link {
+    color: #ffffff;
+}
+
+.cherry-ui-menuitem-link {
+    padding: 0.5em 0.75em;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    color: #525252;
+}
+
+.cherry-ui-menuitem-link:hover {
+    color: #ffffff;
+}
+
+.cherry-ui-submenu-icon {
+    margin-top: 0.2em;
+}
+
+.cherry-ui-menuitem {
+    margin: 0;
+    box-sizing: border-box;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.cherry-ui-blockmenubaritem-spans {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.cherry-ui-blockmenubaritem-text {
+    font-size: 0.9em;
+}
+
+.cherry-ui-blockmenubar-state-active {
+    color: #fff;
+}
+
+.cherry-ui-menuitem-show {
+    ul {
+        display: block;
+    }
+}
+
+.cherry-ui-blockmenubar-root-list li:hover ul {
+    animation: menuopacity 0.5s;
+    -moz-animation: menuopacity 0.5s;
+    /* Firefox */
+    -webkit-animation: menuopacity 0.5s;
+    /* Safari 和 Chrome */
+    -o-animation: menuopacity 0.5s;
+}
+
+@keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@mixin theme( $name, $headerBgColor, $headerTextColor, $stateActiveColor) {
+    .#{$name} {
+        .cherry-ui-menuitem-active>.cherry-ui-menuitem-link {
+            background-color: $stateActiveColor;
+        }
+        .cherry-ui-menuitem-link:hover {
+            background-color: $stateActiveColor;
+        }
+        .cherry-ui-blockmenubar-state-active {
+            background-color: $stateActiveColor;
+        }
+    }
+}
+
+@import '../../../assets/sass/theme/theme';

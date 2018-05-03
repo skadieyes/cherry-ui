@@ -1,0 +1,48 @@
+
+@mixin breadcrumb(){
+  & {
+    color: $text-color;
+    font-size: $font-size-base;
+    display: block;
+    }
+  a {
+    color: $text-color;
+    transition: color .3s;
+    text-decoration: none;
+    &:hover {
+      color: $stateActiveColor;
+    }
+    i{
+       padding-right: 5px;
+    }
+  }
+
+  & > span:last-child {
+    font-weight: bold;
+    color: $text-color;
+  }
+
+  & > span:last-child &-separator {
+    display: none;
+  }
+
+  &-separator {
+    margin: 0 8px;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  & > &-link {
+    > .fa + span {
+      margin-left: 4px;
+    }
+  }
+
+  & > cherry-breadcrumb-item:last-child {
+    font-weight: bold;
+    color: $text-color;
+  }
+
+  & > cherry-breadcrumb-item:last-child &-separator {
+    display: none;
+  }
+}

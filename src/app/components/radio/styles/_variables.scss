@@ -1,0 +1,27 @@
+$font-size-base         : 14px;
+
+$input-height-base           : 34px;
+$input-height-lg             : 40px;
+$input-height-sm             : 30px;
+$input-disabled-bg           : #f7f7f7;
+
+// Border
+$border-color-base      : #ced4da;        // base border outline a component
+$border-color-split     : #d9d9d9;        // split border inside a component
+$border-width-base      : 1px;            // width of the border for a component
+$border-style-base      : solid;          // style of a components border
+$border-radius-base     : 4px;
+$border-radius-sm       : 2px;
+
+$radio-duration         : .3s;
+$radio-button-bg        : #fff;
+$radio-button-color     : rgba(0,0,0,0.65);
+$ease-in-out-circ       : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+
+$active-color           : $stateActiveColor;
+$hover-color            : $stateActiveColor;
+
+$disabled-color         : #989da1;
+$disabled-check-color   : #ffffff;
+$disabled-check-bg      : #e6e6e6;
+

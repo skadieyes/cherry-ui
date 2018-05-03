@@ -1,0 +1,47 @@
+<div cherry-row class="passwordBox">
+
+    <div class="contentBox">
+        <cherry-input-group [uiLine]="true" [uiLabel]="'默认'" [uiLabelType]="'flex'" [uiType]="'primary'">
+            <ng-template #prefix>
+                <i class="fa cherry-icon cherry-icon-lock-o cherry-ui-label-primary"></i>
+            </ng-template>
+            <input cherry-input type="password" value="233">
+        </cherry-input-group>
+    </div>
+    <label>来输入你的密码吧</label>
+</div>
+
+<div cherry-row class="passwordBox">
+    <div class="contentBox">
+        <cherry-input-group [uiLine]="true" [uiLabel]="'错误'" [uiLabelType]="'flex'" [uiType]="'danger'">
+            <ng-template #prefix>
+                <i class="fa cherry-icon cherry-icon-lock-o cherry-ui-label-danger"></i>
+            </ng-template>
+            <input cherry-input type="password" value="233">
+        </cherry-input-group>
+    </div>
+    <label class="cherry-ui-label-danger">密码又输错啦</label>
+</div>
+<div cherry-row class="passwordBox">
+
+    <div class="contentBox">
+        <cherry-input-group [uiLine]="true" [uiLabel]="'成功'" [uiLabelType]="'flex'" [uiType]="'success'">
+            <input cherry-input type="password" value="233">
+        </cherry-input-group>
+        <label class="cherry-ui-label-success">密码输对啦</label>
+    </div>
+
+</div>
+
+<div cherry-row class="passwordBox">
+
+    <div class="contentBox">
+        <cherry-input-group [uiLine]="true" [uiLabel]="'警告'" [uiLabelType]="'flex'" [uiType]="'warning'">
+            <ng-template #prefix>
+                <i class="fa cherry-icon cherry-icon-lock-o cherry-ui-label-warning"></i>
+            </ng-template>
+            <input cherry-input type="password" value="233">
+        </cherry-input-group>
+    </div>
+    <label class="cherry-ui-label-warning">有风险需要注意</label>
+</div>

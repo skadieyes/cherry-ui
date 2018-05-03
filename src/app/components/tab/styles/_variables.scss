@@ -1,0 +1,21 @@
+// Border color
+$border-color-base      : #ced4da;        // base border outline a component
+$border-color-split     : #d9d9d9;        // split border inside a component
+$border-width-base      : 1px;            // width of the border for a component
+$border-style-base      : solid;          // style of a components border
+$border-radius-base     : 4px;
+$border-color-split     : #e9e9e9;
+
+$ease-in-out            : cubic-bezier(0.645, 0.045, 0.355, 1);
+$tabs-card-head-background: #f9f9f9;
+$component-background   : #fff;
+
+$primary-color          : $stateActiveColor;
+$text-color-secondary   : rgba($color: #000000, $alpha: 0.55);
+$heading-color          : rgba($color: #000000, $alpha: 0.85);
+$font-size-base         : 14px;
+$text-color             : rgba($color: #000000, $alpha: 0.85);
+$tabs-title-font-size   : 14px;
+$line-height-base       : 1.5;
+
+$disabled-color         : rgba($color: #000000, $alpha: 0.1);

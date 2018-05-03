@@ -1,0 +1,186 @@
+@mixin boxShadow {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12);
+    //box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.cherry-ui-dropdown {
+    position: relative;
+    display: inline-flex;
+    padding: 10px;
+}
+
+.cherry-dropdown {
+    display: flex;
+    flex-direction: row;
+}
+
+.cherry-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.cherry-ui-dropdownmenu-icon {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.cherry-ui-dropdown .btn {
+    margin: 0;
+    width: 100%;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-wrapper {
+    padding: .5rem;
+    width: 100%;
+}
+
+.cherry-ui-dropdown .d-caret {
+    padding-left: .2rem;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu {
+    position: absolute;
+    opacity: 0;
+    min-width: 7rem;
+    background: #fff;
+    border-radius: 2px;
+    transform: scale(0);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+    transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu ul {
+    padding-left: 0;
+    min-width: 180px;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu ul li {
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all .3s;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu ul li i {
+    padding-right: .5rem;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu ul li:hover {
+    background: #f3f3f3;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu.cherry-ui-dropdown-bottom-left,
+.cherry-ui-dropdown .cherry-ui-dropdown-menu.cherry-ui-dropdown-bottom-right {
+    top: 100%;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu.cherry-ui-dropdown-bottom-left {
+    left: 0;
+    transform-origin: left top 10px;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-menu.cherry-ui-dropdown-bottom-right {
+    right: 0;
+    transform-origin: right top 10px;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-header,
+.cherry-ui-dropdown .cherry-ui-dropdown-header f-header {
+    display: flex;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-header {
+    cursor: pointer;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-header header {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cherry-ui-dropdown .cherry-ui-dropdown-header header img {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    margin-right: .2rem;
+}
+
+.cherry-ui-dropdown {
+    position: relative;
+    display: inline-flex;
+    .btn {
+        margin: 0;
+        width: 100%;
+    }
+    .cherry-ui-dropdown-wrapper {
+        padding: .5rem;
+        width: 100%;
+    }
+    .d-caret {
+        padding-left: .2rem;
+    }
+    .cherry-ui-dropdown-menu {
+        position: absolute;
+        opacity: 0;
+        min-width: 7rem;
+        background: #fff;
+        border-radius: 2px;
+        transform: scale(0);
+        @include boxShadow;
+        z-index: 999;
+        transition: all .25s cubic-bezier(0.23, 1, 0.32, 1);
+        ul li {
+            list-style: none;
+            padding: .4rem 2rem .4rem 1rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all .3s;
+            line-height: 20px;
+            i {
+                padding-right: .5rem;
+            }
+            &:hover {
+                background: #e6e6e6;
+            }
+            a {
+                color: #525252;
+                font-size: 14px;
+                text-decoration: none;
+            }
+        }
+        &.cherry-ui-dropdown-bottom-left,
+        &.cherry-ui-dropdown-bottom-right {
+            top: 100%;
+        }
+        &.cherry-ui-dropdown-bottom-left {
+            left: 0;
+            transform-origin: left top 0px;
+        }
+        &.cherry-ui-dropdown-bottom-right {
+            right: 0;
+            transform-origin: right top 0px;
+        }
+    }
+    .cherry-ui-dropdown-header,
+    .cherry-ui-dropdown-header f-header {
+        display: inline-flex;
+        align-items: center;
+    }
+    .cherry-ui-dropdown-header {
+        cursor: pointer;
+    }
+    .cherry-ui-dropdown-header header {
+        font-weight: bold;
+        font-size: 14px;
+        img {
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            margin-right: .2rem;
+        }
+    }
+}

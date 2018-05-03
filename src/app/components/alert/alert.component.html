@@ -1,0 +1,22 @@
+<div [ngClass]="_classMap" *ngIf="_display" [@fadeAnimation]>
+    <i class="cherry-ui-alert-icon fa" [class.fa-times-circle]="uiType==='error'" [class.fa-check-circle]="uiType==='success'" [class.fa-exclamation-circle]="uiType==='info'" [class.fa-info-circle]="uiType==='warning'" *ngIf="uiShowIcon&&uiDescription"></i>
+    <i class="cherry-ui-alert-icon fa" [class.fa-times-circle]="uiType==='error'" [class.fa-check-circle]="uiType==='success'" [class.fa-exclamation-circle]="uiType==='info'" [class.fa-info-circle]="uiType==='warning'" *ngIf="uiShowIcon&&!uiDescription"></i>
+    <ng-template [ngIf]="uiMessage">
+        <span class="cherry-ui-alert-message">{{uiMessage}}</span>
+    </ng-template>
+    <ng-template [ngIf]="!uiMessage">
+        <ng-content select="[alert-body]"></ng-content>
+    </ng-template>
+    <ng-template [ngIf]="uiDescription">
+        <span class="cherry-ui-alert-description">{{uiDescription}}</span>
+    </ng-template>
+    <ng-template [ngIf]="!uiDescription">
+        <ng-content select="alert-description"></ng-content>
+    </ng-template>
+    <ng-template [ngIf]="uiCloseable || uiCloseText">
+        <a *ngIf="uiCloseable" (click)="closeAlert($event)" class="cherry-ui-alert-close-icon">
+            <i class="anticon anticon-cross"></i>
+        </a>
+        <a *ngIf="uiCloseText" class="cherry-ui-alert-close-icon" (click)="closeAlert()">{{uiCloseText}}</a>
+    </ng-template>
+</div>

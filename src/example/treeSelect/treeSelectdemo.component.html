@@ -1,0 +1,150 @@
+<section class="markdown">
+    <p>可以对树进行选择的选择器</p>
+    <h2>引入</h2>
+    <cherry-code>import &#123;TreeSelectModule&#125; from '~/cherry-ui;</cherry-code>
+
+    <h2>基础用法</h2>
+    <p>单选的树选择器</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption_1" [value]="options_1" [uiPlaceHolder]="'choose option'">
+                    </cherry-tree-select>
+                </div>
+                <div cherry-col [uiSpan]="12">
+
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+        &lt;cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption" [value]="options" [uiPlaceHolder]="'choose option'"&gt; &lt;/cherry-tree-select&gt;
+    </cherry-code>
+
+    <cherry-code [language]="typescript">
+        options: any; selectedOption: any; ngOnInit() &#123; this.options = [ &#123; label: 'Documents', data: 'Documents Folder', children: [&#123; label: 'Work', data: 'Work Folder', children: [&#123; label: 'Expenses', data: 'Expenses Document' &#125;, &#123;
+        label: 'Resume', data: 'Resume Document' &#125;] &#125; ... ] &#125; ]; selectedOption = this.options[1];
+    </cherry-code>
+    <h2>多选</h2>
+    <p>支持进行多选的树选择器</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption_2" [uiMode]="'multiple'" [value]="options_2" [uiPlaceHolder]="'choose option'">
+                    </cherry-tree-select>
+                </div>
+                <div cherry-col [uiSpan]="12">
+
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+        &lt;cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption" [value]="options" [uiMode]="'multiple'" [uiPlaceHolder]="'choose option'"&gt; &lt;/cherry-tree-select&gt;
+    </cherry-code>
+
+    <cherry-code [language]="typescript">
+        options: any; selectedOption: any; ngOnInit() &#123; this.options = [ &#123; label: 'Documents', data: 'Documents Folder', children: [&#123; label: 'Work', data: 'Work Folder', children: [&#123; label: 'Expenses', data: 'Expenses Document' &#125;, &#123;
+        label: 'Resume', data: 'Resume Document' &#125;] &#125; ... ] &#125; ]; selectedOption = [this.options[0], this.options[0]];;
+    </cherry-code>
+    <h2>限制最大tag数</h2>
+    <p>通过uiMaxTags来限制选择框最多显示多少个已选择项</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption_2" [uiMaxTags]="2" [uiMode]="'multiple'" [value]="options_2" [uiPlaceHolder]="'choose option'">
+                    </cherry-tree-select>
+                </div>
+                <div cherry-col [uiSpan]="12">
+
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+        &lt;cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption" [value]="options" [uiMaxTags]="2" [uiMode]="'multiple'" [uiPlaceHolder]="'choose option'"&gt; &lt;/cherry-tree-select&gt;
+    </cherry-code>
+
+    <h2>显示图标</h2>
+    <p>通过expandedIcon和collapsedIcon来设置每个节点的收起展开图标</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="12">
+                    <cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption_3" [uiMaxTags]="2" [uiMode]="'single'" [value]="options_3" [uiPlaceHolder]="'choose option'">
+                    </cherry-tree-select>
+                </div>
+                <div cherry-col [uiSpan]="12">
+
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+
+    <cherry-code [language]="html">
+        &lt;cherry-tree-select style="width: 250px;" [(ngModel)]="selectedOption" [value]="options" [uiPlaceHolder]="'choose option'"&gt; &lt;/cherry-tree-select&gt;
+    </cherry-code>
+
+    <cherry-code [language]="typescript">
+        options: any; selectedOption: any; ngOnInit() &#123; this.options = [ &#123; label: 'Documents', data: 'Documents Folder', expandedIcon: 'fa-folder-open-o', collapsedIcon: 'fa-folder-o', expanded: true, children: [&#123; label: 'Work', data: 'Work Folder',
+        expandedIcon: 'fa-folder-open-o', collapsedIcon: 'fa-folder-o', expanded: true, children: [&#123; label: 'Expenses', icon: 'fa-file-o', data: 'Expenses Document' &#125;, &#123; label: 'Resume', icon: 'fa-file-o', data: 'Resume Document' &#125;]
+        &#125; ... ] &#125; ]; selectedOption = this.options[1];
+    </cherry-code>
+
+
+    <h2>API</h2>
+    <h3>cherry-tree-select</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>value</td>
+                <td>传入树选择组件的数据</td>
+                <td>Array</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>ngModel</td>
+                <td>指定当前选中的条目，支持双向绑定</td>
+                <td>any</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiPlaceHolder</td>
+                <td>默认文字</td>
+                <td>String</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiMode</td>
+                <td>设置树的选择方式为多选或单选</td>
+                <td>'single'|'multiple'</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiMaxTags</td>
+                <td>最大tag数,仅多选下有效</td>
+                <td>Number</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiOpenChange</td>
+                <td>选择框打开或关闭的事件回调</td>
+                <td>Func</td>
+                <td>-</td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>

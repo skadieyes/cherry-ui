@@ -1,0 +1,5 @@
+.cherry-ui-checkbox{
+    @include checkbox();
+}
+@include selecting();
+@include selected();

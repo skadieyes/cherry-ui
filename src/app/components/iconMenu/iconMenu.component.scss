@@ -1,0 +1,117 @@
+@import '../../../assets/sass/theme/theme_variables';
+.cherry-ui-iconmenu {
+    width: 70px;
+    background-color: none;
+}
+
+.cherry-ui-menu {
+    padding: 0;
+    .cherry-ui-menu-parent {
+        .cherry-ui-submenu-icon {
+            margin-top: 0.2em;
+        }
+    }
+}
+
+.cherry-ui-menuitem-link:hover,
+.cherry-ui-menuitem-active>.cherry-ui-menuitem-link {
+    background-color: #ffffff;
+}
+
+.cherry-ui-menu.cherry-ui-shadow {
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cherry-ui-menuitem {
+    margin: 0;
+    box-sizing: border-box;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.cherry-ui-menuitem-link {
+    width: 100%;
+    box-sizing: border-box;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    color: #525252;
+}
+
+.cherry-ui-childitem-link {
+    padding: 0.5em 0.75em;
+}
+
+.cherry-ui-shadow {
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cherry-ui-iconmenurooticon {
+    font-size: 20px;
+    position: relative;
+    left: 50%;
+    padding: 15px 0;
+    transform: translateX(-50%);
+}
+
+.cherry-ui-iconmenufont {
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.cherry-ui-menu-icon li:hover ul {
+    animation: menuopacity 0.5s;
+    -moz-animation: menuopacity 0.5s;
+    -webkit-animation: menuopacity 0.5s;
+    -o-animation: menuopacity 0.5s;
+}
+
+@keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes menuopacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.cherry-ui-menuitem-link:hover,
+.cherry-ui-menuitem-active>.cherry-ui-menuitem-link {
+    color: $mainMenuActiveColor;
+}
+
+.cherry-ui-iconmenurooticon {
+    color: $mainMenuActiveColor;
+}

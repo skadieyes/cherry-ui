@@ -1,0 +1,87 @@
+@import '../../../assets/sass/theme/theme_variables';
+.cherry-ui-verticaltabmenu {
+    border: 0 none;
+    height: 100px;
+    position: relative;
+    .cherry-ui-verticaltabmenu-nav {
+        padding: 0;
+        margin: 0;
+        padding: 0 .25em;
+    }
+    .cherry-ui-verticaltabmenuitem {
+        margin: 0;
+        position: static;
+        -moz-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+        transition: background-color 0.3s;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        list-style: none;
+        float: left;
+        position: relative;
+        margin: 0 .2em 1px 0;
+        padding: 0;
+        white-space: nowrap;
+        display: block;
+        border-bottom: 0;
+        top: 1px;
+        .cherry-ui-icon {
+            float: left;
+        }
+        .cherry-ui-state-disabled a {
+            cursor: default;
+        }
+        .menu-text-color {
+            color: rgb(71, 71, 71);
+            opacity: 0.8;
+        }
+        .cherry-ui-menuitem-link {
+            .cherry-ui-menuitem-icon,
+            .cherry-ui-menuitem-text {
+                vertical-align: middle;
+                display: inline-block;
+            }
+            .cherry-ui-menuitem-text {
+                font-size: 16px;
+            }
+            .cherry-ui-menuitem-icon {
+                font-size: 32px;
+            }
+        }
+    }
+}
+
+.cherry-ui-verticaltabmenuitem:not(.cherry-ui-state-active):hover {
+    background-color: #e6e6e6;
+    border-radius: 0;
+}
+
+.cherry-ui-verticaltabmenu-item {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.cherry-ui-verticaltabmenuitem a {
+    float: left;
+    padding: 0 1em;
+    text-decoration: none;
+}
+
+.cherry-ui-verticaltabmenu-nav a {
+    padding: 0.5em 1em;
+}
+
+.cherry-ui-verticaltabmenu-link {
+    .cherry-ui-verticaltabmenu-item {
+        .menu-text-color {
+            color: $mainMenuActiveColor;
+        }
+        .cherry-ui-menuitem-icon {
+            color: $mainMenuActiveColor;
+        }
+    }
+}

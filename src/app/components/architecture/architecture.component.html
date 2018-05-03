@@ -1,0 +1,57 @@
+<div class="architecture-box">
+    <div class="architecture-top-top" [@TopTopAnimation]="topTopShow ? 'visible' : 'hidden'" (@TopTopAnimation.done)="onToggleDone($event)">
+        <div class="top-top-menu">
+            <cherry-verticaltabmenu [model]="model.top_top_menu_items" (itemClickEvent)="topTopMenuClick($event)"></cherry-verticaltabmenu>
+        </div>
+    </div>
+    <div class="architecture-top" [@TopAnimation]="topTopShow ? 'down' : 'up'">
+        <div class="architecture-top-left">
+            <img #img [src]="model.top_left_logo" class="top-left-logo" alt="cherry">
+            <a class="top-left-scoll-icon" *ngIf="topTopMenuShow">
+                <span (click)="expand($event)" [ngClass]="{'fa fa-fw fa-chevron-down': !topTopShow}"></span>
+                <span (click)="collapse($event)" [ngClass]="{'fa fa-fw fa-chevron-up': topTopShow}"></span>
+            </a>
+        </div>
+        <div class="architecture-top-center">
+            <div class="top-center-menu">
+                <cherry-blockmenubar [model]="model.top_center_menu_items" (itemClickEvent)="topCenterMenuClick($event)" *ngIf="top_Center_Menu_HasChild"></cherry-blockmenubar>
+                <cherry-blockmenu [model]="model.top_center_menu_items" (itemClickEvent)="topCenterMenuClick($event)" *ngIf="!top_Center_Menu_HasChild"></cherry-blockmenu>
+            </div>
+        </div>
+        <div class="architecture-top-right">
+            <div class="top-right-menu">
+                <cherry-dropdown [menus]="model.top_right_menu_items" direction="bottom-right" (itemClickEvent)="topRightMenuClick($event)"></cherry-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="architecture-top-bottom" *ngIf="topBottomShow">top-bottom</div>
+    <div class="architecture-left" [@LeftAnimation]="topTopShow ? 'down' : 'up'" [@leftSmallAnimation]="leftSmall ? 'collapse' : 'expand'" *ngIf="leftShow" (@leftSmallAnimation.done)="leftScollDone($event)">
+        <div class="left-header">
+            <div class="left-header-content">
+                <span *ngIf="!leftSmall&&leftExpandDone" [ngClass]="model.left_header_icon" class="fa fa-fw left-header-icon fa-2x"></span><span *ngIf="!leftSmall&&leftExpandDone" class="left-header-text">{{model.left_header_name}}</span>
+                <span *ngIf="leftSmall" [ngClass]="model.left_header_icon" class="fa fa-fw  fa-2x left-headersamll-icon" (click)="leftExpand($event)"></span>
+                <a class="left-header-expandicon">
+                    <span (click)="leftCollapse($event)" *ngIf="!leftSmall" class="fa fa-fw fa-list-ul"></span>
+                </a>
+            </div>
+        </div>
+        <div class="accordionmenu_box">
+            <cherry-accordionmenu *ngIf="!leftSmall&&leftExpandDone" [model]="model.left_menu_items" (itemClickEvent)="leftMenuClick($event)"></cherry-accordionmenu>
+            <cherry-iconmenu *ngIf="leftSmall" [model]="model.left_menu_items" (itemClickEvent)="leftMenuClick($event)"></cherry-iconmenu>
+        </div>
+    </div>
+    <div class="architecture-boxup" [@BoxUpAnimation]="topTopShow ? 'down' : 'up'">
+
+        <div class="architecture-body" [@BodyAnimation]="leftSmall ? 'expand' : 'collapse'">
+            <div class="architecture-center">
+                <div class="architecture-center-body">
+                    <ng-content></ng-content>
+                </div>
+                <div class="architecture-bottom"><span class="bottom-text">{{model.bottom_text}}</span></div>
+            </div>
+            <div class="architecture-right" *ngIf="rightShow">right</div>
+        </div>
+    </div>
+
+
+</div>

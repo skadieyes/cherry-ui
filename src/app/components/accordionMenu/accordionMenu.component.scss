@@ -1,0 +1,141 @@
+@import '../../../assets/sass/theme/theme_variables';
+.cherry-ui-accordionmenu {
+    .fa {
+        position: static;
+    }
+    .cherry-ui-accordionmenu-header {
+        background-color: #ffffff;
+        padding: 0;
+        font-size: 14px;
+        -moz-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+        transition: background-color 0.3s;
+        a {
+            padding: 8px 12px;
+            color: #525252;
+        }
+    }
+    .cherry-ui-accordionmenu-header:not(.cherry-ui-state-active):hover {
+        background-color: #fff;
+    }
+    .cherry-ui-accordionmenu-content {
+        .cherry-ui-menuitem-link {
+            padding: 0.375em 0.75em;
+            -moz-transition: background-color 0.3s;
+            -o-transition: background-color 0.3s;
+            -webkit-transition: background-color 0.3s;
+            transition: background-color 0.3s;
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            border: none;
+            .cherry-ui-menuitem-text {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 14px;
+            }
+            .cherry-ui-menuitem-icon {
+                font-size: 14px;
+            }
+        }
+        .cherry-ui-menuitem-link:hover {
+            background-color: #fff;
+        }
+        span.fa {
+            display: inline-block;
+            vertical-align: middle;
+            left: auto;
+        }
+    }
+}
+
+.cherry-ui-menuitem-expandicon {
+    font-size: 14px;
+    float: right;
+    padding-top: 0.35em;
+}
+
+.cherry-ui-menuitem-link:hover {
+    background-color: #fff;
+}
+
+.cherry-ui-accordionmenuitem {
+    padding-left: 15px;
+    margin: 1px 0;
+}
+
+.cherry-ui-menuitem-link {
+    font-size: 14px;
+}
+
+.cherry-ui-accordionmenu-text-link {
+    color: #525252;
+}
+
+.cherry-ui-accordionmenu {
+    .fa {
+        position: static;
+    }
+    .cherry-ui-accordionmenu-header {
+        .cherry-ui-accordionmenu-active {
+            color: $mainMenuActiveColor;
+            border-right: 2px solid $mainMenuActiveColor;
+        }
+    }
+    .cherry-ui-accordionmenu-header:not(.cherry-ui-state-active):hover {
+        border-right: 2px solid $mainMenuActiveColor;
+        a {
+            color: $mainMenuActiveColor;
+        }
+        .cherry-ui-accordionmenu-active {
+            color: $mainMenuActiveColor;
+            border: none;
+        }
+    }
+    .cherry-ui-accordionmenu-content {
+        .cherry-ui-menuitem-link:hover {
+            color: $mainMenuActiveColor;
+            border-right: 2px solid $mainMenuActiveColor;
+        }
+    }
+}
+
+.cherry-ui-menuitem-link:hover {
+    color: $mainMenuActiveColor;
+    border-right: 2px solid $mainMenuActiveColor;
+}
+
+.cherry-ui-state-accordionmenu-active>.cherry-ui-menuitem-text,
+.cherry-ui-state-accordionmenu-active>.cherry-ui-menuitem-icon {
+    color: $mainMenuActiveColor;
+}
+
+.cherry-ui-state-accordionmenu-active {
+    border-right: 2px solid $mainMenuActiveColor;
+    color: $mainMenuActiveColor;
+}
+
+.cherry-ui-accordionmenu-text-active {
+    color: $mainMenuActiveColor;
+}
+
+.cherry-ui-menuitem-link:hover {
+    background-color: #fff;
+    color: $mainMenuActiveColor;
+    border-right: 2px solid $mainMenuActiveColor;
+}
+
+.cherry-ui-state-accordionmenu-active>.cherry-ui-menuitem-text,
+.cherry-ui-state-accordionmenu-active>.cherry-ui-menuitem-icon {
+    color: $mainMenuActiveColor;
+}
+
+.cherry-ui-state-accordionmenu-active {
+    border-right: 2px solid $mainMenuActiveColor;
+    color: $mainMenuActiveColor;
+}
+
+.cherry-ui-accordionmenu-text-active {
+    color: $mainMenuActiveColor;
+}

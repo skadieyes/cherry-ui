@@ -1,0 +1,56 @@
+@mixin tree() {
+    width: 100%;
+    .cherry-ui-tree-container {
+        height: 100%;
+        margin: 0;
+        overflow: auto;
+        padding: .25em;
+        white-space: nowrap;
+        overflow-y: hidden;
+    }
+}
+
+@mixin tree-node() {
+    &-content {
+        cursor: pointer;
+    }
+    &-label:not(.cherry-ui-state-highlight):hover {
+        background-color: $tree-node-hover-bg;
+        color: $tree-node-hover-color;
+    }
+    &-label.cherry-ui-state-highlight {
+        background-color: $tree-node-active-bg;
+        color: $tree-node-active-color;
+        animation: treenodeActive 500ms;
+    }
+    .cherry-ui-tree-toggler {
+        color: $font-color;
+        font-size: $font-size-base;
+    }
+    &-label {
+        font-size: $font-size-base;
+        vertical-align: middle;
+        display: inline-block;
+        color: $font-color;
+        padding: 2px 12px 2px 2px;
+        margin: 0 2px;
+        border-radius: 4px;
+    }
+    &-icon {
+        vertical-align: middle;
+        display: inline-block;
+        font-size: $font-size-base;
+        color: $font-color;
+    }
+    ul {
+        list-style: none;
+        padding-left: $tree-node-list-padding;
+    }
+    .cherry-ui-chkbox {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        vertical-align: bottom;
+        margin-right: .25em;
+    }
+}

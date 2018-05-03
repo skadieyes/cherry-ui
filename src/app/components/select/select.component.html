@@ -1,0 +1,71 @@
+<div tabindex="0" #trigger cdkOverlayOrigin #origin="cdkOverlayOrigin" [ngClass]="_selectionClassMap" (keydown.Enter)="handleKeyEnterEvent($event)"
+    (keydown.Backspace)="handleKeyBackspaceEvent($event)" (keydown.ArrowUp)="handleKeyUpEvent($event)" (keydown.ArrowDown)="handleKeyDownEvent($event)">
+    <div class="cherry-ui-select-selection__rendered" *ngIf="!uiShowSearch">
+        <div class="cherry-ui-select-selection-selected-value">
+            {{_selectedOption?.uiLabel}}
+        </div>
+    </div>
+    <div class="cherry-ui-select-selection__rendered" *ngIf="uiShowSearch">
+        <div [hidden]="_searchText||(!uiOpen&&_selectedOption)||_selectedOptions.size" class="cherry-ui-select-selection__placeholder">
+            <ng-template [ngIf]="(!_composing)&&_selectedOption">
+                {{_selectedOption.uiLabel}}
+            </ng-template>
+            <ng-template [ngIf]="(!_composing)&&(!_selectedOption)">
+                {{uiPlaceHolder}}
+            </ng-template>
+        </div>
+        <ul *ngIf="uiMultiple">
+            <li *ngFor="let option of _selectedOptions" [@tagAnimation] [attr.title]="option?.uiValue" class="cherry-ui-select-selection__choice"
+                style="user-select: none;">
+                <div class="cherry-ui-select-selection__choice__content">{{option?.uiLabel}}</div>
+                <!---->
+                <span class="cherry-ui-select-selection__choice__remove" (click)="unSelectMultipleOption(option,$event)">
+                    <i class="fa fa-times-circle cherry-ui-input-suffix-clear"></i>
+                </span>
+            </li>
+            <li class="cherry-ui-select-search cherry-ui-select-search--inline">
+                <div class="cherry-ui-select-search__field__wrap">
+                    <input class="cherry-ui-select-search__field" (compositionstart)="compositionStart()" (compositionend)="compositionEnd();updateWidth(searchInput,_searchText);"
+                        [(ngModel)]="_searchText" (ngModelChange)="updateFilterOption();onSearchChange($event);" (keydown)="updateWidth(searchInput,_searchText)"
+                        (input)="updateWidth(searchInput,_searchText)" (blur)="onTouched()" #searchInput>
+                    <span class="cherry-ui-select-search__field__mirror"></span>
+                </div>
+            </li>
+        </ul>
+        <div *ngIf="!uiMultiple" class="cherry-ui-select-selection-selected-value" [hidden]="!(_selectedOption?.uiLabel)||uiOpen">
+            {{_selectedOption?.uiLabel}}
+        </div>
+        <div *ngIf="!uiMultiple" [hidden]="!uiOpen" class="cherry-ui-select-search cherry-ui-select-search--inline">
+            <div class="cherry-ui-select-search__field__wrap">
+                <input class="cherry-ui-select-search__field" (blur)="onTouched()" (compositionstart)="compositionStart()" (compositionend)="compositionEnd()"
+                    [(ngModel)]="_searchText" (ngModelChange)="updateFilterOption();onSearchChange($event);" #searchInput>
+                <span class="cherry-ui-select-search__field__mirror"></span>
+            </div>
+        </div>
+    </div>
+    <span (click)="onTouched();clearSelect($event)" class="cherry-ui-select-selection__clear" style="user-select: none;" *ngIf="_selectedOption?.uiLabel&&uiAllowClear&&!uiMultiple">
+        <i class="fa fa-times-circle cherry-ui-input-suffix-clear"></i>
+    </span>
+    <span class="cherry-ui-select-arrow fa fa-chevron-down">
+        <b></b>
+    </span>
+</div>
+<ng-template cdkConnectedOverlay cdkConnectedOverlayHasBackdrop [cdkConnectedOverlayOrigin]="origin" (backdropClick)="closeDropDown()"
+    (detach)="closeDropDown();" (positionChange)="onPositionChange($event)" [cdkConnectedOverlayWidth]="_triggerWidth" [cdkConnectedOverlayOpen]="_isOpen">
+    <div [ngClass]="_dropDownClassMap" [@dropDownAnimation]="_dropDownPosition">
+        <div style="overflow: auto;">
+            <ul class="cherry-ui-select-dropdown-menu cherry-ui-select-dropdown-menu-vertical cherry-ui-select-dropdown-menu-root" #dropdownUl (scroll)="dropDownScroll(dropdownUl)">
+                <li *ngFor="let option of _filterOptions" [class.cherry-ui-select-dropdown-menu-item-disabled]="option.uiDisabled" [class.cherry-ui-select-dropdown-menu-item-active]="option.uiValue == _activeFilterOption?.uiValue"
+                    [class.cherry-ui-select-dropdown-menu-item-selected]="(option.uiValue==(_selectedOption?.uiValue))||(isInSet(_selectedOptions,option))"
+                    class="cherry-ui-select-dropdown-menu-item" (click)="clickOption(option,$event)">
+                    <ng-template *ngIf="option.uiOptionTemplate" [ngTemplateOutlet]="option.uiOptionTemplate">
+                    </ng-template>
+                    <ng-template [ngIf]="!option.uiOptionTemplate">
+                        {{ option.uiLabel }}
+                    </ng-template>
+                    <i class="fa fa-check-circle cherry-ui-item-selected"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</ng-template>

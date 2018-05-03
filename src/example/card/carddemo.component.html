@@ -1,0 +1,204 @@
+
+    <section class="markdown">
+        <p>作为内容的载体,容器组件,可以与网格配合使用来进行页面布局</p>
+        <h2>引入</h2>
+        <cherry-code >import &#123;CardModule&#125; from '~/cherry-ui;</cherry-code>
+
+        <h2>基础用法</h2>
+            <div class="cardBox">
+            <cherry-card>
+                <div>内容</div>
+                <div>...</div>
+                <div>...</div>
+                <div>......</div>
+            </cherry-card>
+        </div>
+                <section>
+                    <cherry-code [language]="html">
+&lt;cherry-card&gt;
+内容
+&lt;/cherry-card&gt;
+                    </cherry-code>
+                </section>
+
+            <h2>区域划分</h2>
+            <div class="cardBox">
+            <cherry-card>
+                <ng-template #title>
+                    标题
+                </ng-template>
+                <ng-template #operate>
+                    <a>
+                    操作区</a>
+                </ng-template>
+                <div>内容</div>
+                <div>...</div>
+                <div>...</div>
+                <div>......</div>
+            </cherry-card>
+        </div>
+                <section>
+                    <cherry-code [language]="html">
+&lt;cherry-card&gt;
+    &lt;ng-template #title&gt;
+        标题
+    &lt;/ng-template&gt;
+        内容
+    &lt;ng-template #operate&gt;
+        操作区
+    &lt;/ng-template&gt;
+&lt;/cherry-card&gt;
+                    </cherry-code>
+                </section>
+
+            <h2>收起展开</h2>
+            <div class="cardBox cardBoxExpand">
+            <cherry-card [toggleable]='true'>
+                <ng-template #title>
+                    标题
+                </ng-template>
+                <ng-template #operate>
+                    <a>
+                    操作区</a>
+                </ng-template>
+                <div>内容</div>
+                <div>...</div>
+                <div>...</div>
+                <div>......</div>
+            </cherry-card>
+        </div>
+                <section>
+                    <cherry-code [language]="html">
+&lt;cherry-card [toggleable]='true' &gt;
+    &lt;ng-template #title&gt;
+        标题
+    &lt;/ng-template&gt;
+        内容
+    &lt;ng-template #operate&gt;
+        操作区
+    &lt;/ng-template&gt;
+&lt;/cherry-card&gt;
+                    </cherry-code>
+                </section>
+
+            <h2>加载状态</h2>
+            <div class="cardBox">
+            <cherry-card [uiLoading]='true'>
+                <ng-template #title>
+                    标题
+                </ng-template>
+                <ng-template #operate>
+                    <a>
+                    操作区</a>
+                </ng-template>
+                <div>内容</div>
+                <div>...</div>
+                <div>...</div>
+                <div>......</div>
+            </cherry-card>
+        </div>
+                <section>
+                    <cherry-code [language]="html">
+&lt;cherry-card [uiLoading]='true' &gt;
+    &lt;ng-template #title&gt;
+        标题
+    &lt;/ng-template&gt;
+        内容
+    &lt;ng-template #operate&gt;
+        操作区
+    &lt;/ng-template&gt;
+&lt;/cherry-card&gt;
+                    </cherry-code>
+                </section>
+
+
+            <h2>浮动强调</h2>
+            <blockquote>浮动强调默认开启,如不需要可设为false</blockquote>
+            <div class="cardBox">
+            <cherry-card [uiHover]='true'>
+                <div>内容</div>
+                <div>...</div>
+                <div>...</div>
+                <div>......</div>
+            </cherry-card>
+        </div>
+                <section>
+                    <cherry-code [language]="html">
+&lt;cherry-card [uiHover]="true" &gt;
+内容
+&lt;/cherry-card&gt;
+                    </cherry-code>
+
+            <h2>最大化卡片</h2>
+            <p>通过设置uiMax来使你的卡片可以铺满全屏</p>
+            <div class="cardBox">
+            <cherry-card [uiMax]="true" [toggleable]="true">
+                 <ng-template #title>
+                    标题
+                </ng-template>
+                ...
+                ...
+                ...
+            </cherry-card>
+<cherry-code [language]="html">
+&lt;cherry-card [[uiMax]="true" &gt;
+内容
+&lt;/cherry-card&gt;
+</cherry-code>
+        </div>
+                </section>
+
+            <h2>API</h2>
+            <table>
+                    <thead>
+                      <tr>
+                        <th>参数</th>
+                        <th>说明</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>#title</td>
+                        <td>卡片标题区域</td>
+                        <td>ng-template</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>#operate</td>
+                        <td>卡片右上角的操作区域</td>
+                        <td>ng-template</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>toggleable</td>
+                        <td>收起展开功能</td>
+                        <td>Boolean</td>
+                        <td>false</td>
+                      </tr>
+                       <tr>
+                        <td>uiHover</td>
+                        <td>浮动强调</td>
+                        <td>Boolean</td>
+                        <td>true</td>
+                      </tr>
+                      <tr>
+                        <td>uiLoading</td>
+                        <td>显示为加载状态</td>
+                        <td>Boolean</td>
+                        <td>false</td>
+                      </tr>
+                      <tr>
+                        <td>uiMax</td>
+                        <td>卡片全屏最大化</td>
+                        <td>Boolean</td>
+                        <td>false</td>
+                      </tr>
+
+
+                    </tbody>
+                  </table>
+
+    </section>
+

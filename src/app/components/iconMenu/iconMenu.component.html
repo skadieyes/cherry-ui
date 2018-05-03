@@ -1,0 +1,5 @@
+<div class="{{theme}}">
+    <div [ngClass]="{'cherry-ui-iconmenu cherry-ui-menu cherry-ui-widget  cherry-ui-corner-all cherry-ui-helper-clearfix':true,'cherry-ui-menu-dynamic cherry-ui-shadow':popup}" [class]="styleClass" [ngStyle]="style">
+        <cherry-iconmenusub [item]="model" root="root" (itemClickEvent)="componentClick($event)" (itemHoverEvent)="componentHover($event)" (itemHoverLeaveEvent)="componentHoverLeave($event)"></cherry-iconmenusub>
+    </div>
+</div>

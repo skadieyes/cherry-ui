@@ -1,0 +1,27 @@
+<div class="architecture-box">
+    <cherry-header [model]="header_items" (itemClickEvent)="topTopMenuClick($event)"></cherry-header>
+    <cherry-headmenubar [centerModel]="mainMenu" [rightModel]="rightMenu" [logoSrc]="logo" (centerMenuClickEvent)="topCenterMenuClick($event)"
+        (rightMenuClickEvent)="topRightMenuClick($event)" [headerShow]="true" [menuFixed]="menuFixed" [menuParent]="menuParent"
+        [activeItem]="menuActiveItem">
+        <ng-template #rightAfter>
+            <cherry-select class="selectStyle" [(ngModel)]="selectedOption" [uiPlaceHolder]="'choose option'" [uiSize]="'sm'">
+                <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                </cherry-option>
+            </cherry-select>
+        </ng-template>
+    </cherry-headmenubar>
+
+    <cherry-main [menuHeaderName]="menuName" [menuHeaderIconHtml]="menuIconHtml" [menuSearchShow]="true" [footerText]="footerText"
+        (miniMenuHoverEvent)="miniMenuHover($event)" (miniMenuHoverLeaveEvent)="miniMenuHoverLeave($event)" [menuActiveItemLabel]="menuActiveItemLabel"
+        [menuModel]="leftMenu" (itemClickEvent)="MenuClick($event)" [footerShow]="false" [menuShow]="menuShow" [breadCrumb]="true">
+        <router-outlet></router-outlet>
+        <div *ngIf="_router.routerState.snapshot.url == '/dashboard'" class="center-body">
+            <div class="bg">
+                <div class="dashboard-box">
+                <img class="big-cherry" src="assets/img/cherry.png">
+                <div class="welcome-text">这里是CherryUI</div>
+            </div>
+            </div>
+        </div>
+    </cherry-main>
+</div>

@@ -1,0 +1,31 @@
+<div #card [ngClass]="{'cherry-ui-card-hover':cardHover}" class="cherry-ui-card cherry-ui-widget cherry-ui-widget-content cherry-ui-corner-all"
+    [ngStyle]="style" [class]="styleClass" (mouseover)="mouseHover()" (mouseout)="mouseOut()">
+    <div *ngIf="title" class="cherry-ui-card-titlebar cherry-ui-widget-header cherry-ui-helper-clearfix cherry-ui-corner-all">
+        <span class="cherry-ui-card-title">
+            <ng-template [ngTemplateOutlet]="title">
+            </ng-template>
+        </span>
+        <span class="cherry-ui-card-operate">
+            <ng-template [ngTemplateOutlet]="operate">
+            </ng-template>
+            <a *ngIf="toggleable && !_max" class="cherry-ui-card-titlebar-icon cherry-ui-card-titlebar-toggler cherry-ui-corner-all cherry-ui-state-default"
+               (click)="toggle($event)">
+                <span [class]="collapsed ? 'fa fa-fw ' + expandIcon : 'fa fa-fw ' + collapseIcon"></span>
+            </a>
+            <a *ngIf="uiMax" class="cherry-ui-card-titlebar-icon cherry-ui-card-titlebar-toggler cherry-ui-corner-all cherry-ui-state-default"
+                 (click)="maxCard()">
+                 <span [class]="_max ? 'fa fa-compress '  : 'fa fa-arrows-alt '"></span>
+            </a>
+        </span>
+
+    </div>
+    <div class="cherry-ui-card-content-wrapper" [@cardContent]="collapsed ? 'hidden' : 'visible'" (@cardContent.done)="onToggleDone($event)"
+        [ngClass]="{'cherry-ui-card-content-wrapper-overflown': collapsed||animating}">
+        <div class="cherry-ui-card-content cherry-ui-widget-content">
+            <div *ngIf="uiLoading" class="cherry-ui-card-content-loading">
+                <span class="fa fa-spinner fa-spin cherry-ui-card-loding-icon"></span>
+            </div>
+            <ng-content *ngIf="!uiLoading"></ng-content>
+        </div>
+    </div>
+</div>

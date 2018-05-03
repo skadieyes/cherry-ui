@@ -1,0 +1,32 @@
+<div class="{{theme}}">
+    <div [ngClass]="'cherry-ui-verticaltabmenu cherry-ui-widget'" [ngStyle]="style" [class]="styleClass">
+        <ul class="cherry-ui-verticaltabmenu-nav cherry-ui-helper-reset cherry-ui-helper-clearfix  cherry-ui-verticaltabmenu-nav" role="tablist">
+            <li *ngFor="let item of model" [ngClass]="{'cherry-ui-verticaltabmenuitem cherry-ui-state-default cherry-ui-corner-top':true,'cherry-ui-state-disabled':item.disabled,
+                'cherry-ui-verticaltabmenuitem-hasicon':item.icon}" (mouseover)="mouseHover(item)">
+
+                <a *ngIf="!item.routerLink" [href]="item.url||'#'" class="cherry-ui-menuitem-link cherry-ui-verticaltabmenu" (click)="itemClick($event,item)" mat-ripple [matRippleTrigger]="_getHostElement()" [matRippleDisabled]="!(hoverItem==item)" [attr.target]="item.target"
+                    [attr.title]="item.title">
+                    <div class="cherry-ui-verticaltabmenu-item">
+                        <div>
+                            <span class="cherry-ui-menuitem-icon menu-text-color fa" [ngClass]="item.icon"></span>
+                        </div>
+                        <div>
+                            <span class="cherry-ui-menuitem-text menu-text-color">{{item.label}}</span>
+                        </div>
+                    </div>
+                </a>
+                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" mat-ripple [matRippleTrigger]="_getHostElement()" [matRippleDisabled]="!(hoverItem==item)" [routerLinkActiveOptions]="item.routerLinkActiveOptions||{exact:false}" class="cherry-ui-menuitem-link cherry-ui-verticaltabmenu"
+                    (click)="itemClick($event,item)" [attr.target]="item.target" [attr.title]="item.label" [routerLinkActive]="'cherry-ui-verticaltabmenu-link'">
+                    <div class="cherry-ui-verticaltabmenu-item">
+                        <div>
+                            <span class="cherry-ui-menuitem-icon menu-text-color fa" [ngClass]="item.icon"></span>
+                        </div>
+                        <div>
+                            <span class="cherry-ui-menuitem-text menu-text-color">{{item.label}}</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

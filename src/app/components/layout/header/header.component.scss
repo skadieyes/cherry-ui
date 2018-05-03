@@ -1,0 +1,16 @@
+.architecture-top-top {
+    background-color: #fff;
+    height: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+    .top-top-menu {
+        position: relative;
+        padding-left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

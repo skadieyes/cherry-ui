@@ -1,0 +1,21 @@
+<div cherry-row class="loginBox">
+    <div class="contentBox">
+        <cherry-input-group [uiLine]="true" [uiLabel]="'用户名'" [uiLabelType]="'flex'" [uiClear]="true">
+            <ng-template #prefix>
+                <i class="fa cherry-icon cherry-icon-user-o form-icon"></i>
+            </ng-template>
+            <input cherry-input type="text">
+        </cherry-input-group>
+    </div>
+</div>
+<div cherry-row class="loginBox">
+
+    <div class="contentBox">
+        <cherry-input-group [uiLine]="true" [uiLabel]="'密码'" [uiLabelType]="'flex'" [uiClear]="true">
+            <ng-template #prefix>
+                <i class="fa cherry-icon cherry-icon-lock-o form-icon"></i>
+            </ng-template>
+            <input cherry-input type="password" >
+        </cherry-input-group>
+    </div>
+</div>

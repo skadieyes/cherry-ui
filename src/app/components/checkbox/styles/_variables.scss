@@ -1,0 +1,17 @@
+
+$primary-color           : $stateActiveColor;
+$font-size-base          : 14px;
+$checkbox-size           : 14px;
+$ease-in-back            : cubic-bezier(0.71, -0.46, 0.88, 0.6);
+$disabled-color          : #989da1;
+$ease-out-back           : cubic-bezier(0.12, 0.4, 0.29, 1.46);
+// Border
+$border-color-base      : #ced4da;        // base border outline a component
+$border-color-split     : #d9d9d9;        // split border inside a component
+$border-width-base      : 1px;            // width of the border for a component
+$border-style-base      : solid;          // style of a components border
+$border-radius-base     : 4px;
+$border-radius-sm       : 2px;
+
+$input-height-base           : 34px;
+$input-disabled-bg           : #f7f7f7;

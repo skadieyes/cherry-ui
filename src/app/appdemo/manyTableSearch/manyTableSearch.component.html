@@ -1,0 +1,352 @@
+<div class="search-content" #content>
+    <div class="linkage-main" #main [ngClass]="{'linkage-main-border-top-show':_mainTopBorder,'linkage-main-border-top-hidden':!_mainTopBorder,
+     'linkage-main-border-bottom-show':_mainBottomBorder,'linkage-main-border-bottom-hidden':!_mainBottomBorder}" (mouseover)="mainScrollShow()"
+        (mouseout)="mainScrollHide()">
+        <div class="main-card" #maincard>
+            <cherry-card [toggleable]="true">
+                <ng-template #title>
+                    {{tableTitle}}
+                </ng-template>
+                <div *ngIf="!highSearch">
+                    <div class="table-input-row" cherry-row [uiGutter]="16">
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <input cherry-input placeholder="请输入" [(ngModel)]="userCode">
+                            </span>
+                        </div>
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户角色</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <cherry-select style="width: 100%" [(ngModel)]="selectedOption" [uiPlaceHolder]="'选择一条记录'" [uiAllowClear]="true">
+                                    <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                                    </cherry-option>
+                                </cherry-select>
+                            </span>
+                        </div>
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <div class="table-input-button-box">
+                                <button class="table-input-button" cherry-button type="button" [uiType]="'primary'" (click)="search()">
+                                    <i class="table-input-button-icon fa fa-search"></i>查询</button>
+                            </div>
+                            <div class="table-input-button-box">
+                                <button class="table-input-button" cherry-button type="button" [uiOutlineType]="'primary'" (click)="reset()">
+                                    <i class="table-input-button-icon fa fa-refresh"></i>重置</button>
+                            </div>
+                            <div class="table-input-button-box">
+                                <button class="table-input-button" cherry-button type="button" [uiType]="'link'" (click)="showHighSearch()">
+                                    <i class="table-input-button-icon fa" [ngClass]="{'fa-angle-down':!highSearch,'fa-angle-up':highSearch}"></i>高级查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="highSearch">
+                    <div class="table-input-row" cherry-row [uiGutter]="16">
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <input cherry-input placeholder="请输入" [(ngModel)]="userCode">
+                            </span>
+                        </div>
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户角色</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <cherry-select style="width: 100%" [(ngModel)]="selectedOption" [uiPlaceHolder]="'选择一条记录'" [uiAllowClear]="true">
+                                    <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                                    </cherry-option>
+                                </cherry-select>
+                            </span>
+                        </div>
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <input cherry-input placeholder="请输入">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="table-input-row" cherry-row [uiGutter]="16">
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <input cherry-input placeholder="请输入">
+                            </span>
+                        </div>
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户角色</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <cherry-select style="width: 100%" [(ngModel)]="selectedOption" [uiPlaceHolder]="'选择一条记录'" [uiAllowClear]="true">
+                                    <cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                                    </cherry-option>
+                                </cherry-select>
+                            </span>
+                        </div>
+                        <div cherry-col [uiSpan]="8" class="table-input-col">
+                            <label cherry-col [uiSpan]="8" class="table-input-label">用户编号</label>
+                            <span cherry-col [uiSpan]="16" class="table-input-box">
+                                <input cherry-input placeholder="请输入">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="table-input-row" cherry-row [uiGutter]="16">
+                        <div cherry-col [uiSpan]="8" [uiPush]="16" class="table-input-col table-input-col-reverse">
+                            <div class="table-input-button-box ">
+                                <button class="table-input-button" cherry-button type="button" [uiType]="'primary'" (click)="search()">
+                                    <i class="table-input-button-icon fa fa-search"></i>查询</button>
+                            </div>
+                            <div class="table-input-button-box">
+                                <button class="table-input-button" cherry-button type="button" [uiOutlineType]="'primary'" (click)="reset()">
+                                    <i class="table-input-button-icon fa fa-refresh"></i>重置</button>
+                            </div>
+                            <div class="table-input-button-box">
+                                <button class="table-input-button" cherry-button type="button" [uiType]="'link'" (click)="showHighSearch()">
+                                    <i class="table-input-button-icon fa" [ngClass]="{'fa-angle-down':!highSearch,'fa-angle-up':highSearch}"></i>高级查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-toolbar-row" cherry-row [uiGutter]="16">
+                    <div cherry-col [uiSpan]="24" class="table-toolbar-col">
+                        <div class="table-toolbar-button-box">
+                            <cherry-tooltip [uiTitle]="'新增'">
+                                <button cherry-button cherryTooltip type="button" [uiType]="'primary'" [uiShape]="'circle'" (click)="successClick()">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </cherry-tooltip>
+                        </div>
+                        <div class="table-toolbar-button-box">
+                            <cherry-tooltip [uiTitle]="'编辑'">
+                                <button cherry-button cherryTooltip type="button" [uiType]="'primary'" [uiShape]="'circle'" (click)="successClick()">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </cherry-tooltip>
+                        </div>
+                        <div class="table-toolbar-button-box">
+                            <cherry-tooltip [uiTitle]="'删除'">
+                                <button cherry-button cherryTooltip type="button" [uiType]="'primary'" [uiShape]="'circle'" (click)="successClick()">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </cherry-tooltip>
+                        </div>
+                        <div class="table-toolbar-button-box">
+                            <cherry-button-group>
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                    <i class="table-toolbar-button-icon fa fa-book"></i>查找 </button>
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                    <i class="table-toolbar-button-icon fa fa-filter"></i>过滤</button>
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                    <i class="table-toolbar-button-icon fa fa-random"></i>随机抽样</button>
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                    <i class="table-toolbar-button-icon fa fa-database"></i>汇总统计</button>
+                            </cherry-button-group>
+                        </div>
+                        <div class="table-toolbar-button-box">
+                            <cherry-button-group>
+
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="tb.exportCSV()">
+                                    <cherry-tooltip [uiTitle]="'下载全部'">
+                                        <i cherryTooltip class=" fa fa-download"></i>
+                                    </cherry-tooltip>
+                                </button>
+
+
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="successClick()">
+                                    <cherry-tooltip [uiTitle]="'上传文件'">
+                                        <i cherryTooltip class=" fa fa-cloud-upload"></i>
+                                    </cherry-tooltip>
+                                </button>
+
+
+                                <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="tb.exportCSV({selectionOnly:true})">
+                                    <cherry-tooltip [uiTitle]="'下载选中'">
+                                        <i class=" fa fa-file-text-o" cherryTooltip></i>
+                                    </cherry-tooltip>
+                                </button>
+
+                            </cherry-button-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-alert-row" cherry-row [uiGutter]="16" [@AlertAnimation]="alertShow ? 'down' : 'up'">
+                    <div cherry-col [uiSpan]="24" class="table-alert-col">
+                        <cherry-alert [uiType]="alertType" [uiMessage]="alertMessage" [uiShowIcon]="true"></cherry-alert>
+                    </div>
+                </div>
+                <div class="table-content-row" cherry-row [uiGutter]="16">
+                    <div cherry-col [uiSpan]="24" class="table-content-col">
+                        <cherry-table #tb [columns]="cols" [value]="datas" [loading]="loading" [selectionMode]="'single'" [(selection)]="selection"
+                            [paginator]="true" [rows]="5" [pagiDisplayDirection]="'left'" [rowsPerPageOptions]="rowsPerPageOptions">
+                            <ng-template #headerTemplate>
+                                <tr>
+                                    <th class="no-border" *ngFor="let col of cols" cherrySortableColumn [field]="col.field">{{col.header}}
+                                        <cherry-sorticon [field]="col.field"> </cherry-sorticon>
+                                    </th>
+                                    <th class="no-border">项目状态</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template #bodyTemplate let-rowData let-columns>
+                                <tr cherrySelectableRow [data]="rowData">
+                                    <td class="no-border" *ngFor="let col of cols">{{rowData[col.field]}}</td>
+                                    <td class="no-border">
+                                        <span>
+                                            <span class="status-dot" [ngClass]="{'dot-blue':rowData.status == 1,'dot-gray':rowData.status == 2, 'dot-green':rowData.status == 0}"></span>
+                                            <span *ngIf="rowData.status == 1">运行中</span>
+                                            <span *ngIf="rowData.status == 2">暂停</span>
+                                            <span *ngIf="rowData.status == 0">完成</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </cherry-table>
+                    </div>
+                </div>
+            </cherry-card>
+        </div>
+    </div>
+    <div class="division" #division (mousedown)="drag($event)">
+        <span class="division-combo">
+            <span class="division-icon fa fa-angle-up"></span>
+            <span class="division-line"></span>
+            <span class="division-icon fa fa-angle-down"></span>
+        </span>
+
+    </div>
+    <div class="linkage-second" #second [ngClass]="{'linkage-second-border-bottom-show':_secondBottomBorder,'linkage-second-border-bottom-hidden':!_secondBottomBorder,
+    'linkage-second-border-top-show':_secondTopBorder,'linkage-second-border-top-hidden':!_secondTopBorder}" (mouseover)="secondScrollShow()"
+        (mouseout)="secondScrollHide()">
+        <cherry-card [toggleable]="true">
+            <ng-template #title #secondTitle *ngIf="!selection">
+                次表格
+            </ng-template>
+            <ng-template #title *ngIf="selection">
+                用户编号 {{selection.id}}
+            </ng-template>
+            <div class="table-toolbar-row" cherry-row [uiGutter]="16">
+                <div cherry-col [uiSpan]="24" class="table-toolbar-col">
+                    <div class="table-toolbar-button-box">
+                        <cherry-tooltip [uiTitle]="'新增'">
+                            <button cherry-button cherryTooltip type="button" [uiType]="'primary'" [uiShape]="'circle'" (click)="successClick()">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </cherry-tooltip>
+                    </div>
+                    <div class="table-toolbar-button-box">
+                        <cherry-tooltip [uiTitle]="'编辑'">
+                            <button cherry-button cherryTooltip type="button" [uiType]="'primary'" [uiShape]="'circle'" (click)="successClick()">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </cherry-tooltip>
+                    </div>
+                    <div class="table-toolbar-button-box">
+                        <cherry-tooltip [uiTitle]="'删除'">
+                            <button cherry-button cherryTooltip type="button" [uiType]="'primary'" [uiShape]="'circle'" (click)="successClick()">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </cherry-tooltip>
+                    </div>
+                    <div class="table-toolbar-button-box">
+                        <cherry-button-group>
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                <i class="table-toolbar-button-icon fa fa-book"></i>查找 </button>
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                <i class="table-toolbar-button-icon fa fa-filter"></i>过滤</button>
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                <i class="table-toolbar-button-icon fa fa-random"></i>随机抽样</button>
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="toolbarClick()">
+                                <i class="table-toolbar-button-icon fa fa-database"></i>汇总统计</button>
+                        </cherry-button-group>
+                    </div>
+                    <div class="table-toolbar-button-box">
+                        <cherry-button-group>
+
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="tb.exportCSV()">
+                                <cherry-tooltip [uiTitle]="'下载全部'">
+                                    <i cherryTooltip class=" fa fa-download"></i>
+                                </cherry-tooltip>
+                            </button>
+
+
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="successClick()">
+                                <cherry-tooltip [uiTitle]="'上传文件'">
+                                    <i cherryTooltip class=" fa fa-cloud-upload"></i>
+                                </cherry-tooltip>
+                            </button>
+
+
+                            <button cherry-button type="button" [uiOutlineType]="'secondary'" (click)="tb.exportCSV({selectionOnly:true})">
+                                <cherry-tooltip [uiTitle]="'下载选中'">
+                                    <i class=" fa fa-file-text-o" cherryTooltip></i>
+                                </cherry-tooltip>
+                            </button>
+
+                        </cherry-button-group>
+                    </div>
+                </div>
+            </div>
+            <div class="table-content-row" cherry-row [uiGutter]="16">
+                <div cherry-col [uiSpan]="24" class="table-content-col">
+                    <cherry-tabset>
+                        <cherry-tab>
+                            <ng-template #uiTabHeading>
+                                用户指标
+                            </ng-template>
+                            <cherry-table #tb2 [columns]="cols" [value]="datas" [loading]="loading" [selectionMode]="'multiple'" [(selection)]="selection2"
+                                [paginator]="true" [rows]="3" [pagiDisplayDirection]="'left'" [rowsPerPageOptions]="rowsPerPageOptions">
+                                <ng-template #headerTemplate>
+                                    <tr>
+                                        <th class="no-border" *ngFor="let col of cols" cherrySortableColumn [field]="col.field">{{col.header}}
+                                            <cherry-sorticon [field]="col.field"> </cherry-sorticon>
+                                        </th>
+                                        <th class="no-border">项目状态</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template #bodyTemplate let-rowData let-columns>
+                                    <tr cherrySelectableRow [data]="rowData">
+                                        <td class="no-border" *ngFor="let col of cols">{{rowData[col.field]}}</td>
+                                        <td class="no-border">
+                                            <span>
+                                                <span class="status-dot" [ngClass]="{'dot-blue':rowData.status == 1,'dot-gray':rowData.status == 2, 'dot-green':rowData.status == 0}"></span>
+                                                <span *ngIf="rowData.status == 1">运行中</span>
+                                                <span *ngIf="rowData.status == 2">暂停</span>
+                                                <span *ngIf="rowData.status == 0">完成</span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                            </cherry-table>
+                        </cherry-tab>
+                        <cherry-tab>
+                                <ng-template #uiTabHeading>
+                                    监管指标
+                                </ng-template>
+                                <cherry-table #tb2 [columns]="cols" [value]="datas" [loading]="loading" [selectionMode]="'multiple'" [(selection)]="selection2"
+                                    [paginator]="true" [rows]="3" [pagiDisplayDirection]="'left'" [rowsPerPageOptions]="rowsPerPageOptions">
+                                    <ng-template #headerTemplate>
+                                        <tr>
+                                            <th class="no-border" *ngFor="let col of cols" cherrySortableColumn [field]="col.field">{{col.header}}
+                                                <cherry-sorticon [field]="col.field"> </cherry-sorticon>
+                                            </th>
+                                            <th class="no-border">项目状态</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template #bodyTemplate let-rowData let-columns>
+                                        <tr cherrySelectableRow [data]="rowData">
+                                            <td class="no-border" *ngFor="let col of cols">{{rowData[col.field]}}</td>
+                                            <td class="no-border">
+                                                <span>
+                                                    <span class="status-dot" [ngClass]="{'dot-blue':rowData.status == 1,'dot-gray':rowData.status == 2, 'dot-green':rowData.status == 0}"></span>
+                                                    <span *ngIf="rowData.status == 1">运行中</span>
+                                                    <span *ngIf="rowData.status == 2">暂停</span>
+                                                    <span *ngIf="rowData.status == 0">完成</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </cherry-table>
+                            </cherry-tab>
+                    </cherry-tabset>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+</div>

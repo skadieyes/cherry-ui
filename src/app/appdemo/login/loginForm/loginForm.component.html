@@ -1,0 +1,44 @@
+<div class="formBox">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <div cherry-row class="infoBox">
+        <div  class="contentBox" >
+            <cherry-alert *ngIf="formError" [uiType]="'error'" [uiMessage]="'用户名或密码错误请重试'" [uiShowIcon]="true">
+            </cherry-alert>
+            <cherry-alert *ngIf="formSuccess" [uiType]="'success'" [uiMessage]="'登陆成功'" [uiShowIcon]="true">
+            </cherry-alert>
+        </div>
+    </div>
+    <div cherry-row class="loginBox">
+
+        <div class="contentBox">
+            <cherry-input-group [uiLine]="true" [uiType]="loginType" [uiLabel]="'用户名'" [uiLabelType]="'flex'" [uiClear]="true" (clearEvent)="clear()" >
+                <ng-template #prefix>
+                    <i class="fa cherry-icon cherry-icon-user-o "></i>
+                </ng-template>
+                <input cherry-input type="text" [formControl]="loginForm.get('username')" [(ngModel)]="username" required>
+            </cherry-input-group>
+        </div>
+
+    </div>
+    <div cherry-row class="loginBox">
+
+        <div class="contentBox">
+            <cherry-input-group [uiLine]="true" [uiType]="loginType" [uiLabel]="'密码'" [uiLabelType]="'flex'" [uiClear]="true" (clearEvent)="clear()" >
+                <ng-template #prefix>
+                    <i class="fa cherry-icon cherry-icon-lock-o "></i>
+                </ng-template>
+                <input cherry-input type="password" [formControl]="loginForm.get('password')" [(ngModel)]="password" required>
+            </cherry-input-group>
+        </div>
+
+    </div>
+
+    <div cherry-row class="buttonBox">
+
+        <div class="contentBox">
+            <button cherry-button type="submit" [uiType]="'primary'" class="buttonStyle" [disabled]="submitDisabled">确定</button>
+        </div>
+    </div>
+
+    </form>
+    </div>

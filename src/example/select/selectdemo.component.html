@@ -1,0 +1,335 @@
+<section class="markdown">
+    <p>一个拥有各种功能的选择器。</p>
+    <h2>引入</h2>
+    <cherry-code>import &#123;SelectModule&#125; from '~/cherry-ui;</cherry-code>
+
+    <h2>基础用法</h2>
+    <p>选择单个选项的选择器</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_1" [uiPlaceHolder]="'choose option'" [uiAllowClear]="true">
+                        <cherry-option *ngFor="let option of options_1" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_1" [uiPlaceHolder]="'choose option'" [uiDisabled]="true">
+                        <cherry-option *ngFor="let option of options_1" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+        <cherry-code [language]="html">
+&lt;cherry-select style="width: 120px" [(ngModel)]="selectedOption"  [uiPlaceHolder]="'choose option'" [uiAllowClear]="true"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'choose option'" [uiDisabled]="true"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+
+        </cherry-code>
+        <cherry-code [language]="'typescript'">
+options = [
+    &#123; value: 'jack', label: 'Jack' &#125;,
+    &#123; value: 'lucy', label: 'Lucy' &#125;,
+    &#123; value: 'Mike', label: 'Mike' &#125;,
+    &#123; value: 'Lily', label: 'Lily' &#125;,
+    &#123; value: 'disabled', label: 'Disabled', disabled: true &#125;];
+selectedOption = this.options[0];
+
+        </cherry-code>
+
+    <h2>尺寸大小</h2>
+    <p>使用uiSize来选择不同尺寸的选择器</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_2" [uiPlaceHolder]="'choose option'" [uiSize]="'sm'">
+                        <cherry-option *ngFor="let option of options_2" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_2" [uiPlaceHolder]="'choose option'">
+                        <cherry-option *ngFor="let option of options_2" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_2" [uiPlaceHolder]="'choose option'" [uiSize]="'lg'">
+                        <cherry-option *ngFor="let option of options_2" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'choose option'" [uiSize]="'sm'"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;cherry-option&gt;
+&lt;/cherry-select&gt;
+
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'choose option'"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'choose option'" [uiSize]="'lg'"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+
+    </cherry-code>
+
+    <h2>多选</h2>
+    <p>设置uiMode为multiple来使用多选的选择器</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 240px;" [(ngModel)]="selectedOption_3" [uiMode]="'multiple'" [uiPlaceHolder]="'choose option'"
+                        [uiAllowClear]="true" [uiSize]="'lg'">
+                        <cherry-option *ngFor="let option of options_3" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+
+    <cherry-code [language]="html">
+&lt;cherry-select style="width: 240px;" [(ngModel)]="selectedOption" [uiMode]="'multiple'" [uiPlaceHolder]="'choose option'"
+[uiAllowClear]="true" [uiSize]="'lg'"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+    </cherry-code>
+
+    <h2>新增选项</h2>
+    <p>可以新增选项的选择器 将uiTags启用</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 240px;" [(ngModel)]="selectedOption_4" [uiMode]="'tags'" [uiPlaceHolder]="'请输入选项并回车'" [uiSize]="'lg'">
+                        <cherry-option *ngFor="let option of options_4" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-select style="width: 240px;" [(ngModel)]="selectedOption" [uiMode]="'tags'" [uiPlaceHolder]="'请输入选项并回车'" [uiSize]="'lg'"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option" [uiDisabled]="option.disabled"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+    </cherry-code>
+
+    <h2>自定义option模版</h2>
+    <p>传入自定义模版时 默认模版将不显示</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_5" [uiPlaceHolder]="'自定义模版'">
+                        <cherry-option *ngFor="let option of options_5" [uiLabel]="option.label" [uiValue]="option">
+                            <ng-template #uiOptionTemplate>自定义的内容</ng-template>
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'自定义模版'"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option"&gt;
+    &lt;ng-template #uiOptionTemplate>自定义的内容&lt;/ng-template&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+    </cherry-code>
+
+    <h2>滚动到底部的事件</h2>
+    <p>可以定义滚动到顶部的事件,如加载等</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_6" [uiPlaceHolder]="'滚到底部加载选项'" (uiScrollToBottom)="scrollToBottom()">
+                        <cherry-option *ngFor="let option of options_6" [uiLabel]="option.label" [uiValue]="option">
+                        </cherry-option>
+                        <cherry-option [uiLabel]="'disabled'" [uiDisabled]="true" [uiValue]="'disabled'" *ngIf="loading">
+                            <ng-template #uiOptionTemplate>
+                                <i class="fa fa-spinner fa-pulse"></i> Loading...
+                            </ng-template>
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'滚到底部加载选项'" (uiScrollToBottom)="scrollToBottom()"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option"&gt;
+    &lt;/cherry-option&gt;
+    &lt;cherry-option [uiLabel]="'disabled'" [uiDisabled]="true" [uiValue]="'disabled'" *ngIf="loading"&gt;
+        &lt;ng-template #uiOptionTemplate&gt;
+            &lt;i class="fa fa-spinner fa-pulse"&gt;&lt;/i&gt; Loading...
+        &lt;/ng-template&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+    </cherry-code>
+    <cherry-code [language]="typescript">
+scrollToBottom() &#123;
+    if (!this.loading) &#123;
+        this.loading = true;
+        setTimeout(() => &#123;
+            this.loading = false;
+            &#125;, 3000);
+        &#125;
+    &#125;
+    </cherry-code>
+
+    <h2>搜索</h2>
+    <p>输入关键字可以对选项进行搜索并显示搜索结果</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <div cherry-col [uiSpan]="4">
+                    <cherry-select style="width: 120px;" [(ngModel)]="selectedOption_7" [uiPlaceHolder]="'输入关键字'" [uiShowSearch]="true">
+                        <cherry-option *ngFor="let option of options_7" [uiLabel]="option.label" [uiValue]="option">
+                        </cherry-option>
+                    </cherry-select>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-select style="width: 120px;" [(ngModel)]="selectedOption" [uiPlaceHolder]="'输入关键字'" [uiShowSearch]="true"&gt;
+    &lt;cherry-option *ngFor="let option of options" [uiLabel]="option.label" [uiValue]="option"&gt;
+    &lt;/cherry-option&gt;
+&lt;/cherry-select&gt;
+    </cherry-code>
+
+    <h2>API</h2>
+    <h3>cherry-select</h3>
+    <table>
+            <thead>
+              <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>ngModel</td>
+                <td>指定当前选中的条目，支持双向绑定</td>
+                <td>Array（多选）/String/Object（单选</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>uiPlaceHolder</td>
+                <td>默认文字</td>
+                <td>String</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>uiAllowClear</td>
+                <td>可以清除选择框中的已选项 单选下有效</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>uiDisabled</td>
+                <td>是否禁用选择框</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>uiSize</td>
+                <td>选择框尺寸</td>
+                <td>'sm'|'lg'</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>uiMode</td>
+                <td>选择多选或者新增多选</td>
+                <td>'multiple' | 'tags'</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>uiScrollToBottom</td>
+                <td>下拉菜单滚动到底部的事件回调</td>
+                <td>Func</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>uiOpenChange</td>
+                <td>下拉菜单打开或关闭的事件回调</td>
+                <td>Func</td>
+                <td>-</td>
+              </tr>
+             <tr>
+                <td>uiShowSearch</td>
+                <td>是否启用搜索功能</td>
+                <td>Boolean</td>
+                <td>false</td>
+             </tr>
+              <tr>
+                <td>uiFilter</td>
+                <td>是否根据输入过滤选项</td>
+                <td>Boolean</td>
+                <td>true</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>cherry-option</h3>
+          <table>
+                  <thead>
+                    <tr>
+                      <th>参数</th>
+                      <th>说明</th>
+                      <th>类型</th>
+                      <th>默认值</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <td>uiLabel</td>
+                      <td>选项文本</td>
+                      <td>String</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>uiValue</td>
+                      <td>选项value</td>
+                      <td>String/Object</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>uiDisabled</td>
+                      <td>是否禁用选项</td>
+                      <td>Boolean</td>
+                      <td>false</td>
+                    </tr>
+                    <tr>
+                      <td>#uiOptionTemplate</td>
+                      <td>自定义选项模版</td>
+                      <td>ng-template</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+</section>

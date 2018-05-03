@@ -1,0 +1,259 @@
+.architecture-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: column;
+}
+
+.architecture-boxup {
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: red;
+    top: 70px;
+    bottom: 0;
+    position: relative;
+}
+
+.architecture-top {
+    background-color: #225ba0;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.architecture-top-top {
+    background-color: #fff;
+    height: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.architecture-top-bottom {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    z-index: 999999;
+}
+
+.architecture-body {
+    width: calc(100% - 300px);
+    height: calc(100%);
+    position: relative;
+    bottom: 0;
+    top: 0;
+    left: 300px;
+    right: 0;
+    display: flex;
+}
+
+.architecture-left {
+    background-color: #fff;
+    width: 300px;
+    height: calc(100% - 70px);
+    position: fixed;
+    display: block;
+    top: 70px;
+    z-index: 2;
+    overflow: auto;
+}
+
+.architecture-center {
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    right: 0;
+    height: 100%;
+    left: 0;
+}
+
+.architecture-center-body {
+    position: relative;
+    height: calc(100% - 30px);
+}
+
+.architecture-right {
+    background-color: lightyellow;
+    width: 350px;
+    position: relative;
+    height: calc(100% - 70px);
+    left: 0;
+    right: 0;
+}
+
+.architecture-bottom {
+    width: 100%;
+    height: 30px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+}
+
+.architecture-top-left {
+    width: 300px;
+    position: absolute;
+    height: 100%;
+    left: 0;
+}
+
+.architecture-top-center {
+    width: calc(100% - 600px);
+    position: relative;
+    right: 0;
+    height: 100%;
+    left: 300px;
+}
+
+.architecture-top-right {
+    width: 300px;
+    position: absolute;
+    height: 100%;
+    right: 0;
+}
+
+.architecture-left {
+    box-shadow: 3px 0px 15px rgba(0, 0, 0, .18);
+}
+
+.top-top-menu {
+    position: relative;
+    padding-left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.architecture-top {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .18);
+}
+
+.architecture-bottom {
+    background-color: #225ba0;
+}
+
+.left-header-fa-icon {
+    color: #000;
+    opacity: 0.6;
+}
+
+.left-header-icon {
+    margin-left: 10px;
+    font-size: 1.7em;
+}
+
+.left-headersamll-icon {
+    margin-left: 14px;
+    font-size: 1.7em;
+}
+
+.left-header {
+    height: 70px;
+    cursor: pointer;
+}
+
+.left-header-expandicon {
+    float: right;
+    margin-right: 10px;
+    color: #000;
+    font-size: 0.9em;
+    opacity: 0.6;
+    margin-top: 8px;
+}
+
+.left-header-text {
+    margin-left: 10px;
+    color: #000;
+    opacity: 0.7;
+    font-size: 1.1em;
+    margin-top: 3px;
+}
+
+.left-header-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-header-expandicon:hover {
+    color: #000;
+    opacity: 0.3;
+}
+
+.left-search {
+    width: 90%;
+    z-index: 2;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.architecture-bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.bottom-text {
+    margin-right: 10px;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+.top-left-scoll-icon {
+    color: #fff;
+    font-size: 0.9em;
+    opacity: 0.9;
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.top-left-scoll-icon:hover {
+    color: #fff;
+    opacity: 0.6;
+}
+
+.top-left-logo {
+    float: left;
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+}
+
+.top-center-menu {
+    margin-left: 50px;
+}
+
+.top-right-menu {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: right;
+}
+
+.accordionmenu_box {
+    z-index: 1;
+    position: absolute;
+    top: 120px;
+    width: 100%
+}

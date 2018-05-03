@@ -1,0 +1,81 @@
+<div class="cardBox">
+    <cherry-card>
+        <div cherry-row [uiGutter]="16" class="demorow">
+            <div cherry-col [uiSpan]="12">
+                <cherry-tooltip [uiTitle]="'prompt text'">
+                    <span cherryTooltip>Tooltip will show when mouse enter.</span>
+                </cherry-tooltip>
+                <br>
+            </div>
+        </div>
+    </cherry-card>
+</div>
+<div class="cardBox">
+    <cherry-card>
+        <div cherry-row [uiGutter]="16" class="demorow">
+            <div cherry-col [uiSpan]="24">
+                <div style="margin-left:60px;">
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'topLeft'">
+                        <a cherryTooltip>TL</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'top'">
+                        <a cherryTooltip>Top</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'topRight'">
+                        <a cherryTooltip>TR</a>
+                    </cherry-tooltip>
+                </div>
+                <div style="float:left;width: 60px;">
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'leftTop'">
+                        <a cherryTooltip>LT</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'left'">
+                        <a cherryTooltip>Left</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'leftBottom'">
+                        <a cherryTooltip>LB</a>
+                    </cherry-tooltip>
+                </div>
+                <div style="margin-left:270px;width: 60px;">
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'rightTop'">
+                        <a cherryTooltip>RT</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'right'">
+                        <a cherryTooltip>Right</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'rightBottom'">
+                        <a cherryTooltip>RB</a>
+                    </cherry-tooltip>
+                </div>
+                <div style="margin-left:60px;clear: both;">
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'bottomLeft'">
+                        <a cherryTooltip>BL</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'bottom'">
+                        <a cherryTooltip>Bottom</a>
+                    </cherry-tooltip>
+                    <cherry-tooltip [uiTitle]="'prompt text'" [uiPlacement]="'bottomRight'">
+                        <a cherryTooltip>BR</a>
+                    </cherry-tooltip>
+                </div>
+            </div>
+        </div>
+    </cherry-card>
+</div>
+
+
+
+<div class="cardBox">
+    <cherry-card>
+        <div cherry-row [uiGutter]="16" class="demorow">
+            <div cherry-col [uiSpan]="12">
+                <cherry-tooltip>
+                    <button cherryTooltip>This Tooltip Have Icon</button>
+                    <ng-template #uiTemplate>
+                        <i class="fa fa-file"></i> <span>带图标的Tooltip</span>
+                    </ng-template>
+                </cherry-tooltip>
+            </div>
+        </div>
+    </cherry-card>
+</div>

@@ -1,0 +1,109 @@
+<section class="markdown">
+    <p>分页导航</p>
+    <h2>引入</h2>
+    <cherry-code>import &#123;PaginationModule&#125; from '~/cherry-ui;</cherry-code>
+
+    <h2>基础用法</h2>
+    <p>确定每页显示行数，和数据总数，分页器会进行分页</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'left'"></cherry-paginator>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+ &lt;cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'left'"&gt;&lt;/cherry-paginator&gt;
+    </cherry-code>
+
+    <h2>显示页数</h2>
+    <p>通过pageLinkSize确定分页器当前显示多少页</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'left'" [pageLinkSize]="3"></cherry-paginator>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'left'" [pageLinkSize]="3"&gt;&lt;/cherry-paginator&gt;
+    </cherry-code>
+
+    <h2>每页条目</h2>
+    <p>改变每页显示的行数</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'left'" [rowsPerPageOptions]="[10,20,30]"></cherry-paginator>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'left'" [rowsPerPageOptions]="[10,20,30]"&gt;&lt;/cherry-paginator&gt;
+</cherry-code>
+    <h2>位置</h2>
+    <p>改变分页器的位置，默认位置局中，可设为left或right</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16" class="demorow">
+                <cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'right'"></cherry-paginator>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-paginator [rows]="10" [totalRecords]="100" [displayDirection]="'right'"&gt;&lt;/cherry-paginator&gt;
+</cherry-code>
+    <h2>API</h2>
+    <h3>cherry-paginator</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>rows</td>
+                <td>每页行数</td>
+                <td>number</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>totalRecords</td>
+                <td>数据总量</td>
+                <td>number</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>displayDirection</td>
+                <td>显示位置</td>
+                <td>'left'|'right'</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>rowsPerPageOptions</td>
+                <td>改变每页显示行数</td>
+                <td>array</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>pageLinkSize</td>
+                <td>分页器当前显示页数</td>
+                <td>number</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>onPageChange</td>
+                <td>页数改变时的回调</td>
+                <td>function</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+

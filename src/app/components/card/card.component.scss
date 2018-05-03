@@ -1,0 +1,91 @@
+.cherry-ui-card {
+    border-color: rgba(0, 0, 0, 0.125);
+    .cherry-ui-card-title{
+        color: #495057;
+    }
+    .cherry-ui-card-titlebar {
+        border: 0 none;
+        padding: .75em 1.25em;
+        background-color: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        -moz-border-radius-topleft: 0.25em;
+        -webkit-border-top-left-radius: 0.25em;
+        border-top-left-radius: 0.25em;
+        -moz-border-radius-topright: 0.25em;
+        -webkit-border-top-right-radius: 0.25em;
+        border-top-right-radius: 0.25em;
+        -moz-border-radius-bottomleft: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        -moz-border-radius-bottomright: 0px;
+        -webkit-border-bottom-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        .cherry-ui-card-operate {
+            float: right;
+        }
+        .cherry-ui-card-titlebar-icon {
+            position: relative;
+            color: #767b7f;
+            -moz-transition: color 0.3s;
+            -o-transition: color 0.3s;
+            -webkit-transition: color 0.3s;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        .cherry-ui-card-titlebar-icon:hover {
+            color: #2d353c;
+        }
+    }
+    .cherry-ui-card-titlebar-icon {
+        cursor: pointer;
+        margin-left: 0.5em;
+        margin-top: -0.1em;
+    }
+    .cherry-ui-card-content {
+        border: 0;
+        background: none;
+        padding: .5em .75em;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 1.25em;
+        .cherry-ui-card-content-loading {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+            display: flex;
+            .cherry-ui-card-loding-icon {
+                font-size: 48px;
+                color: #000;
+                opacity: 0.6;
+            }
+        }
+    }
+    .cherry-ui-card-footer {
+        border-width: 1px 0 0;
+        padding: .25em .5em;
+        text-align: left;
+        padding: 0.375em 0.75em;
+        border: 0 none;
+        border-top: 1px solid #c7c7c7;
+        margin: 0;
+    }
+}
+
+.cherry-ui-card-hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
+    animation: cardHover 0.25s;
+}
+
+@keyframes cardHover {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
+    }
+}
+
+.cherry-ui-card-content-wrapper-overflown {
+    overflow: hidden;
+}

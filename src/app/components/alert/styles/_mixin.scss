@@ -1,0 +1,149 @@
+@mixin alert {
+    .cherry-ui-alert {
+        position: relative;
+        padding: 8px 48px 8px 38px;
+        border-radius: $border-radius-base;
+        color: $alert-text-color;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        display: block;
+    }
+    .cherry-ui-alert-no-icon {
+        padding: 8px 48px 8px 16px;
+    }
+    .cherry-ui-alert-icon {
+        font-size: $font-size-lg;
+        top: 8px + $font-size-base * $line-height-base / 2 - $font-size-lg / 2;
+        left: 16px;
+        position: absolute;
+    }
+    .cherry-ui-alert-description {
+        font-size: $font-size-base;
+        line-height: 21px;
+        display: none;
+    }
+    .cherry-ui-alert-success {
+        border: $border-width-base $border-style-base $success-border;
+        background-color: $success-bg;
+        .cherry-ui-alert-icon {
+            color: $success-color;
+        }
+    }
+    .cherry-ui-alert-info {
+        border: $border-width-base $border-style-base $info-border;
+        background-color: $info-bg;
+        .cherry-ui-alert-icon {
+            color: $info-color;
+        }
+    }
+    .cherry-ui-alert-warning {
+        border: $border-width-base $border-style-base $warning-border;
+        background-color: $warning-bg;
+        .cherry-ui-alert-icon {
+            color: $warning-color;
+        }
+    }
+    .cherry-ui-alert-error {
+        border: $border-width-base $border-style-base $error-border;
+        background-color: $error-bg;
+        .cherry-ui-alert-icon {
+            color: $error-color;
+        }
+    }
+    .cherry-ui-alert-close-icon {
+        font-size: $font-size-base;
+        position: absolute;
+        right: 16px;
+        top: 10px;
+        height: 12px;
+        line-height: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        .cherry-ui-cross {
+            color: $text-color-secondary;
+            transition: color .3s ease;
+            &:hover {
+                color: #404040;
+            }
+        }
+    }
+    .cherry-ui-alert-close-text {
+        position: absolute;
+        right: 16px;
+    }
+    .cherry-ui-alert-with-description {
+        padding: 16px 16px 16px 60px;
+        position: relative;
+        border-radius: $border-radius-base;
+        color: $text-color;
+        line-height: 1.5;
+    }
+    .cherry-ui-alert-with-description .cherry-ui-alert-no-icon {
+        padding: 16px;
+    }
+    .cherry-ui-alert-with-description .cherry-ui-alert-icon {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        font-size: 24px;
+    }
+    .cherry-ui-alert-with-description .cherry-ui-alert-close-icon {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        cursor: pointer;
+        font-size: $font-size-base;
+    }
+    .cherry-ui-alert-with-description .cherry-ui-alert-message {
+        font-size: $font-size-lg;
+        color: $alert-message-color;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .cherry-ui-alert-with-description .cherry-ui-alert-description {
+        display: block;
+    }
+    .cherry-ui-alert-close {
+        height: 0 !important;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        transition: all .3s $ease-in-out-circ;
+        transform-origin: 50% 0;
+    }
+    .cherry-ui-alert-slide-up-leave {
+        animation: antAlertSlideUpOut .3s $ease-in-out-circ;
+        animation-fill-mode: both;
+    }
+    .cherry-ui-alert-banner {
+        border-radius: 0;
+        border: 0;
+        margin-bottom: 0;
+    }
+}
+
+@keyframes antAlertSlideUpIn {
+    0% {
+        opacity: 0;
+        transform-origin: 0% 0%;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 0% 0%;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes antAlertSlideUpOut {
+    0% {
+        opacity: 1;
+        transform-origin: 0% 0%;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 0% 0%;
+        transform: scaleY(0);
+    }
+}

@@ -1,0 +1,33 @@
+
+    <section class="markdown">
+        <blockquote>cherryui是一个Angular组件库</blockquote>
+        <p>使用cherryui来进行前端项目构建</p>
+        <h2>1.下载</h2>
+        <p>到版本库中下载cherryui</p>
+        <cherry-code>git clone ssh://username@10.253.46.121:29418/cherry-ui.git</cherry-code>
+        <h2>2.依赖</h2>
+        <p>在styles中或者cli中引入依赖的cherryui的css</p>
+        <cherry-code>@import '~cherry-ui/assets/sass/app';
+@import '~cherry-ui/assets/cherryIcon/css/font.css';
+        </cherry-code>
+        <p>组件中使用到了动画,引入动画构建模块</p>
+        <cherry-code>import &#123;BrowserModule&#125; from '@angular/platform-browser';
+import &#123;BrowserAnimationsModule&#125; from '@angular/platform-browser/animations';
+        </cherry-code>
+        <p>外部依赖,fontawesome字体图标库和material</p>
+        <cherry-code>"dependencies": &#123;
+                "font-awesome": "^4.7.0",
+                "@angular/material": "^5.0.0"
+                &#125;
+        </cherry-code>
+        <cherry-code>"styles": [
+                "../node_modules/font-awesome/css/font-awesome.min.css",
+                "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              ]
+        </cherry-code>
+        <h2>3.引入组件</h2>
+        <p>可以在项目中引入组件了</p>
+        <cherry-code>import &#123;CardModule&#125; from '~/cherry-ui;</cherry-code>
+
+    </section>
+

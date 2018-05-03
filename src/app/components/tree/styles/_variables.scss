@@ -1,0 +1,17 @@
+$font-size-base: 14px;
+$font-color: #525252;
+$tree-node-hover-color: $stateActiveColor;
+$tree-node-hover-bg: #ffffff;
+$tree-node-active-color: $stateActiveColor;
+$tree-node-active-bg: #f9f9f9c7;
+$tree-node-list-padding: 25px;
+@keyframes treenodeActive {
+    0% {
+        background-color: $tree-node-hover-bg;
+        color: $tree-node-hover-color;
+    }
+    100% {
+        background-color: $tree-node-active-bg;
+        color: $tree-node-active-color;
+    }
+}

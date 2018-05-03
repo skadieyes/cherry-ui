@@ -1,0 +1,11 @@
+@import './../../../../assets/sass/theme/theme_variables.scss';
+.loginBox{
+    padding: 15px 15px;
+}
+.contentBox{
+    position:relative;
+    width: 80%;
+}
+.form-icon{
+    color:$stateActiveColor;
+}

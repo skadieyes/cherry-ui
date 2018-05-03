@@ -1,0 +1,172 @@
+<section class="markdown">
+    <p>一组默认可见的选项，可以进行多项选择。</p>
+    <h2>引入</h2>
+    <cherry-code>import &#123;CheckboxModule&#125; from '~/cherry-ui;</cherry-code>
+
+    <h2>基础用法</h2>
+    <p>普通状态和不可用状态</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16">
+                <div cherry-col [uiSpan]="4">
+                    <label cherry-checkbox [(ngModel)]="_checked">
+                        <span>Checkbox</span>
+                    </label>
+                </div>
+                <div cherry-col [uiSpan]="4">
+                    <label cherry-checkbox [uiDisabled]="true" [ngModel]="_checked">
+                        <span>不可用</span>
+                    </label>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;label cherry-checkbox [(ngModel)]="_checked"&gt;
+    &lt;span>Checkbox&lt;/span&gt;
+&lt;label&gt;
+&lt;label cherry-checkbox [uiDisabled]="true" [ngModel]="_checked"&gt;
+    &lt;span>不可用&lt;/span&gt;
+&lt;/label&gt;
+    </cherry-code>
+    <h2>checkbox组</h2>
+    <p>checkbox-group组件，可从数组生成一组checkbox</p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16">
+                <div cherry-col [uiSpan]="12">
+                    <cherry-checkbox-group [(ngModel)]="_checkgroups"> </cherry-checkbox-group>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-checkbox-group [(ngModel)]="_checkgroups"&gt; &lt;/cherry-checkbox-group&gt;
+    </cherry-code>
+    <h2>垂直排列</h2>
+    <p>将uiType设为vertical来让checkbox组垂直排列 </p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16">
+                <div cherry-col [uiSpan]="12">
+                    <cherry-checkbox-group [(ngModel)]="_checkgroupsVertical" [uiType]="'vertical'"> </cherry-checkbox-group>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;cherry-checkbox-group [(ngModel)]="_checkgroupsVertical" [uiType]="'vertical'"&gt; &lt;/cherry-checkbox-group&gt;
+    </cherry-code>
+
+    <h2>中间状态</h2>
+    <p>使用uiIndeterminate来获得checkbox的中间状态（仅用于视觉反馈，如全选、半选的视觉区分） </p>
+    <div class="cardBox">
+        <cherry-card>
+            <div cherry-row [uiGutter]="16">
+                <div cherry-col [uiSpan]="4">
+                    <label cherry-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [uiIndeterminate]="indeterminate">
+                        <span>{{allChecked ? 'All' : 'notAll'}}</span>
+                    </label>
+                </div>
+                <div cherry-col [uiSpan]="12">
+                    <cherry-checkbox-group [(ngModel)]="_checkgroupsAll" (ngModelChange)="updateSingleChecked()"> </cherry-checkbox-group>
+                </div>
+            </div>
+        </cherry-card>
+    </div>
+    <cherry-code [language]="html">
+&lt;label cherry-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [uiIndeterminate]="indeterminate"&gt;
+    &lt;span&gt;&#123;allChecked ? 'All' : 'notAll'&#125;&lt;/span&gt;
+&lt;/label&gt;
+&lt;cherry-checkbox-group [(ngModel)]="_checkgroupsAll" (ngModelChange)="updateSingleChecked()"&gt; &lt;/cherry-checkbox-group&gt;
+    </cherry-code>
+<cherry-code [language]="typescript">
+allChecked = false;
+indeterminate = true;
+updateAllChecked() &#123;
+    this.indeterminate = false;
+    if (this.allChecked) &#123;
+        this._checkgroupsAll.forEach(item => item.checked = true);
+    &#125;else &#123;
+        this._checkgroupsAll.forEach(item => item.checked = false);
+    &#125;
+&#125;
+
+updateSingleChecked() &#123;
+    if (this._checkgroupsAll.every(item => item.checked === false)) &#123;
+        this.allChecked = false;
+        this.indeterminate = false;
+    &#125; else if (this._checkgroupsAll.every(item => item.checked === true)) &#123;
+        this.allChecked = true;
+        this.indeterminate = false;
+    &#125; else &#123;
+    this.indeterminate = true;
+    &#125;
+&#125;
+
+</cherry-code>
+    <h2>API</h2>
+    <h3>cherry-checkbox</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ngModel</td>
+                <td>指定当前是否选中，支持双向绑定</td>
+                <td>Boolean</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiDisabled</td>
+                <td>是否禁用多选框</td>
+                <td>Boolean</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>uiIndeterminate</td>
+                <td>半选状态</td>
+                <td>Boolean</td>
+                <td>false</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>cherry-checkbox-group</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ngModel</td>
+                <td>选项数组，支持双向绑定</td>
+                <td>Array</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>uiDisabled</td>
+                <td>是否禁用多选框</td>
+                <td>Boolean</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>uiType</td>
+                <td>排列方式</td>
+                <td>'vertical'</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

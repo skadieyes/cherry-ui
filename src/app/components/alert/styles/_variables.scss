@@ -1,0 +1,36 @@
+$border-radius-base     : 4px;
+$font-size-base         : 12px;
+$line-height-base       : 1.5;
+
+$alert-message-color    : rgba(0,0,0,.85);
+$alert-text-color       : rgba(0,0,0,.65);
+$font-size-lg           : $font-size-base + 2px;
+$text-color-secondary   : rgba(0,0,0,.43);
+$text-color             : rgba(0,0,0,.65);
+
+// Border color
+$border-color-base      : #d9d9d9;
+$border-color-split     : #e9e9e9;
+$border-width-base      : 1px;
+$border-style-base      : solid;
+
+//Component Color
+$success-border        : #cfefdf;
+$success-bg            : #ebf8f2;
+$success-color         : $success;
+
+$info-border           : #d2eafb;
+$info-bg               : #ecf6fd;
+$info-color            : $primary;
+
+$warning-border        : #fff3cf;
+$warning-bg            : #fffaeb;
+$warning-color         : $warning;
+
+$error-border          : #fcdbd9;
+$error-bg              : #fef0ef;
+$error-color           : $danger;
+
+// Animation
+$ease-in-out-circ     : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+

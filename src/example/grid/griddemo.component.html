@@ -1,0 +1,596 @@
+<div class="demobox">
+        <section class="markdown">
+            <p>grid模块用于网格的划分，将一行划分为24格, grid提供指令让你可以对网格的间距, 偏移, 排序， 对齐方式等属性进行设置。 grid同时还提供了响应式功能, 可以配合响应式指令来使用网格基础属性, 实现网格的响应式变化。</p>
+            <h2>引入</h2>
+            <cherry-code >import &#123;GridModule&#125; from '~/cherry-ui;</cherry-code>
+
+            <h2>基础用法</h2>
+            <p>grid将一行化为24列, 使用列来对你的元素进行布局。</p>
+            <blockquote>列须放在行中</blockquote>
+                <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row>
+                                <div cherry-col [uiSpan]="6" class="colbox">
+                                    col-6
+                                </div>
+                                <div cherry-col [uiSpan]="6" class="colbox_next">
+                                    col-6
+                                </div>
+                                <div cherry-col [uiSpan]="6" class="colbox">
+                                    col-6
+                                </div>
+                                <div cherry-col [uiSpan]="6" class="colbox_next">
+                                    col-6
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+
+            <h2>网格间隔</h2>
+            <p>通过row的uiGutter属性来设置网格的间隔</p>
+                <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row [uiGutter]="16">
+                                <div cherry-col [uiSpan]="6" >
+                                        <div class="colbox">
+                                                col-6
+                                        </div>
+                                </div>
+                                <div cherry-col [uiSpan]="6" >
+                                        <div class="colbox_next">
+                                                col-6
+                                        </div>
+                                </div>
+                                <div cherry-col [uiSpan]="6" >
+                                        <div class="colbox">
+                                                col-6
+                                        </div>
+                                </div>
+                                <div cherry-col [uiSpan]="6" >
+                                        <div class="colbox_next">
+                                                col-6
+                                        </div>
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row [uiGutter]="16"&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+                    <h2>网格偏移</h2>
+                    <p>可以将网格向右偏移x列</p>
+                        <div class="cardBox">
+                        <cherry-card>
+                                <div cherry-row>
+                                        <div cherry-col [uiSpan]="6">
+                                                <div class="colbox">
+                                                    col-6
+                                                </div>
+                                            </div>
+                                        <div cherry-col [uiOffset]="4" [uiSpan]="6">
+                                            <div class="colbox">
+                                                col-6 offset-4
+                                            </div>
+                                        </div>
+
+                                    </div>
+                        </cherry-card>
+                    </div>
+                            <section>
+                                <cherry-code [language]="html">
+            &lt;div cherry-row&gt;
+                &lt;div cherry-col [uiSpan]="6"&gt;
+                &lt;/div&gt;
+                &lt;div cherry-col [uiSpan]="6" [uiOffset]="4"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+                                </cherry-code>
+                            </section>
+
+            <h2>网格顺序</h2>
+            <p>通过push和pull改变网格的排列顺序,即改变网格的left、right</p>
+                <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row>
+                                <div cherry-col [uiSpan]="18" [uiPush]="6"class="colbox">
+                                    我一开始在左边 col-18 push-6
+                                </div>
+                                <div cherry-col [uiSpan]="6" [uiPull]="18"class="colbox_next">
+                                    我一开始在右边 col-6 pull-18
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row&gt;
+        &lt;div cherry-col [uiSpan]="18" [uiPush]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6" [uiPull]="18"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+            <h2>网格水平方向排列方式</h2>
+            <p>通过flex来改变水平排列方式</p>
+                <div class="cardBox">
+                <cherry-card>
+                        <p>居左</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'start'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                            </div>
+                        <p>居右</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'end'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                            </div>
+                        <p>居中</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'center'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                            </div>
+                        <p>space-between</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'space-between'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                            </div>
+                        <p>space-around</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_next">
+                                    col-4
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'start'"&gt;
+        居左
+    &lt;/div&gt;
+
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'end'"&gt;
+        居右
+    &lt;/div&gt;
+
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'center'"&gt;
+        居中
+    &lt;/div&gt;
+
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'space-between'"&gt;
+        space-between
+    &lt;/div&gt;
+
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'"&gt;
+        space-around
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+            <h2>网格垂直方向排列方式</h2>
+            <p>通过flex来改变垂直排列方式</p>
+                <div class="cardBox">
+                <cherry-card>
+                        <p>top</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'" [uiAlign]="'top'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_other">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_other">
+                                    col-4
+                                </div>
+                            </div>
+                        <p>middle</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'" [uiAlign]="'middle'">
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_other">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_other">
+                                    col-4
+                                </div>
+                            </div>
+                        <p>bottom</p>
+                        <div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'" [uiAlign]="'bottom'" >
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_other">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox">
+                                    col-4
+                                </div>
+                                <div cherry-col [uiSpan]="4" class="colbox_other">
+                                    col-4
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'" [uiAlign]="'top'"&gt;
+        top
+    &lt;/div&gt;
+
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'" [uiAlign]="'middle'"&gt;
+        middle
+    &lt;/div&gt;
+
+    &lt;div cherry-row [uiType]="'flex'" [uiJustify]="'space-around'" [uiAlign]="'bottom'"&gt;
+        bottom
+    &lt;/div&gt;
+
+                        </cherry-code>
+                    </section>
+
+            <h2>网格排序</h2>
+            <p>通过flex来改变网格的顺序</p>
+            <blockquote>需要把row设为flex</blockquote>
+                <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row [uiType]="'flex'">
+                                <div cherry-col [uiSpan]="6" class="colbox" [uiOrder]="4">
+                                    1 order-4
+                                </div>
+                                <div cherry-col [uiSpan]="6" class="colbox_next" [uiOrder]="3">
+                                    2 order-3
+                                </div>
+                                <div cherry-col [uiSpan]="6" class="colbox" [uiOrder]="2">
+                                    3 order-2
+                                </div>
+                                <div cherry-col [uiSpan]="6" class="colbox_next" [uiOrder]="1">
+                                    4 order-1
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row [uiType]="'flex'"&gt;
+        &lt;div cherry-col [uiSpan]="6" [uiOrder]="4"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6" [uiOrder]="3"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6" [uiOrder]="2"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="6" [uiOrder]="1"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+            <h2>响应式</h2>
+            <p>响应式的划分网格,有xs,sm,md,lg,xl五个尺寸</p>
+            <h3>网格划分</h3>
+                <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row>
+                                <div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="2" [uiXl]="6">
+                                    <div class="colbox">
+                                    1
+                                    </div>
+                                </div>
+                                <div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="3" [uiXl]="8">
+                                    <div class="colbox_next">
+                                    2
+                                    </div>
+                                </div>
+                                <div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="8" [uiXl]="2">
+                                    <div class="colbox">
+                                    3
+                                    </div>
+                                </div>
+                                <div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="5" [uiXl]="4">
+                                    <div class="colbox_next">
+                                    4
+                                    </div>
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row&gt;
+        &lt;div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="2" [uiXl]="6"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="3" [uiXl]="8"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="8" [uiXl]="2"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiXs]="5" [uiSm]="12" [uiMd]="6" [uiLg]="5" [uiXl]="4"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+            <h3>响应式的显示网格</h3>
+            <p>响应式的控制网格的显示和隐藏</p>
+            <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row>
+                                <div cherry-col [uiSpan]="4">
+                                    <span cherry-col [uiXs]="{ show: 'hidden'}" class="colbox">xs型</span>
+                                    <span cherry-col [uiXs]="{ show: 'visible'}" class="colbox">✔ 在xs型设备上可见</span>
+                                </div>
+                                <div cherry-col [uiSpan]="4">
+                                    <span cherry-col [uiSm]="{ show: 'hidden'}" class="colbox_next">s型</span>
+                                    <span cherry-col [uiSm]="{ show: 'visible'}" class="colbox_next">✔ 在s型设备上可见</span>
+                                </div>
+                                <div cherry-col [uiSpan]="4">
+                                    <span cherry-col [uiMd]="{ show: 'hidden'}" class="colbox">m型</span>
+                                    <span cherry-col [uiMd]="{ show: 'visible'}" class="colbox">✔ 在m型设备上可见</span>
+                                </div>
+                                <div cherry-col [uiSpan]="4">
+                                    <span cherry-col [uiLg]="{ show: 'hidden'}" class="colbox_next">lg型</span>
+                                    <span cherry-col [uiLg]="{ show: 'visible'}" class="colbox_next">✔ 在lg型设备上可见</span>
+                                </div>
+                                <div cherry-col [uiSpan]="4">
+                                    <span cherry-col [uiXl]="{ show: 'hidden'}" class="colbox">xl型</span>
+                                    <span cherry-col [uiXl]="{ show: 'visible'}" class="colbox">✔ 在xl型设备上可见</span>
+                                </div>
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row&gt;
+        &lt;div cherry-col [uiSpan]="4"&gt;
+            &lt;span cherry-col [uiXs]="&#123; show: 'hidden'&#125;" &gt;xs型&lt;/span&gt;
+            &lt;span cherry-col [uiXs]="&#123; show: 'visible'&#125;" &gt;✔ 在xs型设备上可见&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="4"&gt;
+            &lt;span cherry-col [uiSm]="&#123; show: 'hidden'&#125;" &gt;s型&lt;/span&gt;
+            &lt;span cherry-col [uiSm]="&#123; show: 'visible'&#125;" &gt;✔ 在s型设备上可见&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="4"&gt;
+            &lt;span cherry-col [uiMd]="&#123; show: 'hidden'&#125;" &gt;m型&lt;/span&gt;
+            &lt;span cherry-col [uiMd]="&#123; show: 'visible'&#125;" &gt;✔ 在m型设备上可见&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="4"&gt;
+            &lt;span cherry-col [uiLg]="&#123; show: 'hidden'&#125;" &gt;lg型&lt;/span&gt;
+            &lt;span cherry-col [uiLg]="&#123; show: 'visible'&#125;" &gt;✔ 在lg型设备上可见&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiSpan]="4"&gt;
+            &lt;span cherry-col [uiXl]="&#123; show: 'hidden'&#125;" &gt;xl型&lt;/span&gt;
+            &lt;span cherry-col [uiXl]="&#123; show: 'visible'&#125;" &gt;✔ 在xl型设备上可见&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+            <h3>响应式的使用网格的基础属性</h3>
+            <div class="cardBox">
+                <cherry-card>
+                        <div cherry-row>
+                                <div cherry-col [uiXl]="{ span: 6,pull:1,push:3, offset:2, order:2 }" [uiLg]="{ span: 6,offset:12 }">
+                                    <div class="colbox">
+                                    1
+                                    </div>
+                                </div>
+                                <div cherry-col [uiXs]="{ span: 4,pull:1,push:3, offset:2, order:1 }" [uiLg]="{ span: 4,show: 'hidden' }">
+                                    <div class="colbox">
+                                    2
+                                    </div>
+                                </div>
+
+                            </div>
+                </cherry-card>
+            </div>
+                    <section>
+                        <cherry-code [language]="html">
+    &lt;div cherry-row&gt;
+        &lt;div cherry-col [uiXl]="&#123; span: 6,pull:1,push:3, offset:2, order:2 &#125;" [uiLg]="&#123; span: 6,offset:12 &#125;"&gt;
+        &lt;/div&gt;
+        &lt;div cherry-col [uiXs]="&#123; span: 4,pull:1,push:3, offset:2, order:1 &#125;" [uiLg]="&#123; span: 4,show: 'hidden' &#125;"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </cherry-code>
+                    </section>
+
+            <h2>API</h2>
+
+            <h3>cherry-row</h3>
+            <table>
+                    <thead>
+                      <tr>
+                        <th>参数</th>
+                        <th>说明</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>uiGutter</td>
+                        <td>间隔</td>
+                        <td>Number</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>uiType</td>
+                        <td>布局模式,可设为flex</td>
+                        <td>String</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>uiAlign</td>
+                        <td>垂直排列方式</td>
+                        <td>String</td>
+                        <td>top</td>
+                      </tr>
+                       <tr>
+                        <td>uiJustify</td>
+                        <td>水平排列方式</td>
+                        <td>String</td>
+                        <td>start</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+            <h3>cherry-col</h3>
+            <table>
+                    <thead>
+                      <tr>
+                        <th>参数</th>
+                        <th>说明</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>uiSpan</td>
+                        <td>网格占位格数，为 0 时相当于display:none</td>
+                        <td>Number</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>uiOrder</td>
+                        <td>网格顺序,flex模式下有效</td>
+                        <td>Number</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>uiOffset</td>
+                        <td>网格向右偏移数</td>
+                        <td>Number</td>
+                        <td>0</td>
+                      </tr>
+                       <tr>
+                        <td>uiPush</td>
+                        <td>网格向右移动数</td>
+                        <td>Number</td>
+                        <td>0</td>
+                      </tr>
+                       <tr>
+                        <td>uiPull</td>
+                        <td>网格向左移动数</td>
+                        <td>Number</td>
+                        <td>0</td>
+                      </tr>
+                       <tr>
+                        <td>uiXs</td>
+                        <td>小于768px的响应式网格</td>
+                        <td>Number|Object</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>uiSm</td>
+                        <td>大于或等于768px的响应式网格</td>
+                        <td>Number|Object</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>uiMd</td>
+                        <td>大于或等于992px的响应式网格</td>
+                        <td>Number|Object</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>uiLg</td>
+                        <td>大于或等于1200px的响应式网格</td>
+                        <td>Number|Object</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>uiXl</td>
+                        <td>大于或等于1600px的响应式网格</td>
+                        <td>Number|Object</td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                        </section>
+</div>
+
+
+

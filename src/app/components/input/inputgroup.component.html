@@ -1,0 +1,27 @@
+<span class="cherry-ui-input-group-addon" *ngIf="_addOnContentBefore">
+    <ng-template [ngTemplateOutlet]="_addOnContentBefore">
+    </ng-template>
+</span>
+<span class="cherry-ui-input-prefix" *ngIf="_prefixContent">
+    <ng-template [ngTemplateOutlet]="_prefixContent">
+    </ng-template>
+</span>
+<ng-content></ng-content>
+<div class="cherry-ui-input-line" *ngIf="uiLine">
+    <div class="cherry-ui-input-lineChild"></div>
+</div>
+<span class="cherry-ui-input-group-addon" *ngIf="_addOnContentAfter">
+    <ng-template [ngTemplateOutlet]="_addOnContentAfter">
+    </ng-template>
+</span>
+<span class="cherry-ui-input-suffix" *ngIf="_suffixContent">
+    <ng-template [ngTemplateOutlet]="_suffixContent">
+    </ng-template>
+</span>
+<span class="cherry-ui-input-suffix" *ngIf="!_suffixContent&&uiClear&&clearActive" (click)="clearContent()" (mouseenter)="clearOver()"
+    (mouseleave)="clearOut()">
+    <a class="fa fa-times-circle cherry-ui-input-suffix-clear"></a>
+</span>
+<span class="cherry-ui-input-suffix" *ngIf="!_suffixContent&&!clearActive&&uiType&&!uiCompact" >
+    <a  #contextIcon></a>
+</span>

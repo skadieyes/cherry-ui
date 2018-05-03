@@ -151,11 +151,7 @@
             "label": "通用",
             "icon": "fa-user",
             "expanded": true,
-            "items": [{
-                    "label": "系统登录",
-                    "icon": "fa-sign-out",
-                    "routerLink": "app/login"
-                },
+            "items": [
                 {
                     "label": "密码修改",
                     "icon": "fa-lock",
